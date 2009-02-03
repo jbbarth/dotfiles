@@ -3,5 +3,5 @@ DEPLOY ON A NEW MACHINE/ACCOUNT:
 cd
 echo "*" > .gitignore
 git-init
-git-clone git://github.com/jbbarth/127.0.0.1.git
+git-pull git://github.com/jbbarth/127.0.0.1.git
 source .bashrc
