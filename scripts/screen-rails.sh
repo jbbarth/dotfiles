@@ -18,15 +18,18 @@ select PROJECT in `ls -F $DEVEL_DIR | egrep /$ | sed 's/\///' `; do
   cd $DEVEL_DIR/$PROJECT
   screen -d -m $SCREEN_OPTS -S $PROJECT
   screen -X -S $PROJECT -p 0 title SERVER
+  sleep 1
   screen -X -S $PROJECT -p 0 stuff "ruby script/server -e development --debugger"
   screen -X -S $PROJECT screen -t AUTOTEST 1
+  sleep 1
   screen -X -S $PROJECT -p 1 stuff "autotest"
   screen -X -S $PROJECT screen -t CONSOLE 2
+  sleep 1
   screen -X -S $PROJECT -p 2 stuff "ruby script/console development"
-  screen -X -S $PROJECT screen -t GIT 3
+  screen -X -S $PROJECT screen -t DEV 3
+  sleep 1
   screen -X -S $PROJECT -p 3 stuff "git-status"
-  screen -X -S $PROJECT screen -t DEV 4
-  screen -x $PROJECT -p 4
+  screen -x $PROJECT -p 3
 
   break
 
