@@ -7,7 +7,7 @@
 #   http://blog.lathi.net/articles/2008/09/13/scripting-screen
 
 DEVEL_DIR=$HOME/dev
-SCREEN_OPTS="-A -h 10000 -U"
+SCREEN_OPTS="-A -U"
 
 OLD_PS3=$PS3
 PS3="Which project to start a session for? "
@@ -22,7 +22,7 @@ select PROJECT in `ls -F $DEVEL_DIR | egrep /$ | sed 's/\///' `; do
   screen -X -S $PROJECT -p 0 stuff "ruby script/server -e development --debugger"
   screen -X -S $PROJECT screen -t AUTOTEST 1
   sleep 1
-  screen -X -S $PROJECT -p 1 stuff "autotest"
+  screen -X -S $PROJECT -p 1 stuff "autotest |more"
   screen -X -S $PROJECT screen -t CONSOLE 2
   sleep 1
   screen -X -S $PROJECT -p 2 stuff "ruby script/console development"
