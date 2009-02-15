@@ -22,7 +22,7 @@ bridge_stp off" >> /etc/network/interfaces
 
 VBoxAddIF vbox0 `whoami` br0
 VBoxManage modifyvm "$1" -hostifdev1 vbox0
-chmod 0666 /dev/net/tun
+usermod -a -G vboxusers `whoami`
 
 echo "Host config ok !"
 echo "Don't forget to attach your host interface to 'vbox0' in your GUI panel"
