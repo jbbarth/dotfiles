@@ -7,7 +7,9 @@ if [ "$1" == "" ]; then
   exit 1
 fi
 
-echo "auto eth0
+hello=$(grep hello /etc/network/interfaces |tr -d '\n\r')
+if [ "$hello" == "bridge_hello 2\n" ]; then
+  echo "auto eth0
 iface eth0 inet manual
 
 auto br0
@@ -18,11 +20,15 @@ bridge_hello 2
 bridge_maxage 12
 bridge_stp off" >> /etc/network/interfaces
 
-/etc/init.d/networking restart
+  echo "vbox0 `whoami` br0" >> /etc/vbox/interfaces
+
+  /etc/init.d/networking restart
+
+  echo "Don't forget to attach your host interface to 'vbox0' in your GUI panel"
+fi
 
 VBoxAddIF vbox0 `whoami` br0
 VBoxManage modifyvm "$1" -hostifdev1 vbox0
 usermod -a -G vboxusers `whoami`
 
 echo "Host config ok !"
-echo "Don't forget to attach your host interface to 'vbox0' in your GUI panel"

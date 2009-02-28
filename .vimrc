@@ -88,7 +88,7 @@ set expandtab
 "highlight CursorLine ctermbg=blue
 
 " Pour activer les numéros de lignes dans la marge :
-set number
+"set number
 
 " by eric
 " -----------
@@ -126,3 +126,43 @@ filetype indent on
 
 
 map <F9> :%s/\t/  /g
+map <F8> :call ToggleCommentify()<CR>j
+function! ToggleCommentify()
+	let lineString = getline(".")
+	if lineString != $									" don't comment empty lines
+		let isCommented = strpart(lineString,0,3)		" getting the first 3 symbols
+		let fileType = &ft								" finding out the file-type, and specifying the comment symbol
+		if fileType == 'ox' || fileType == 'cpp' || fileType == 'cu' || fileType == 'c' || fileType == 'php'
+			let commentSymbol = '///'
+		elseif fileType == 'vim'
+			let commentSymbol = '"""'
+		elseif fileType == 'python'
+			let commentSymbol = '###'
+                else
+                    execute 'echo "WARNING: File type not detected. Using default comment token"'
+                        let commentSymbol = '###'
+                endif
+"""		else
+"""			execute 'echo "ToggleCommentify has not (yet) been implemented for this file-type"'
+"""			let commentSymbol = ''
+"""		endif
+		if isCommented == commentSymbol					
+			call UnCommentify(commentSymbol)			" if the line is already commented, uncomment
+		else
+			call Commentify(commentSymbol)				" if the line is uncommented, comment
+		endif
+	endif
+endfunction
+
+function! Commentify(commentSymbol)	
+	set nohlsearch	
+	execute ':s+^+'.a:commentSymbol.'+'					| " go to the beginning of the line and insert the comment symbol 
+	set hlsearch										  " note: the '|' is so I can put a quote directly after an execute statement
+endfunction
+	
+function! UnCommentify(commentSymbol)	
+	set nohlsearch	
+	execute ':s+'.a:commentSymbol.'++'					| " remove the first comment symbol found on a line
+	set hlsearch	
+endfunction
+
