@@ -8,7 +8,7 @@ if [ "$1" == "" ]; then
 fi
 
 hello=$(grep hello /etc/network/interfaces |tr -d '\n\r')
-if [ "$hello" == "bridge_hello 2\n" ]; then
+if [ "$hello" != "bridge_hello 2" ]; then
   echo "auto eth0
 iface eth0 inet manual
 

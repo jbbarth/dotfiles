@@ -92,9 +92,9 @@ alias la='ls -A'
 alias l='ls -CF'
 alias vi='vim'
 alias rs='ruby script/server -e development --debugger'
-alias gc='git-add . && git-commit -a -m'
-alias gs='git-status'
-alias gp='git-push'
+alias gc='git add . && git commit -a -m'
+alias gs='git status'
+alias gp='git push'
 alias vds='ssh root@vds171.sivit.org'
 
 # enable programmable completion features (you don't need to enable
