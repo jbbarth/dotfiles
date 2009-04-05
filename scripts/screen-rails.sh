@@ -28,7 +28,7 @@ select PROJECT in `ls -F $DEVEL_DIR | egrep /$ | sed 's/\///' `; do
   screen -X -S $PROJECT -p 2 stuff "ruby script/console development"
   screen -X -S $PROJECT screen -t DEV 3
   sleep 1
-  screen -X -S $PROJECT -p 3 stuff "git-status"
+  screen -X -S $PROJECT -p 3 stuff "git status"
   screen -x $PROJECT -p 3
 
   break
