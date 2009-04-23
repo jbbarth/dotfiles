@@ -29,8 +29,15 @@ select PROJECT in `ls -F $DEVEL_DIR | egrep /$ | sed 's/\///' `; do
 ###  screen -X -S $PROJECT screen -t AUTOTEST 3
 ###  sleep 1
 ###  screen -X -S $PROJECT -p 3 stuff "rake db:test:load && autotest 2>&1 |more"
-  screen -x $PROJECT -p 2
 
+  sleep 1
+  
+  firefox http://localhost:3000/
+  firefox file://$HOME/doc/railsbrain/index.html
+  firefox file://$HOME/doc/rubybrain/index.html
+
+  screen -x $PROJECT -p 2
+  
   break
 
 done
