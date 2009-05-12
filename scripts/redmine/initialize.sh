@@ -13,8 +13,7 @@ cd "$1"
 
 rake db:migrate
 rake redmine:load_default_data
+rake config/initializers/session_store.rb
 mkdir -p tmp
 sudo chown -R salvor:salvor files log tmp
 sudo chmod -R 755 files log tmp
-
-sudo chmod g+w .
