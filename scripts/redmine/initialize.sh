@@ -8,7 +8,7 @@ if [ $# -ne 1 ]; then
 fi
 
 rm -f "$1/config/database.yml.example"
-cp -rp database.yml "$1/config/"
+cp -rp $HOME/scripts/redmine/database.yml "$1/config/"
 cd "$1"
 
 rake db:migrate
