@@ -1,0 +1,57 @@
+background yes
+font Monospace:size=9
+xftfont Monospace:size=9
+use_xft yes
+xftalpha 0.1
+update_interval 4.0
+total_run_times 0
+own_window yes
+own_window_type background
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+minimum_size 300
+maximum_width 310
+default_color white
+default_shade_color 000000
+default_outline_color 000000
+alignment top_right
+gap_x 20
+gap_y 20
+no_buffers yes
+cpu_avg_samples 2
+override_utf8_locale yes
+uppercase no # set to yes if you want all text to be in uppercase
+use_spacer right
+ 
+TEXT
+$alignc
+$alignc $nodename ${addr wlan0}
+$alignc $sysname $kernel
+
+${color #B8FF00}CPU
+${color white}Général : $cpu% ${cpubar 8,}
+${cpugraph 20,}
+$alignr CPU%   MEM%
+${top name 1}$alignr${top cpu 1} ${top mem 1}
+${top name 1}$alignr${top cpu 2} ${top mem 2}
+
+${color #B8FF00}MEMOIRE
+${color white}RAM ${alignr}$mem / $memmax ($memperc%)
+${membar 8}
+SWAP ${alignr}$swap / $swapmax ($swapperc%)
+${swapbar 8}
+$alignr CPU%   MEM%
+${top_mem name 1}$alignr${top_mem cpu 1} ${top_mem mem 1}
+${top_mem name 2}$alignr${top_mem cpu 2} ${top_mem mem 2}
+
+${color #B8FF00}DISQUES DURS
+${color white}Root ${alignc} ${fs_bar 8,75} ${alignr}${fs_free /}
+
+${color #B8FF00}TRAFFIC
+${color green}${downspeed wlan0}KB/s - ${totaldown wlan0}${alignr}${color #FF0009}${upspeed wlan0}KB/s - ${totalup wlan0}
+${color green}${downspeedgraph wlan0 20,150} ${alignr}${color #FF0009}${upspeedgraph wlan0 20,150}

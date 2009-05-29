@@ -107,3 +107,10 @@ fi
 #adds
 export PATH=$PATH:/var/lib/gems/1.8/bin/
 
+if [ -e "/usr/bin/conky" ]; then
+  if [ -f "~/.conkyrc.$(hostname)" ]; then
+    conky -c ~/.conkyrc.$(hostname) -d -q
+  else
+    conky -c ~/.conkyrc -d -q
+  fi
+fi
