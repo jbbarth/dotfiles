@@ -13,6 +13,7 @@ OLD_PS3=$PS3
 PS3="Which project to start a session for? "
 
 select PROJECT in `ls -F $DEVEL_DIR | egrep /$ | sed 's/\///' `; do
+#select PROJECT in `find $DEVEL_DIR -name database.yml | fgrep config/database.yml | sed 's#config/database.yml##' | sed "s#$DEVEL_DIR/##"`; do
   
   PS3=$OLD_PS3
   cd $DEVEL_DIR/$PROJECT
