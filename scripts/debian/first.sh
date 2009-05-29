@@ -14,6 +14,12 @@ apt-get install -y wajig screen vim openssh-server bash-completion \
 [ -e /usr/bin/ri ] || ln -s `which ri1.8` /usr/bin/ri
 [ -e /usr/bin/rdoc ] || ln -s `which rdoc1.8` /usr/bin/rdoc
 
+echo "Desktop machine ? (y/n) "
+read desktop
+if [ "$desktop" == "y" ]; then
+  apt-get install conky
+fi
+
 gem update
 gem install rails rake ZenTest ruby-debug
 
