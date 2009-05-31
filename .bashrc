@@ -103,6 +103,8 @@ alias vds='ssh root@vds171.sivit.org'
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+#rake and cap bash completion
+. $HOME/scripts/rails/rake_cap_bash_autocomplete.sh
 
 #adds
 export PATH=$PATH:/var/lib/gems/1.8/bin/
