@@ -39,6 +39,6 @@ git init >/dev/null
 
 echo "* Creating first commit..."
 git add . >/dev/null
-git commit -m "Initial commit for $1" >/dev/null
+git commit -m "Initial commit" >/dev/null
 
 echo "=> OK. Just cd ~/dev/$1 and code now !"
