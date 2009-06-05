@@ -34,9 +34,9 @@ select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name database.yml | fgrep confi
 
   sleep 1
   
-  firefox http://localhost:3000/
-  firefox file://$HOME/doc/railsbrain/index.html
-  firefox file://$HOME/doc/rubybrain/index.html
+###  firefox http://localhost:3000/
+###  firefox file://$HOME/doc/railsbrain/index.html
+###  firefox file://$HOME/doc/rubybrain/index.html
 
   screen -x $SPROJECT -p 2
   
