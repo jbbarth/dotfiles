@@ -19,7 +19,7 @@ maximum_width 310
 default_color white
 default_shade_color 000000
 default_outline_color 000000
-alignment top_right
+alignment top_left
 gap_x 20
 gap_y 20
 no_buffers yes
