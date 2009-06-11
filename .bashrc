@@ -96,6 +96,8 @@ alias gc='git add . && git commit -a -m'
 alias gs='git status'
 alias gp='git push'
 alias vds='ssh root@vds171.sivit.org'
+alias setra-careless='ssh supervision2.setra -L8888:localhost:80'
+alias setra-redmine='ssh dsi.setra -L8889:localhost:80'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
