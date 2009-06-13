@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=2000
+SAVEHIST=2000
 #bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -19,6 +19,7 @@ CDPATH=$CDPATH:$HOME
 PATH_DIRS=$PATH_DIRS:$HOME/scripts
 setopt pushd_ignore_dups
 setopt hist_ignore_dups
+setopt inc_append_history
 #setopt path_dirs
 setopt correct
 
