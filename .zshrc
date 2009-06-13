@@ -37,4 +37,4 @@ alias setra-careless='ssh supervision2.setra -L8888:localhost:80'
 alias setra-redmine='ssh dsi.setra -L8889:localhost:80'
 
 # Environment variables
-PATH=$PATH:/var/lib/gems/1.8/bin/
+PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails
