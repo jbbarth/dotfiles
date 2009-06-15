@@ -33,7 +33,7 @@ alias rs='ruby script/server -e development --debugger'
 alias gc='git add . && git commit -a -m'
 alias gs='git status'
 alias gp='git push'
-alias vds='ssh root@vds171.sivit.org'
+alias vds='ssh salvor@vds171.sivit.org'
 alias setra-careless='ssh supervision2.setra -L8888:localhost:80'
 alias setra-redmine='ssh dsi.setra -L8889:localhost:80'
 
