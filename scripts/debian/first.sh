@@ -8,7 +8,7 @@ fi
 apt-get update
 apt-get upgrade -y
 apt-get install -y wajig screen vim openssh-server bash-completion \
-                   ruby1.8 ruby1.8-dev ri1.8 irb rubygems1.8 git-core \
+                   ruby1.8 ruby1.8-dev ri1.8 rake irb rubygems1.8 git-core \
                    libopenssl-ruby libsqlite3-ruby1.8 sqlite3 zsh vim
 [ -e /usr/bin/ruby ] || ln -s `which ruby1.8` /usr/bin/ruby
 [ -e /usr/bin/ri ] || ln -s `which ri1.8` /usr/bin/ri
