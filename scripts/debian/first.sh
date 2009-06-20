@@ -13,11 +13,12 @@ apt-get install -y wajig screen vim openssh-server bash-completion \
 [ -e /usr/bin/ruby ] || ln -s `which ruby1.8` /usr/bin/ruby
 [ -e /usr/bin/ri ] || ln -s `which ri1.8` /usr/bin/ri
 [ -e /usr/bin/rdoc ] || ln -s `which rdoc1.8` /usr/bin/rdoc
+[ -e /usr/bin/gem ] || ln -s `which gem1.8` /usr/bin/gem
 
 echo "Desktop machine ? (y/n) "
 read desktop
 if [ "$desktop" == "y" ]; then
-  apt-get install conky
+  apt-get install conky gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad
 fi
 
 gem update
