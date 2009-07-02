@@ -18,7 +18,8 @@ apt-get install -y wajig screen vim openssh-server bash-completion \
 echo "Desktop machine ? (y/n) "
 read desktop
 if [ "$desktop" == "y" ]; then
-  apt-get install conky gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad
+  apt-get install conky gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad \
+    msttcorefonts
 fi
 
 gem update
