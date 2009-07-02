@@ -166,3 +166,11 @@ function! UnCommentify(commentSymbol)
 	set hlsearch	
 endfunction
 
+" Status line
+" See: http://informatique-et-liberte.tuxfamily.org/2009/06/27/vim-et-son-vimrc-une-barre-detat-personnalisee/
+set laststatus=2 " display the status bar (0 = hide, 1 = only if splitted)
+if has("statusline")
+  set statusline=\ %f%m%r\ [%{strlen(&ft)?&ft:'-'},%{strlen(&fenc)?&fenc:&enc},%{&fileformat},ts:%{&tabstop}]%=%l,%c%V\ %P
+elseif has("cmdline_info")
+  set ruler " Display cursor position at bottom right
+endif
