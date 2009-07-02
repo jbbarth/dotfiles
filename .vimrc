@@ -174,3 +174,20 @@ if has("statusline")
 elseif has("cmdline_info")
   set ruler " Display cursor position at bottom right
 endif
+
+" Auto completion (wildmode)
+" See: http://informatique-et-liberte.tuxfamily.org/2009/06/26/vim-et-son-vimrc-selectionner-plus-rapidement-commandes-et-fichiers/
+set wildmode=longest,full " Le wildchar TAB complete le plus possible et un eventuel autre wildchar fera s'afficher tour a tour le propositions possibles pour la selection d'un fichier ou d'une commande
+ 
+" Un petit menu affiche les possibilites lorsque le wildchar TAB survient (tabnew et tabnext pour tabn par exemple)
+if has("wildmenu")
+ set wildmenu
+endif
+ 
+" Seront ignores par le wildmenu les fichiers correspondants aux criteres du wildignore
+if has("wildignore")
+ set wildignore=*.swp
+endif
+ 
+" VIM va donner une priorite moindre aux fichiers ayant les extensions suivantes dans la selection (exemple tabnew)
+set suffixes=.aux,.bak,.bbl,.blg,.gif,.gz,.idx,.ilg,.info,.jpg,.lof,.log,;lot,.o,.obj,.pdf,.png,.swp,.tar,.toc,~
