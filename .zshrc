@@ -24,10 +24,10 @@ setopt extended_history
 #setopt path_dirs
 setopt correct
 
-# Shell colors
-# SOME COLORS
+# Shell colors ; adapted from
+# http://chm.duquesne.free.fr/blog/?p=61
 if [ -x /usr/bin/dircolors ]; then
-    eval "`dircolors -b`"
+    eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
