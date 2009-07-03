@@ -1,3 +1,4 @@
+" See: http://linux-attitude.fr/post/Vimrc-collaboratif
 " Plein de défauts bien pratiques (à garder en début de fichier)
 set nocompatible
 
