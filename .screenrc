@@ -7,3 +7,6 @@ startup_message off
 # Window list at the bottom.
 hardstatus alwayslastline
 hardstatus string "%-w%{= BW}%50>%n %t%{-}%+w%<"
+
+# Change default escape sequence
+escape ^Wa
