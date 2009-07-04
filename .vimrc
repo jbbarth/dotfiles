@@ -1,102 +1,62 @@
 " See: http://linux-attitude.fr/post/Vimrc-collaboratif
-" Plein de défauts bien pratiques (à garder en début de fichier)
+" 
+" Defaults options (keep it at the top of your vimrc)
 set nocompatible
 
-" Coloration syntaxique, indispensable pour ne pas se perdre dans les longs fichiers
+" Syntax highlighting
 syntax on
 
-" Le complément du précédent, devine tout seul la couleur du fond (clair sur foncé ou le contraire)
+" Automatic background color
 set background&
 
-"Détection du type de fichier pour l'indentation
+" File type detection to indent it
 if has("autocmd")
   filetype indent on
 endif
 
-" Récupération de la position du curseur entre 2 ouvertures de fichiers
-" Parfois ce n'est pas ce qu'on veut ...
+" Keep cursor position when re-openning a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal g'\"" | endif
 endif
 
-" SI c'est pas déjà fait, affiche la position du curseur
+" If not already done, display cursor position
 set ruler
 
-" Recherche en minuscule -> indépendante de la casse, une majuscule -> stricte
+" Smart searchs : if no uppercase letter, search will be case-insensitive
 set smartcase
 
-" Ne jamais respecter la casse (attention totalement indépendant du précédent mais de priorité plus faible)
+" Never be case sensitive
 set ignorecase
 
 " Déplacer le curseur quand on écrit un (){}[] (attention il ne s'agit pas du highlight
 "set showmatch
 
-" Affiche le nombre de lignes sélectionnées en mode visuel ou la touche/commande qu'on vient de taper en mode commande
+" Visual mode : Display de number of selected lines in visual mode
+" Command mode : display the most recent touch/command
 set showcmd
 
-" Déplace le curseur au fur et a mesure qu'on tape une recherche, pas toujours pratique, j'ai abandonné
+" Moves cursor as you type the search mask
+" => not so good...
 "set incsearch
 
-" Utilise la souris pour les terminaux qui le peuvent (tous ?)
-" pratique si on est habitué à coller sous la souris et pas sous le curseur, attention fonctionnement inhabituel
+" Let you use mouse if your terminal can do it
 "set mouse=a
 
-" A utiliser en live, paste désactive l'indentation automatique (entre autre) et nopaste le contraire
+" Disable auto-indent ; opposite of "paste"
 set nopaste
 
-" Indiquer le nombre de modification lorsqu'il y en a plus de 0 suite à une commande
+" Display the number of changes after a command, if > 0
 set report=0
 
-" Met en évidence TOUS les résultats d'une recherche, A consommer avec modération
+" Highlights all search results
 set hlsearch
 
-" Crée des fichiers ~ un peu partout ...
+" Creates backup files
 set backup
 
-" La ruse de sioux pour ne pas qu'ils soient partout (à vous de faire le mkdir)
-" En général n'édite pas 2 fichiers de même noms fréquemment dans des répertoires différents, sinon évitez
-" -> voir by eric plus bas
-
-" Laisse les lignes déborder de l'écran si besoin
-"set nowrap
-
-" En live pour quand vous écrivez anglais (le fr est à trouver dans les méandres du net)
-"set spell
-
-
-" Spécial développeurs
-"
-" Indispensable pour ne pas tout casser avec ce qui va suivre
-set preserveindent
-" indentation automatique
-"set autoindent
-" Largeur de l'autoindentation
-set shiftwidth=2
-" Arrondit la valeur de l'indentation
-set shiftround
-" Largeur du caractère tab
-set tabstop=2
-" Largeur de l'indentation de la touche tab
-set softtabstop=2
-" Remplace les tab par des expaces
-set expandtab
-
-" by acieroid
-" -----------
-" Pour highlighter la ligne courante (pour mieux se repérer) en bleu :
-"set cursorline
-"highlight CursorLine ctermbg=blue
-
-" Pour activer les numéros de lignes dans la marge :
-"set number
-
-" by eric
-" -----------
-" Utilise shiftwidth à la place de tabstop en début de ligne (et backspace supprime d'un coup si ce sont des espaces)
-set smarttab
-
-" sauvegarder les fichier ~ dans ~/.vim/backup avec crréation du répertoire si celui-ci n'existe pas
+" Put backup files in ~/.vim/backup
+" And create directory if necessary
 if filewritable(expand("~/.vim/backup")) == 2
   set backupdir=$HOME/.vim/backup
 else
@@ -106,20 +66,51 @@ else
   endif
 endif
 
-" donner des droits d'exécution si le fichier commence par #! et contient /bin/ dans son chemin
+" Disable wrap for loooong lines
+set nowrap
+
+" Checks spell as you type (english)
+"set spell
+
+
+" For coders
+"
+" Preserve indent (necessary with next lines)
+set preserveindent
+" Auto indent
+"set autoindent
+" Indent width
+set shiftwidth=2
+" Indent value is a round number
+set shiftround
+" Width of a tabulation (\t)
+set tabstop=2
+" Width of a [TAB] indent (?)
+set softtabstop=2
+" Replace tabulations (\t) with spaces
+set expandtab
+
+" Highlight current line (in blue)
+"set cursorline
+"highlight CursorLine ctermbg=blue
+
+" Show line numbers
+"set number
+
+" Use shiftwidth instead of tabstop at the beginning of the line
+" and backspace deletes everything if there are only spaces
+set smarttab
+
+" +x rights if file begins with #! or contains "/bin/" in its path
 function ModeChange()
-  if getline(1) =~ "^#!"
-    if getline(1) =~ "/bin/"
-      silent !chmod a+x <afile>
-    endif
+  if getline(1) =~ "^#!" || getline(1) =~ "/bin/"
+    silent !chmod a+x <afile>
   endif
 endfunction
 
 au BufWritePost * call ModeChange()
 
-" by anonyme
-" -----------
-" autoindent n'est spécifique à aucun langage et fonctionne en général moins bien
+" Better autoindent
 set noautoindent
 filetype plugin indent on
 filetype indent on
@@ -179,16 +170,12 @@ endif
 " Auto completion (wildmode)
 " See: http://informatique-et-liberte.tuxfamily.org/2009/06/26/vim-et-son-vimrc-selectionner-plus-rapidement-commandes-et-fichiers/
 set wildmode=longest,full " Le wildchar TAB complete le plus possible et un eventuel autre wildchar fera s'afficher tour a tour le propositions possibles pour la selection d'un fichier ou d'une commande
- 
-" Un petit menu affiche les possibilites lorsque le wildchar TAB survient (tabnew et tabnext pour tabn par exemple)
 if has("wildmenu")
  set wildmenu
 endif
- 
-" Seront ignores par le wildmenu les fichiers correspondants aux criteres du wildignore
+" Ignored extensions
 if has("wildignore")
  set wildignore=*.swp
 endif
- 
-" VIM va donner une priorite moindre aux fichiers ayant les extensions suivantes dans la selection (exemple tabnew)
+" Minor priority extensions
 set suffixes=.aux,.bak,.bbl,.blg,.gif,.gz,.idx,.ilg,.info,.jpg,.lof,.log,;lot,.o,.obj,.pdf,.png,.swp,.tar,.toc,~
