@@ -19,7 +19,7 @@ echo "Desktop machine ? (y/n) "
 read desktop
 if [ "$desktop" == "y" ]; then
   apt-get install conky gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad \
-    msttcorefonts libgsf-bin imagemagick
+    msttcorefonts libgsf-bin imagemagick colordiff
 fi
 
 gem update
