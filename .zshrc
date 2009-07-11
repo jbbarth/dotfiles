@@ -52,7 +52,6 @@ alias gp='git push'
 alias vds='ssh salvor@vds171.sivit.org'
 alias setra-careless='ssh supervision2.setra -L8888:localhost:80'
 alias setra-redmine='ssh dsi.setra -L8889:localhost:80'
-alias s='ssh wrath "halt"'
 # Environment variables
 PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails
 
