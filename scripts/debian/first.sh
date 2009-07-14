@@ -22,6 +22,15 @@ if [ "$desktop" == "y" ]; then
     msttcorefonts libgsf-bin imagemagick colordiff
 fi
 
+echo "Home machine ? (y/n) "
+read home
+if [ "$home" == "y" ]; then
+  if [ $(grep 80.10.246.2 /etc/dhcp3/dhclient.conf | wc -l | awk '{print $1}') == "0" ]; then
+    echo "supersede domain-name-servers 80.10.246.2, 80.10.246.129;" >> /etc/dhcp3/dhclient.conf
+    /etc/init.d/networking restart
+  fi
+fi
+
 gem update
 gem install rails rake ZenTest ruby-debug
 
