@@ -43,7 +43,7 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias c='clear'
-alias vi='vim'
+vi() { [ -w $1 ] && vim $* || sudo vim $* }
 alias more='less'
 alias rs='ruby script/server -e development --debugger'
 alias gc='git add . && git commit -a -m'
