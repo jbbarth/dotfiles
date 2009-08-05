@@ -45,11 +45,11 @@ alias l='ls -CF'
 alias c='clear'
 vi() {
   if [ -w $1 ]; then
-    vim $*
+    command vim $*
   elif [ ! -e $1 ] && [ -w $(dirname $1) ]; then
-    vim $*
+    command vim $*
   else
-    sudo vim $*
+    command sudo vim $*
   fi
 }
 alias more='less'
