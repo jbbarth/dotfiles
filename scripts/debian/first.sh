@@ -10,11 +10,7 @@ apt-get upgrade -y
 apt-get install -y wajig screen vim openssh-server bash-completion \
                    ruby1.8 ruby1.8-dev ri1.8 rake irb rubygems1.8 git-core \
                    libopenssl-ruby libsqlite3-ruby1.8 sqlite3 zsh vim make \
-<<<<<<< HEAD:scripts/debian/first.sh
                    lynx subversion sysv-rc-conf wicd
-=======
-                   lynx subversion wicd
->>>>>>> 7fa823044b1bed5c30a522207d6e492d0bfe7cea:scripts/debian/first.sh
 [ -e /usr/bin/ruby ] || ln -s `which ruby1.8` /usr/bin/ruby
 [ -e /usr/bin/ri ] || ln -s `which ri1.8` /usr/bin/ri
 [ -e /usr/bin/rdoc ] || ln -s `which rdoc1.8` /usr/bin/rdoc
