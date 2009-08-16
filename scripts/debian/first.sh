@@ -32,6 +32,13 @@ if [ "$home" == "y" ]; then
   fi
 fi
 
+echo "Git machine ? (y/n) "
+read git
+if [ "$git" == "y" ]; then
+  git config --global user.name jbbarth
+  git config --global user.email jeanbaptiste.barth@gmail.com
+fi
+
 gem update
 gem install rails rake ZenTest ruby-debug
 
