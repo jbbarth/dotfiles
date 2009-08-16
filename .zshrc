@@ -70,7 +70,7 @@ alias setra-careless='ssh supervision2.setra -L8888:localhost:80'
 alias setra-redmine='ssh dsi.setra -L8889:localhost:80'
 alias ppa-key='sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys'
 # Environment variables
-PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails
+PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails:.
 
 # Automatic files handling
 autoload zsh-mime-setup
