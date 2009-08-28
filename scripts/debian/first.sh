@@ -30,6 +30,10 @@ if [ "$home" == "y" ]; then
     echo "supersede domain-name-servers 80.10.246.2, 80.10.246.129;" >> /etc/dhcp3/dhclient.conf
     /etc/init.d/networking restart
   fi
+  wajig install xfce4-terminal
+  mkdir -p .config/Terminal
+  grep "BindingBackspace" .config/Terminal/terminalrc 1>/dev/null 2>&1 || \
+    echo "BindingBackspace=TERMINAL_ERASE_BINDING_ASCII_DELETE" >> .config/Terminal/terminalrc
 fi
 
 echo "Git machine ? (y/n) "
