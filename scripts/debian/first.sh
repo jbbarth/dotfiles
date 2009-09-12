@@ -34,6 +34,8 @@ if [ "$home" == "y" ]; then
   mkdir -p .config/Terminal
   grep "BindingBackspace" .config/Terminal/terminalrc 1>/dev/null 2>&1 || \
     echo "BindingBackspace=TERMINAL_ERASE_BINDING_ASCII_DELETE" >> .config/Terminal/terminalrc
+  #disable touchpad when typing ; see: http://ghantoos.org/2009/04/07/disable-touchpad-while-typing-on-keyboard/
+  echo "/usr/bin/syndaemon -i 1 -d -S" >> ~/.xsession
 fi
 
 echo "Git machine ? (y/n) "
