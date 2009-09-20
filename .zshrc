@@ -23,6 +23,7 @@ setopt inc_append_history
 setopt extended_history
 #setopt path_dirs
 setopt correct
+NULLCMD=echo
 
 # Shell colors ; adapted from
 # http://chm.duquesne.free.fr/blog/?p=61
