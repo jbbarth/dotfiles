@@ -73,6 +73,7 @@ alias ppa-key='sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys'
 alias wupdate='wajig update && wajig dist-upgrade'
 alias iptables='sudo iptables'
 alias iptablist='sudo iptables -nvL --line-numbers'
+alias man='man -a'
 
 # Environment variables
 PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails:.
