@@ -78,6 +78,7 @@ alias man='man -a'
 
 # Environment variables
 PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails:.
+PROMPT='%n@%m%# '
 
 # Automatic files handling
 autoload zsh-mime-setup
