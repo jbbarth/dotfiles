@@ -80,7 +80,7 @@ alias sudo='command sudo '
 
 # Environment variables
 PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails
-PROMPT='%n@%m%# '
+PROMPT=$(grep setra /etc/hosts >/dev/null && echo '%n@%m%# ' || echo '%m%# ')
 
 # Automatic files handling
 autoload zsh-mime-setup
