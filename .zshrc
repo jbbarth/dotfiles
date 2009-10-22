@@ -6,9 +6,9 @@ SAVEHIST=2000
 bindkey '^[[3~' delete-char
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/salvor/.zshrc'
-
-autoload -Uz compinit
+zstyle :compinstall filename '~/.zshrc'
+#autoload -Uz compinit
+autoload -U compinit
 compinit
 # End of lines added by compinstall
 
@@ -37,7 +37,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
-    alias diff='colordiff'
+    [ -x /usr/bin/colordiff ] && alias diff='colordiff'
     alias less='less -R'
 fi
 
@@ -78,12 +78,12 @@ alias iptablist='sudo iptables -nvL --line-numbers'
 alias man='man -a'
 
 # Environment variables
-PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails:.
+PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails
 PROMPT='%n@%m%# '
 
 # Automatic files handling
 autoload zsh-mime-setup
-zsh-mime-setup
+zsh-mime-setup 2>/dev/null
 
 # Version control system
 ###autoload -Uz vcs_info
