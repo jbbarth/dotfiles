@@ -23,6 +23,7 @@ setopt inc_append_history
 setopt extended_history
 #setopt path_dirs
 setopt correct
+setopt nonomatch
 NULLCMD=echo
 
 # Shell colors ; adapted from
