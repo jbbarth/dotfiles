@@ -78,6 +78,7 @@ alias iptables='sudo iptables'
 alias iptablist='sudo iptables -nvL --line-numbers'
 alias man='man -a'
 alias sudo='command sudo '
+alias ssudo='command sudo sh -c '
 
 # Environment variables
 PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails
