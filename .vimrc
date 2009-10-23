@@ -44,7 +44,7 @@ set showcmd
 "set mouse=a
 
 " Disable auto-indent ; opposite of "paste"
-set nopaste
+"set nopaste
 
 " Display the number of changes after a command, if > 0
 set report=0
