@@ -20,7 +20,7 @@ select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name database.yml | fgrep confi
   cd $DEVEL_DIR/$PROJECT
   screen -d -m $SCREEN_OPTS -S $SPROJECT
   screen -X -S $SPROJECT -p 0 title SERVER
-  sleep 1
+###  sleep 1
   screen -X -S $SPROJECT -p 0 stuff "ruby script/server -e development --debugger"
   screen -X -S $SPROJECT screen -t CONSOLE 1
 ###  sleep 1
@@ -32,7 +32,7 @@ select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name database.yml | fgrep confi
   #sleep 1
   #screen -X -S $SPROJECT -p 3 stuff "rake db:test:load && autotest 2>&1 |more"
 
-  sleep 1
+###  sleep 1
   
 ###  firefox http://localhost:3000/
 ###  firefox file://$HOME/doc/railsbrain/index.html
