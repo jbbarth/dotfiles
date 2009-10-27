@@ -20,14 +20,13 @@ echo "Desktop machine ? (y/n) "
 read desktop
 if [ "$desktop" == "y" ]; then
   apt-get install conky gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad \
-    msttcorefonts libgsf-bin imagemagick colordiff xchm
+    msttcorefonts libgsf-bin imagemagick colordiff xchm mplayer mplayerthumbs
   #medibuntu (codecs)
   wget http://www.medibuntu.org/sources.list.d/`lsb_release -cs`.list \
     --output-document=/etc/apt/sources.list.d/medibuntu.list && apt-get \
     -q update && sudo apt-get --yes -q --allow-unauthenticated install \
     medibuntu-keyring && apt-get -q update
   apt-get install w32codecs
-
 fi
 
 echo "Home machine ? (y/n) "
