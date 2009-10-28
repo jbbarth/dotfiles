@@ -181,4 +181,4 @@ endif
 set suffixes=.aux,.bak,.bbl,.blg,.gif,.gz,.idx,.ilg,.info,.jpg,.lof,.log,;lot,.o,.obj,.pdf,.png,.swp,.tar,.toc,~
 
 " ruby folding
-autocmd Filetype ruby source ~/.vim/scripts/ruby-macros.vim
+"autocmd Filetype ruby source ~/.vim/scripts/ruby-macros.vim
