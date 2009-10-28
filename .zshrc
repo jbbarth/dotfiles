@@ -83,6 +83,7 @@ alias ssudo='command sudo sh -c '
 # Environment variables
 PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails
 PROMPT=$(grep setra /etc/hosts >/dev/null && echo '%n@%m%# ' || echo '%m%# ')
+RAILS_ENV=development
 
 # Automatic files handling
 autoload zsh-mime-setup
