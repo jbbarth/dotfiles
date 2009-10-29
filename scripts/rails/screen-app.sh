@@ -31,7 +31,7 @@ select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name database.yml | fgrep confi
   screen -X -S $SPROJECT -p 3 stuff "rake db:test:load && autotest 2>&1 |more"
   if [ -d lib/daemons ]; then
     screen -X -S $SPROJECT screen -t DAEMONS 4
-    screen -X -S $SPROJECT -p 4 stuff "RAILS_ENV=development lib/daemons/*_ctl start"
+    screen -X -S $SPROJECT -p 4 stuff "RAILS_ENV=development lib/daemons/*_ctl run"
   fi
   screen -x $SPROJECT -p 2
   
