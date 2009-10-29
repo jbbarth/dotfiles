@@ -12,6 +12,13 @@ SCREEN_OPTS="-A -U"
 OLD_PS3=$PS3
 PS3="Which project to start a session for? "
 
+#check if there are already running screen sessions
+if [ "$(screen -list | grep 'No Socket' >/dev/null 2>&1; echo $?)" -ne "0" ]; then
+  echo "There are already running screen sessions :"
+  screen -list
+  exit 1
+fi
+
 #select PROJECT in `ls -F $DEVEL_DIR | egrep /$ | sed 's/\///' `; do
 select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name database.yml | fgrep config/database.yml | sed 's#/config/database.yml##' | sed "s#$DEVEL_DIR/##"); do
   
