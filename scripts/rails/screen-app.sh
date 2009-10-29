@@ -24,28 +24,35 @@ select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name database.yml | fgrep confi
   
   PS3=$OLD_PS3
   SPROJECT=$(echo $PROJECT | sed 's#/#_#g')
-  SLEEP="sleep 2"
+  SLEEP="sleep 0.5"
+  SLEEP2="sleep 0.5"
 
   cd $DEVEL_DIR/$PROJECT
 
   screen -d -m $SCREEN_OPTS -S $SPROJECT
   screen -X -S $SPROJECT -p 0 title SERVER
-  screen -X -S $SPROJECT -p 0 stuff "ruby script/server -e development --debugger"
+  screen -X -S $SPROJECT -p 0 stuff "ruby script/server -e development --debugger"
   eval $SLEEP
   screen -X -S $SPROJECT screen -t CONSOLE 1
-  screen -X -S $SPROJECT -p 1 stuff "ruby script/console development"
+  screen -X -S $SPROJECT -p 1 stuff "ruby script/console development"
   eval $SLEEP
   screen -X -S $SPROJECT screen -t DEV 2
-  screen -X -S $SPROJECT -p 2 stuff "git status"
+  screen -X -S $SPROJECT -p 2 stuff "git status"
   eval $SLEEP
   screen -X -S $SPROJECT screen -t AUTOTEST 3
-  screen -X -S $SPROJECT -p 3 stuff "rake db:test:load && autotest 2>&1 |more"
+  screen -X -S $SPROJECT -p 3 stuff "rake db:test:load && autotest 2>&1 | \\more"
   eval $SLEEP
+  i=3
   if [ -d lib/daemons ]; then
     eval $SLEEP
     screen -X -S $SPROJECT screen -t DAEMONS 4
-    screen -X -S $SPROJECT -p 4 stuff "RAILS_ENV=development lib/daemons/*_ctl run"
+    screen -X -S $SPROJECT -p 4 stuff "RAILS_ENV=development lib/daemons/*_ctl run"
+    i=4
   fi
+  for j in $(seq 0 $i); do
+    eval $SLEEP2
+    screen -X -S $SPROJECT -p $j stuff ""
+  done
   screen -x $SPROJECT -p 2
   
   break
