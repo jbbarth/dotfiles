@@ -24,19 +24,25 @@ select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name database.yml | fgrep confi
   
   PS3=$OLD_PS3
   SPROJECT=$(echo $PROJECT | sed 's#/#_#g')
+  SLEEP="sleep 2"
 
   cd $DEVEL_DIR/$PROJECT
 
   screen -d -m $SCREEN_OPTS -S $SPROJECT
   screen -X -S $SPROJECT -p 0 title SERVER
   screen -X -S $SPROJECT -p 0 stuff "ruby script/server -e development --debugger"
+  eval $SLEEP
   screen -X -S $SPROJECT screen -t CONSOLE 1
   screen -X -S $SPROJECT -p 1 stuff "ruby script/console development"
+  eval $SLEEP
   screen -X -S $SPROJECT screen -t DEV 2
   screen -X -S $SPROJECT -p 2 stuff "git status"
+  eval $SLEEP
   screen -X -S $SPROJECT screen -t AUTOTEST 3
   screen -X -S $SPROJECT -p 3 stuff "rake db:test:load && autotest 2>&1 |more"
+  eval $SLEEP
   if [ -d lib/daemons ]; then
+    eval $SLEEP
     screen -X -S $SPROJECT screen -t DAEMONS 4
     screen -X -S $SPROJECT -p 4 stuff "RAILS_ENV=development lib/daemons/*_ctl run"
   fi
