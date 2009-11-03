@@ -52,7 +52,7 @@ if [ "$git" == "y" ]; then
 fi
 
 gem update
-gem install rails rake ZenTest ruby-debug
+gem install rails rake ZenTest ruby-debug wirble hpricot
 
 #after that and other things (install/uninstall of insserv)
 #my netbook doesn't restart... is it really safe ? ...
