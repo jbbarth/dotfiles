@@ -79,6 +79,7 @@ alias iptablist='command sudo iptables -nvL --line-numbers'
 alias man='man -a'
 alias sudo='command sudo '
 alias ssudo='command sudo sh -c '
+alias sshsetra='ssh -l jbbarth '
 
 # Environment variables
 PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails
