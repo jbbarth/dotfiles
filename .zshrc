@@ -80,6 +80,7 @@ alias man='man -a'
 alias sudo='command sudo '
 alias ssudo='command sudo sh -c '
 alias sshsetra='ssh -l jbbarth '
+alias gem='sudo gem'
 
 # Environment variables
 PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails
