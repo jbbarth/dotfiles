@@ -42,8 +42,8 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Personal aliases
-alias ll='ls -l'
-alias la='ls -A'
+alias ll='ls -lh'
+alias la='ls -lAh'
 alias l='ls -CF'
 alias c='clear'
 vi() {
