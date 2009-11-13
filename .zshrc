@@ -79,9 +79,15 @@ alias iptablist='command sudo iptables -nvL --line-numbers'
 alias man='man -a'
 alias sudo='command sudo '
 alias ssudo='command sudo sh -c '
-alias sshsetra='ssh -l jbbarth '
 alias gem='sudo gem'
-
+function ssh() {
+  ip addr show eth0 | grep "inet 161.48" >/dev/null
+  if [ "$?" -eq "0" ]; then
+    command ssh -F .ssh/config.work $*
+  else
+    command ssh $*
+  fi
+}
 # Environment variables
 PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails
 PROMPT=$(grep setra /etc/hosts >/dev/null && echo '%n@%m%# ' || echo '%m%# ')
