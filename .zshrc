@@ -83,7 +83,7 @@ alias gem='sudo gem'
 function ssh() {
   ip addr show eth0 | grep "inet 161.48" >/dev/null
   if [ "$?" -eq "0" ]; then
-    command ssh -F .ssh/config.work $*
+    command ssh -F ~/.ssh/config.work $*
   else
     command ssh $*
   fi
