@@ -62,7 +62,8 @@ gem install rails rake ZenTest ruby-debug wirble hpricot nokogiri webrat \
             rspec-rails rspec cucumber
 
 #enable concurrency at boot
-sed -i 's/^CONCURRENCY=.*/CONCURRENCY=startpar/' /etc/init.d/rc
+#=> wicd doesn't start with that!
+#sed -i 's/^CONCURRENCY=.*/CONCURRENCY=startpar/' /etc/init.d/rc
 
 #disable multi consoles
 for i in 2 3 4 5 6; do
