@@ -32,7 +32,7 @@ if [ "$desktop" == "y" ]; then
   add-apt-repository jonabeck
   wajig install ifuse
   echo "net.ipv6.conf.all.disable_ipv6=1" >> /etc/sysctl.conf
-  echo "vm.swapiness=10" >> /etc/sysctl.conf
+  echo "vm.swappiness=10" >> /etc/sysctl.conf
 fi
 
 echo "Home machine ? (y/n) "
