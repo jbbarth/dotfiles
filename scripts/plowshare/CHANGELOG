@@ -1,0 +1,196 @@
+plowshare (0.8.1) stable; urgency=medium
+
+  * Add plowdel executable
+  * [plowdown] Add new -r RATE/--limit-rate=RATE option
+  * [megaupload] Add delete support
+
+ -- Arnau Sanchez <tokland@gmail.com>  Wed, 07 Oct 2009 22:45:53 +0200
+
+plowshare (0.8) stable; urgency=low
+
+  * Added module for depositfiles (download only)
+  * [download] New option -o DIR, --output-directory=DIR
+  * [megaupload] Use tesseract as OCR for the new simplier captcha
+  * [megaupload] Support for multifetch uploads
+  * [rapidshare] More tolerant wait messages parsing
+
+ -- Arnau Sanchez <pyarnau@gmail.com>  Sat, 16 May 2009 11:52:51 +0200
+
+plowshare (0.7.1) unstable; urgency=low
+
+  * Improve download/upload loops (retry on non-fatal network problems)
+  * Fix test library
+  * [mediafire] update module to website changed in HTML
+
+ -- Arnau Sanchez <pyarnau@gmail.com>  Sun, 03 May 2009 22:49:31 +0200
+
+plowshare (0.7) unstable; urgency=low
+
+  * [zshared] add module (download) 
+  * [megaupload] refactor catpcha decoder
+
+ -- Arnau Sanchez <pyarnau@gmail.com>  Wed, 15 Apr 2009 18:23:05 +0200
+
+plowshare (0.6) unstable; urgency=low
+
+  * [4shared] add module and download support for 4shared
+  * [megaupload] increase slightly the OCR rate (~ 40%)
+  * [download] add check-link support for all existing modules
+
+ -- Arnau Sanchez <pyarnau@gmail.com>  Sat, 28 Mar 2009 15:51:48 +0100
+
+plowshare (0.5.3) unstable; urgency=low
+
+  * [megaupload] Support new 4-rotated-highly-overlapped captcha 
+
+ -- Arnau Sanchez <pyarnau@gmail.com>  Sat, 21 Mar 2009 00:09:22 +0100
+
+plowshare (0.5.2) unstable; urgency=low
+
+  * Fix setup.sh bugs 
+
+ -- Arnau Sanchez <pyarnau@gmail.com>  Sun, 15 Mar 2009 01:08:57 +0100
+
+plowshare (0.5.1) unstable; urgency=low
+
+  * Add suport for the new 4-rotated-bold-character megaupload captcha
+  * Change arguments order for plowup
+
+ -- Arnau Sanchez <tokland@gmail.com>  Sat, 14 Mar 2009 23:38:31 +0100
+
+plowshare (0.5) unstable; urgency=low
+
+  * Support new megaupload captcha (4 non-rotated chars)
+  * Add suport for mediafire download
+  * Add GNU GPL notices to all sources
+
+ -- Arnau Sanchez <tokland@gmail.com>  Mon, 09 Mar 2009 17:34:04 +0100
+
+plowshare (0.4.5) unstable; urgency=low
+
+  * Improved speed of Megaupload catpcha OCR
+  * Removed JDownloader database
+  * Refactored input-captcha option (now uses aview) 
+   
+ -- Arnau Sanchez <tokland@gmail.com>  Fri, 06 Mar 2009 00:36:34 +0100
+
+plowshare (0.4.4) unstable; urgency=low
+
+  * Fix some setup.sh bugs (thanks to karkoma)
+  * Add input-captcha option to megaupload download allowing user input (suggested by pwang07)
+
+ -- Arnau Sanchez <tokland@gmail.com>  Wed, 04 Mar 2009 00:10:42 +0100
+
+plowshare (0.4.3) unstable; urgency=low
+
+  * Add badongo module (download implemented)
+  * Fix bug in process_options loop 
+
+ -- Arnau Sanchez <tokland@gmail.com>  Tue, 03 Mar 2009 12:45:21 +0100
+
+plowshare (0.4.2) unstable; urgency=low
+
+  * Update megaupload captchas is now manual (plowdown -u) 
+
+ -- Arnau Sanchez <tokland@gmail.com>  Sat, 28 Feb 2009 21:36:30 +0100
+
+plowshare (0.4.1) unstable; urgency=low
+
+  * Use JDownloader database for megaupload captchas (OCR can also be used)
+
+ -- Arnau Sanchez <tokland@gmail.com>  Sat, 28 Feb 2009 15:52:43 +0100
+
+plowshare (0.4) unstable; urgency=low
+
+  * Decode (slow and low accuracy code) new Megaupload captcha (4-chars with rotation). 
+
+ -- Arnau Sanchez <tokland@gmail.com>  Fri, 27 Feb 2009 21:23:10 +0100
+
+plowshare (0.3.5) unstable; urgency=low
+
+  * Fix long options bug
+  * Add continuation option for download 
+  * Add mark option for download (comment downloaded links in FILE arguments)
+  * Megaupload captcha still broken
+
+ -- Arnau Sanchez <tokland@gmail.com>  Thu, 26 Feb 2009 13:36:17 +0100
+
+plowshare (0.3.4) unstable; urgency=low
+
+  * Premium account support for megaupload (thanks to Eric Soukenka)
+  * More options to megaupload upload (email-from, email-to, multiemail, 
+    trafficurl, password)
+  * Option to download only the output link (without downloading the file)
+  * Option to download password-protected files
+  * Module options changed 
+
+ -- Arnau Sanchez <tokland@gmail.com>  Sat, 21 Feb 2009 22:58:24 +0100
+
+plowshare (0.3.3) unstable; urgency=low
+
+  * Use recode to allow filenames with unicode chars.
+
+ -- Arnau Sanchez <tokland@gmail.com>  Thu, 19 Feb 2009 10:24:45 +0100
+
+plowshare (0.3.2) unstable; urgency=low
+
+  * Fix time-wait get in megaupload free-membership
+  * Create our own tempfile function
+
+ -- Arnau Sanchez <tokland@gmail.com>  Wed, 18 Feb 2009 10:32:44 +0100
+
+plowshare (0.3) unstable; urgency=high
+
+  * Update megaupload module to the new 4-char captcha
+  * Update login to megaupload
+
+ -- Arnau Sanchez <tokland@gmail.com>  Wed, 18 Feb 2009 01:27:16 +0100
+
+plowshare (0.2.1) unstable; urgency=low
+
+  * Fix rapidshare freezone upload
+
+ -- Arnau Sanchez <tokland@gmail.com>  Sat, 14 Feb 2009 18:52:25 +0100
+
+plowshare (0.2) unstable; urgency=low
+
+  * Simplify captcha decoding in megaupload (thanks to George Averill)
+  * Use js or smjs (idem)
+  * Disable glob in curl file download (idem)
+  * Restructure code directories
+  * Add -q,--quiet global option
+  * 2Shared upload
+  * Add independent options to module's functions
+  * Rapidshare upload (anonymous and free-zone)
+
+ -- Arnau Sanchez <tokland@gmail.com>  Tue, 27 Jan 2009 23:05:02 +0100
+
+plowshare (0.1.4) unstable; urgency=low
+
+  * Correct upload process 
+
+ -- Arnau Sanchez <tokland@gmail.com>  Sat, 24 Jan 2009 19:40:38 +0100
+
+plowshare (0.1.3) unstable; urgency=low
+
+  * Minor correction for 2shared
+
+ -- Arnau Sanchez <tokland@gmail.com>  Sat, 24 Jan 2009 19:36:35 +0100
+
+plowshare (0.1.2) unstable; urgency=high
+
+  * Upload script was missing 
+
+ -- Arnau Sanchez <tokland@gmail.com>  Sat, 24 Jan 2009 18:55:16 +0100
+
+plowshare (0.1.1) unstable; urgency=high
+
+  * Add tests
+
+ -- Arnau Sanchez <tokland@gmail.com>  Sat, 24 Jan 2009 18:54:17 +0100
+
+plowshare (0.1) unstable; urgency=high
+ 
+  * First release
+
+ -- Arnau Sanchez <tokland@gmail.com>  Sat, 24 Jan 2009 12:17:21 +0200
