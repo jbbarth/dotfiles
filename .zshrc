@@ -92,6 +92,7 @@ function ssh() {
   fi
 }
 alias go='gnome-open'
+alias mp='mplayer'
 
 # Environment variables
 PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails:$HOME/scripts/linux
