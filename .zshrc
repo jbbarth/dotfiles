@@ -25,6 +25,7 @@ setopt extended_history
 #setopt path_dirs
 setopt correct
 setopt nonomatch
+setopt extended_glob
 NULLCMD=echo
 
 # Shell colors ; adapted from
