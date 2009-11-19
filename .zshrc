@@ -83,10 +83,9 @@ alias iptablist='command sudo iptables -nvL --line-numbers'
 #alias man='man -a'
 alias sudo='command sudo '
 alias ssudo='command sudo sh -c '
-alias gem='sudo gem'
+alias gem='command sudo gem'
 function ssh() {
-  ip addr show eth0 | grep "inet 161.48" >/dev/null
-  if [ "$?" -eq "0" ]; then
+  if ip addr show eth0 | grep "inet 161.48" >/dev/null; then
     command ssh -F ~/.ssh/config.work $*
   else
     command ssh $*
@@ -99,6 +98,11 @@ alias mp='mplayer'
 PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails:$HOME/scripts/linux
 PROMPT=$(grep setra /etc/hosts >/dev/null && echo '%n@%m%# ' || echo '%m%# ')
 RAILS_ENV=development
+if ip addr show eth0 | grep "inet 161.48" >/dev/null; then
+  http_proxy=proxy:8080
+  https_proxy=proxy:8080
+  ftp_proxy=proxy:8080
+fi
 
 # Automatic files handling
 autoload zsh-mime-setup
