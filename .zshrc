@@ -43,7 +43,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Personal aliases
-alias rm='rm -I'
+alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 alias ll='ls -lh'
