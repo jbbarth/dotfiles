@@ -43,7 +43,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Personal aliases
-alias rm='rm -i'
+[ -e /etc/redhat-release ] && alias rm='rm -i' || alias rm='rm -I'
 alias mv='mv -i'
 alias cp='cp -i'
 alias ll='ls -lh'
@@ -99,9 +99,9 @@ PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails:$HOME/scripts/linux
 PROMPT=$(grep setra /etc/hosts >/dev/null && echo '%n@%m%# ' || echo '%m%# ')
 RAILS_ENV=development
 if ip addr show eth0 | grep "inet 161.48" >/dev/null; then
-  http_proxy=proxy:8080
-  https_proxy=proxy:8080
-  ftp_proxy=proxy:8080
+  export http_proxy=proxy:8080
+  export https_proxy=proxy:8080
+  export ftp_proxy=proxy:8080
 fi
 
 # Automatic files handling
