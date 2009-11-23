@@ -49,6 +49,8 @@ alias cp='cp -i'
 alias ll='ls -lh'
 alias la='ls -lAh'
 alias l='ls -CF'
+#a integrer
+#ls -la | sort -k 5 -n | ruby -ne 'a=$_.split;puts "#{a[4]} #{a[7..-1]}"'
 alias c='clear'
 vi() {
   if [ -w $1 ]; then
@@ -99,9 +101,9 @@ PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails:$HOME/scripts/linux
 PROMPT=$(grep setra /etc/hosts >/dev/null && echo '%n@%m%# ' || echo '%m%# ')
 RAILS_ENV=development
 if ip addr show eth0 | grep "inet 161.48" >/dev/null; then
-  export http_proxy=proxy:8080
-  export https_proxy=proxy:8080
-  export ftp_proxy=proxy:8080
+  export http_proxy=http://proxy:8080
+  export https_proxy=http://proxy:8080
+  export ftp_proxy=http://proxy:8080
 fi
 
 # Automatic files handling
