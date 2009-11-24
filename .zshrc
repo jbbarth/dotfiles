@@ -100,7 +100,7 @@ alias mp='mplayer -fs'
 PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails:$HOME/scripts/linux
 PROMPT=$(grep setra /etc/hosts >/dev/null && echo '%n@%m%# ' || echo '%m%# ')
 RAILS_ENV=development
-if ip addr show eth0 | grep "inet 161.48" >/dev/null; then
+if ip addr show eth0 | grep -v "161.48.8" | grep -v "161.48.111" | grep "inet 161.48" >/dev/null; then
   export http_proxy=http://proxy:8080
   export https_proxy=http://proxy:8080
   export ftp_proxy=http://proxy:8080
