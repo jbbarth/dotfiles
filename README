@@ -8,4 +8,4 @@ cd
 git init
 git pull git://github.com/jbbarth/127.0.0.1.git
 sudo ./scripts/debian/first-packets.sh
-source .bashrc
+source .zshrc
