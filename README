@@ -2,7 +2,7 @@ FIRST INSTALL GIT:
 
 apt-get install git-core
 
-DEPLOY ON A NEW MACHINE/ACCOUNT:
+DEPLOY ON A NEW MACHINE/ACCOUNT (with zsh shell):
 
 cd
 git init
