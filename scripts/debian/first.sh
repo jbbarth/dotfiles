@@ -33,6 +33,11 @@ if [ "$desktop" == "y" ]; then
   wajig install ifuse
   echo "net.ipv6.conf.all.disable_ipv6=1" >> /etc/sysctl.conf
   echo "vm.swappiness=10" >> /etc/sysctl.conf
+  #icones gnome dans les menus
+  gconftool-2 --set /desktop/gnome/interface/buttons_have_icons --type bool true
+  gconftool-2 --set /desktop/gnome/interface/menus_have_icons --type bool true
+  gconftool-2 --type boolean --set /desktop/gnome/interface/menus_have_icons 1
+  gconftool-2 --type boolean --set /desktop/gnome/interface/buttons_have_icons 1
 fi
 
 echo "Home machine ? (y/n) "
