@@ -6,7 +6,7 @@
 # It is adapted from the script provided in this article :
 #   http://blog.lathi.net/articles/2008/09/13/scripting-screen
 
-DEVEL_DIR=$([ -d $HOME/dev ] && echo "$HOME/dev" || echo "/home/app")
+DEVEL_DIR=$([ -d $HOME/dev/rails ] && echo "$HOME/dev/rails" || echo "/home/app")
 SCREEN_OPTS="-A -U"
 
 OLD_PS3=$PS3
