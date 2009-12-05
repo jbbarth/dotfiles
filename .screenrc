@@ -13,7 +13,7 @@ escape ^Wa
 
 # Support for railscasts vim theme
 # see: http://www.vim.org/scripts/script.php?script_id=2175
-attrcolor b ".I"
-termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-defbce "on"
-term screen-256color-bce
+#attrcolor b ".I"
+#termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+#defbce "on"
+#term screen-256color-bce

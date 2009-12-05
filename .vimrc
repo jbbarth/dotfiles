@@ -185,5 +185,5 @@ set suffixes=.aux,.bak,.bbl,.blg,.gif,.gz,.idx,.ilg,.info,.jpg,.lof,.log,;lot,.o
 
 " railscasts-like colors
 " see: http://www.vim.org/scripts/script.php?script_id=2175
-set term=gnome-256color
-colorscheme railscasts
+"set term=gnome-256color
+"colorscheme railscasts
