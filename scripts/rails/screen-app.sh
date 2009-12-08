@@ -42,7 +42,7 @@ select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name database.yml | fgrep confi
   [ -d .svn/ ] && screen -X -S $SPROJECT -p 2 stuff "svn status"
   screen -X -S $SPROJECT screen -t AUTOTEST 3
   eval $SLEEP
-  screen -X -S $SPROJECT -p 3 stuff "rake db:test:load && autotest 2>&1 | \\more"
+  #screen -X -S $SPROJECT -p 3 stuff "rake db:test:load && autotest 2>&1 | \\more"
   i=3
   if [ -d lib/daemons ]; then
     eval $SLEEP
