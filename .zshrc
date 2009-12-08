@@ -45,6 +45,25 @@ fi
 # Personal aliases
 [ -e /etc/redhat-release ] && alias rm='rm -i' || alias rm='rm -I'
 alias mv='mv -i'
+alias zmv='rsync --recursive --remove-source-files --progress'
+alias emptydirs='find . -type d -empty -print'
+zunrar() {
+  rar=$1
+  nb=$(unrar l $rar | tail -n 2 | awk '{print $1}')
+  [ "$nb" -lt "10" ] && sw="e" || sw="x"
+  echo "$nb files ; extracting with unrar $sw"
+  unrar $sw $rar && eval rm -f $(echo $rar | sed -e 's/part1.rar/part*.rar/' -e 's/part01.rar/part*.rar/')
+  rm -f [A-Z]*(txt|url)
+}
+zrmlocaldup() {
+  dir=$1
+  for i in *(.); do
+    size=$(stat -c "%s" $i)
+    size2=$(stat -c "%s" $dir/$i 2>/dev/null || echo 0)
+    test "$size" -eq "$size2" && echo "Removing duplicate: $size $size2 $i" && rm -f "$i"
+  done
+}
+alias wmvjoin='mencoder -oac copy -ovc copy -o'
 alias cp='cp -i'
 alias ll='ls -lh'
 alias la='ls -lAh'
