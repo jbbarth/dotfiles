@@ -68,8 +68,9 @@ alias cp='cp -i'
 alias ll='ls -lh'
 alias la='ls -lAh'
 alias l='ls -CF'
-#a integrer
-#ls -la | sort -k 5 -n | ruby -ne 'a=$_.split;puts "#{a[4]} #{a[7..-1]}"'
+function llr {
+  ls -la | sort -k 5 -n | ruby -ne 'a=$_.split;puts "#{a[4]} #{a[7..-1].join(" ")}" unless a[7].nil?'
+}
 alias c='clear'
 vi() {
   if [ -w $1 ]; then
