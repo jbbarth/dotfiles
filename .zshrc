@@ -49,10 +49,14 @@ alias zmv='rsync --recursive --remove-source-files --progress'
 alias emptydirs='find . -type d -empty -print'
 zunrar() {
   rar=$1
-  nb=$(unrar l $rar | tail -n 2 | awk '{print $1}')
+  nb=$(unrar l -p- $rar | tail -n 2 | awk '{print $1}')
   [ "$nb" -lt "10" ] && sw="e" || sw="x"
   echo "$nb files ; extracting with unrar $sw"
-  unrar $sw $rar && eval rm -f $(echo $rar | sed -e 's/part1.rar/part*.rar/' -e 's/part01.rar/part*.rar/')
+  for i in $(echo - -; tac passwd.txt); do
+    echo "Trying password: $i"
+    unrar $sw -p$i $rar && eval rm -f $(echo $rar | sed -e 's/part1.rar/part*.rar/' -e 's/part01.rar/part*.rar/')
+    [ "$?" == "0" ] && break
+  done
   rm -f [A-Z]*(txt|url)
 }
 zrmlocaldup() {
