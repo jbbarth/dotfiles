@@ -49,15 +49,18 @@ alias zmv='rsync --recursive --remove-source-files --progress'
 alias emptydirs='find . -type d -empty -print'
 zunrar() {
   rar=$1
+  retval=1
   nb=$(unrar l -p- $rar | tail -n 2 | awk '{print $1}')
   [ "$nb" -lt "10" ] && sw="e" || sw="x"
   echo "$nb files ; extracting with unrar $sw"
-  for i in $(echo - -; tac passwd.txt); do
+  for i in $(echo - -; tac passwd.txt | ruby -ne 'puts $_.strip'); do
     echo "Trying password: $i"
     unrar $sw -p$i $rar && eval rm -f $(echo $rar | sed -e 's/part1.rar/part*.rar/' -e 's/part01.rar/part*.rar/')
-    [ "$?" == "0" ] && break
+    retval=$?
+    [ "$retval" == "0" ] && break
   done
   rm -f [A-Z]*(txt|url)
+  return $retval
 }
 zrmlocaldup() {
   dir=$1
@@ -68,6 +71,9 @@ zrmlocaldup() {
   done
 }
 alias wmvjoin='mencoder -oac copy -ovc copy -o'
+joinsplitted() {
+  cat $1.00* > $1 && rm -f $1.00*
+}
 alias cp='cp -i'
 alias ll='ls -lh'
 alias la='ls -lAh'
