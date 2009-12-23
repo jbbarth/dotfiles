@@ -50,7 +50,7 @@ alias emptydirs='find . -type d -empty -print'
 zunrar() {
   rar=$1
   retval=1
-  nb=$(unrar l -p- $1 2>/dev/null|tail -n 2|head -n 1|ruby -ne 'puts $_.match(/\d/) ? 15 : $_.to_i')
+  nb=$(unrar l -p- $1 2>/dev/null|tail -n 2|head -n 1|ruby -ne 'puts $_.match(/\d/) ? $_.split.first.to_i : 15')
   [ "$nb" -lt "10" ] && sw="e" || sw="x"
   echo "$nb files ; extracting with unrar $sw"
   for i in $(echo - -; tac passwd.txt | ruby -ne 'puts $_.strip'); do
