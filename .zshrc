@@ -26,7 +26,7 @@ setopt extended_history
 setopt correct
 setopt nonomatch
 setopt extended_glob
-NULLCMD=echo
+NULLCMD=:
 
 # Shell colors ; adapted from
 # http://chm.duquesne.free.fr/blog/?p=61
