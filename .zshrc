@@ -125,7 +125,7 @@ function ssh() {
   fi
 }
 alias go='gnome-open'
-alias mp='mplayer -fs'
+alias mp='mplayer -fs -ao alsa,oss,'
 alias -g M=' 2>&1 | more'
 
 # Environment variables
