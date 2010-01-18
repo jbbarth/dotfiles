@@ -92,7 +92,7 @@ vi() {
   elif [ ! -e $1 ] && [ -w $(dirname $1) ]; then
     command vim $*
   else
-    command sudo vim -u $HOME/.vimrc $*
+    command sudo -e $*
   fi
 }
 alias more='less'
