@@ -43,10 +43,6 @@ fi
 echo "Home machine ? (y/n) "
 read home
 if [ "$home" == "y" ]; then
-  if [ $(grep 80.10.246.2 /etc/dhcp3/dhclient.conf | wc -l | awk '{print $1}') == "0" ]; then
-    echo "supersede domain-name-servers 80.10.246.2, 80.10.246.129;" >> /etc/dhcp3/dhclient.conf
-    /etc/init.d/networking restart
-  fi
   wajig install xfce4-terminal
   mkdir -p .config/Terminal
   grep "BindingBackspace" .config/Terminal/terminalrc 1>/dev/null 2>&1 || \
