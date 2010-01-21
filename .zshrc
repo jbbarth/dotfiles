@@ -53,12 +53,12 @@ zunrar() {
   nb=$(unrar l -p- $1 2>/dev/null|tail -n 2|head -n 1|ruby -ne 'puts $_.match(/\d/) ? $_.split.first.to_i : 15')
   [ "$nb" -lt "10" ] && opts="e" || opts="x"
   echo "$nb files ; extracting with unrar $opts"
-  (echo - -; tac passwd.txt | ruby -ne 'puts $_.strip') | while read i; do
+  for i in $(echo - -; tac passwd.txt | ruby -ne 'puts $_.strip.gsub(" ","BLANK")'); do
     echo "Trying password: $i"
     if [ "$i" == "-" ]; then
       pass="-p-"
     else
-      pass="-p\"$i\""
+      pass="-p\"${i//BLANK/ }\""
     fi
     unrar $opts $pass $rar && eval rm -f $(echo $rar | sed -e 's/part1.rar/part*.rar/' -e 's/part01.rar/part*.rar/')
     retval=$?
