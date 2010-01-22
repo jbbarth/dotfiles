@@ -118,6 +118,7 @@ alias ppa-key='command sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-
 alias wupdate='wajig update && wajig dist-upgrade'
 alias iptables='command sudo iptables'
 alias iptablist='command sudo iptables -nvL --line-numbers'
+alias iptables-clear='iptables -P INPUT ACCEPT'
 #alias man='man -a'
 alias sudo='command sudo '
 alias ssudo='command sudo sh -c '
