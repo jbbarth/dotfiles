@@ -130,7 +130,11 @@ function ssh() {
   fi
 }
 alias go='gnome-open'
-alias mp='mplayer -fs -ao alsa,oss,'
+if [ "$(hostname)" == "pegasus" ]; then
+  alias mp='mplayer -fs -ao alsa,oss,'
+else
+  alias mp='mplayer -ao alsa,oss,'
+fi
 alias -g M=' 2>&1 | more'
 
 # Environment variables
