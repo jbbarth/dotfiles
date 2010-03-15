@@ -13,18 +13,20 @@
 %w(pp open-uri rubygems hpricot wirble irb/completion irb/ext/save-history ).each do |x|
   begin
     require x
+    if x == "wirble"
+      Wirble.init
+      Wirble.colorize
+    end
   rescue LoadError => e
-    puts e.inspect
+    puts "Unable to load #{x}"
+    #e.inspect
   end
 end
  
 ARGV.concat %w( --readline )
  
-Wirble.init
-Wirble.colorize
- 
 module Kernel
-  { :h => :Hpricot,
+  { #:h => :Hpricot,
     :r => :require,
     :x => :exit
   }.each { |n,o| alias_method n, o }
