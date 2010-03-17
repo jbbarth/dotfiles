@@ -11,7 +11,7 @@ apt-get install -y wajig screen vim openssh-server bash-completion \
                    ruby1.8 ruby1.8-dev ri1.8 rake irb rubygems1.8 git-core \
                    libopenssl-ruby libsqlite3-ruby1.8 sqlite3 zsh vim make \
                    lynx subversion sysv-rc-conf wicd sysklogd libxslt1.1 \
-                   libxslt1-dev gawk ncurses-term
+                   libxslt1-dev gawk ncurses-term nfs-client cryptsetup
 [ -e /usr/bin/ruby ] || ln -s `which ruby1.8` /usr/bin/ruby
 [ -e /usr/bin/ri ] || ln -s `which ri1.8` /usr/bin/ri
 [ -e /usr/bin/rdoc ] || ln -s `which rdoc1.8` /usr/bin/rdoc
@@ -21,7 +21,8 @@ echo "Desktop machine ? (y/n) "
 read desktop
 if [ "$desktop" == "y" ]; then
   apt-get install conky gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad \
-    msttcorefonts ttf-liberation ttf-dejavu libgsf-bin imagemagick colordiff xchm mplayer mplayerthumbs
+    msttcorefonts ttf-liberation ttf-dejavu libgsf-bin imagemagick colordiff xchm mplayer mplayerthumbs \
+    firefox-firebug
   #medibuntu (codecs)
   wget http://www.medibuntu.org/sources.list.d/`lsb_release -cs`.list \
     --output-document=/etc/apt/sources.list.d/medibuntu.list && apt-get \
