@@ -8,6 +8,12 @@
 # - http://snippets.dzone.com/posts/show/258
 # - http://github.com/greatseth/dotfiles/tree/master
 
+#awful patch for rails 3 :/
+basedirs = ENV["GEM_PATH"].to_s.split(":").map{|d|"#{d}/gems/*/lib"}
+Dir.glob(basedirs).each do |dir|
+  $: << dir
+end
+
 #require 'map_by_method'
 #require 'what_methods'
 %w(pp open-uri rubygems hpricot wirble irb/completion irb/ext/save-history ).each do |x|
