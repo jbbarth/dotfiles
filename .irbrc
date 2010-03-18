@@ -11,7 +11,7 @@
 #awful patch for rails 3 :/
 basedirs = ENV["GEM_PATH"].to_s.split(":").map{|d|"#{d}/gems/*/lib"}
 Dir.glob(basedirs).each do |dir|
-  $: << dir
+  $: << dir unless $:.include?(dir)
 end
 
 #require 'map_by_method'
