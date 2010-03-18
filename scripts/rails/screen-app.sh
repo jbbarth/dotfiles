@@ -28,14 +28,21 @@ select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name database.yml | fgrep confi
   SLEEP2=""
 
   cd $DEVEL_DIR/$PROJECT
+  if [ -e "script/server" ]; then
+    cmd_console="ruby script/console development"
+    cmd_server="ruby script/server -e production --debugger"
+  else
+    cmd_console="rails console development"
+    cmd_server="RAILS_ENV=production rails server"
+  fi
 
   screen -d -m $SCREEN_OPTS -S $SPROJECT
   screen -X -S $SPROJECT -p 0 title SERVER
   eval $SLEEP
-  screen -X -S $SPROJECT -p 0 stuff "ruby script/server -e production --debugger"
+  screen -X -S $SPROJECT -p 0 stuff "$cmd_server"
   screen -X -S $SPROJECT screen -t CONSOLE 1
   eval $SLEEP
-  screen -X -S $SPROJECT -p 1 stuff "ruby script/console development"
+  screen -X -S $SPROJECT -p 1 stuff "$cmd_console"
   screen -X -S $SPROJECT screen -t DEV 2
   eval $SLEEP
   [ -d .git/ ] && screen -X -S $SPROJECT -p 2 stuff "git status"
