@@ -94,7 +94,6 @@ vi() {
   elif [ ! -e $1 ] && [ -w $(dirname $1) ]; then
     command vim $*
   else
-    export EDITOR=vi
     command sudo -e $*
   fi
 }
@@ -146,6 +145,7 @@ PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails:$HOME/scripts/linux
 PROMPT='%# '
 RAILS_ENV=development
 GEM_HOME=/var/lib/gems/1.8/
+export EDITOR=vi
 if ip addr show eth0 | grep -v "161.48.8" | grep -v "161.48.111" | grep "inet 161.48" >/dev/null; then
   export http_proxy=http://proxy:8080
   export https_proxy=http://proxy:8080
