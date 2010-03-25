@@ -122,7 +122,7 @@ alias iptables-clear='iptables -P INPUT ACCEPT'
 #alias man='man -a'
 alias sudo='command sudo '
 alias ssudo='command sudo sh -c '
-alias gem='command sudo gem'
+#alias gem='command sudo gem'
 function ssh() {
   if ip addr show eth0 | grep "inet 161.48" >/dev/null; then
     command ssh -F ~/.ssh/config.work $*
