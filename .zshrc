@@ -92,6 +92,7 @@ vi() {
   elif [ ! -e $1 ] && [ -w $(dirname $1) ]; then
     command vim $*
   else
+    export EDITOR=vi
     command sudo -e $*
   fi
 }
