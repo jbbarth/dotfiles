@@ -50,21 +50,23 @@ alias emptydirs='find . -type d -empty -print'
 zunrar() {
   rar=$1
   retval=1
-  nb=$(unrar l -p- $1 2>/dev/null|tail -n 2|head -n 1|ruby -ne 'puts $_.match(/\d/) ? $_.split.first.to_i : 15')
-  [ "$nb" -lt "10" ] && opts="e" || opts="x"
+  nb=$(unrar l -p- $1 2>/dev/null|tail -n 2|head -n 1|grep -v UNRAR|ruby -ne 'puts $_.match(/\d/) ? $_.split.first.to_i : 15')
+  [ "$nb" != "" ] && [ "$nb" -lt "10" ] && opts="e"
+  [ "$opts" == "e" ] || opts="x"
   echo "$nb files ; extracting with unrar $opts"
   for i in $(echo - -; tac passwd.txt | ruby -ne 'puts $_.strip.gsub(" ","BLANK")'); do
     echo "Trying password: $i"
-    if [ "$i" == "-" ]; then
-      pass="-p-"
-    else
-      pass="-p\"${i//BLANK/ }\""
-    fi
-    unrar $opts $pass $rar && eval rm -f $(echo $rar | sed -e 's/part1.rar/part*.rar/' -e 's/part01.rar/part*.rar/')
+    #if [ "$i" == "-" ]; then
+    #  pass="-p-"
+    #else
+    #  pass="-p\"${i//BLANK/ }\""
+    #fi
+    #echo unrar $opts $pass $rar
+    unrar $opts -p$i $rar && eval rm -f $(echo $rar | sed -e 's/part1.rar/part*.rar/' -e 's/part01.rar/part*.rar/')
     retval=$?
     [ "$retval" == "0" ] && break
   done
-  rm -f [A-Z]*(txt|url)
+  rm -f [A-Z]*(txt|url) Thumbs.db*
   return $retval
 }
 zrmlocaldup() {
