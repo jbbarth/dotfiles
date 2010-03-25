@@ -131,7 +131,7 @@ function ssh() {
   fi
 }
 alias go='gnome-open'
-if [ "$(hostname)" == "pegasus" ]; then
+if hostname|grep pegasus>/dev/null; then
   alias mp='mplayer -fs -ao alsa,oss,'
 else
   alias mp='mplayer -ao alsa,oss,'
