@@ -170,3 +170,6 @@ zstyle ':completion:*:descriptions' format '%B%d%b'
 zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*' group-name ''
+
+#RVM ( http://rvm.beginrescueend.com/install/ )
+[[ -s /home/salvor/.rvm/scripts/rvm ]] && source /home/salvor/.rvm/scripts/rvm
