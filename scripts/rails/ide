@@ -32,7 +32,7 @@ select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name database.yml | fgrep confi
     cmd_console="ruby script/console development"
     cmd_server="ruby script/server -e production --debugger"
   else
-    cmd_console="rails console development"
+    cmd_console="rails console"
     cmd_server="RAILS_ENV=production rails server"
   fi
 
