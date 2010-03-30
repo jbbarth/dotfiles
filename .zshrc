@@ -138,6 +138,8 @@ else
   alias mp='mplayer -ao alsa,oss,'
 fi
 alias -g M=' 2>&1 | more'
+alias luksopen='sudo cryptsetup luksOpen'
+alias luksclose='sudo cryptsetup luksClose'
 
 # Environment variables
 PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails:$HOME/scripts/linux
