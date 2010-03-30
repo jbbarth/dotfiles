@@ -67,7 +67,7 @@ else
 endif
 
 " Disable wrap for loooong lines
-set nowrap
+set wrap
 
 " Checks spell as you type (english)
 "set spell
