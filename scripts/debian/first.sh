@@ -29,9 +29,6 @@ if [ "$desktop" == "y" ]; then
     -q update && sudo apt-get --yes -q --allow-unauthenticated install \
     medibuntu-keyring && apt-get -q update
   apt-get install w32codecs
-  #ifuse for iphone
-  add-apt-repository jonabeck
-  wajig install ifuse
   echo "net.ipv6.conf.all.disable_ipv6=1" >> /etc/sysctl.conf
   echo "vm.swappiness=10" >> /etc/sysctl.conf
   #icones gnome dans les menus
