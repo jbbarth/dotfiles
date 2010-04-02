@@ -10,3 +10,4 @@ gem: --no-ri --no-rdoc
 - http://gems.opscode.com
 :bulk_threshold: 1000
 gemhome: /var/lib/gems/1.8/
+gempath: /var/lib/gems/1.8/

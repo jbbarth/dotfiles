@@ -147,6 +147,7 @@ PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails:$HOME/scripts/linux
 PROMPT='%# '
 export RAILS_ENV=production
 GEM_HOME=/var/lib/gems/1.8/
+GEM_PATH=$GEM_HOME
 export GIT_EDITOR=vi
 export SUDO_EDITOR=vi
 if ip addr show eth0 | grep -v "161.48.8" | grep -v "161.48.111" | grep "inet 161.48" >/dev/null; then
