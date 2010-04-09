@@ -28,12 +28,14 @@ select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name database.yml | fgrep confi
   SLEEP2=""
 
   cd $DEVEL_DIR/$PROJECT
+  env="development"
+  echo $PROJECT|grep redmine>/dev/null && env="production"
   if [ -e "script/server" ]; then
     cmd_console="ruby script/console development"
-    cmd_server="ruby script/server -e production --debugger"
+    cmd_server="ruby script/server -e $env --debugger"
   else
     cmd_console="rails console"
-    cmd_server="RAILS_ENV=production rails server"
+    cmd_server="RAILS_ENV=$env rails server"
   fi
 
   screen -d -m $SCREEN_OPTS -S $SPROJECT
