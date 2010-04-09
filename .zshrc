@@ -143,8 +143,7 @@ alias luksclose='sudo cryptsetup luksClose'
 
 # Environment variables
 PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails:$HOME/scripts/linux
-#PROMPT=$(grep setra /etc/hosts >/dev/null && echo '%n@%m%# ' || echo '%m%# ')
-PROMPT='%# '
+PROMPT=$(grep setra /etc/hosts >/dev/null && echo '%m%# ' || echo '%# ')
 export RAILS_ENV=production
 export GEM_HOME=/var/lib/gems/1.8/
 export GIT_EDITOR=vi
