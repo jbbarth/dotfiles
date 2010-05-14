@@ -1,26 +1,8 @@
 #!/bin/bash
 
-change_root() {
-  for f in $(find $1/ -name index.html |head -n 1); do
-    olddir=$(echo $f | sed 's/\/index\.html$//g')
-    newdir="$1/"
-    if [ "$olddir" != "$newdir" ]; then
-      cp -ru $olddir/* $newdir
-      echo -e "\tSuppression de $olddir :"
-      rm -rI $olddir
-    fi
-  done
-}
-
 cd
-echo "* Downloading ruby doc"
-wget -P doc http://www.rubybrain.com/api/ruby-1.8.7/rubybrain_ruby-1.8.7.zip
-echo "* Updating ruby doc"
-unzip -u ~/doc/rubybrain*.zip -d ~/doc/rubybrain/ >/dev/null
-change_root "$HOME/doc/rubybrain"
-
-echo "* Downloading rails doc"
-wget -P doc http://www.railsbrain.com/api/rails-2.3.2/railsbrain_rails-2.3.2.zip
-echo "* Updating rails doc"
-unzip -u ~/doc/railsbrain*.zip -d ~/doc/railsbrain/ >/dev/null
-change_root "$HOME/doc/railsbrain"
+echo "* Downloading doc"
+wget -P doc http://railsapi.com/doc/authlogic-v2.1.3_eventmachine-v0.12.8_hpricot-v0.8_nokogiri-v1.4.1_rack-v1.1_rails-v2.3.5_rspec-v1.3.0_rspecrails-v1.3.2_ruby-v1.8_sinatra-v1.0_thin-v1.2.7_webrat-v0.7.1/rdoc.zip
+cd doc
+unzip rdoc.zip
+rm -f rdoc.zip
