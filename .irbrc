@@ -16,7 +16,7 @@ end
 
 #require 'map_by_method'
 #require 'what_methods'
-%w(pp open-uri rubygems hpricot wirble irb/completion irb/ext/save-history ).each do |x|
+%w(yaml pp open-uri rubygems hpricot wirble irb/completion irb/ext/save-history ).each do |x|
   begin
     require x
     if x == "wirble"
