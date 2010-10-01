@@ -43,3 +43,12 @@ IRB.conf.merge! \
   :AUTO_INDENT => true,
   :SAVE_HISTORY => 100,
   :HISTORY_FILE => "#{ENV['HOME']}/.irb-save-history"
+
+# BELOW: RAILS SPECIFIC
+
+# Show queries in script/console
+if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
+  require 'logger'
+  #Rails.logger = 
+  RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
+end
