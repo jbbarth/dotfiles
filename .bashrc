@@ -3,7 +3,7 @@
 # for examples
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+if [[ -n $PS1 ]]; then
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
@@ -118,3 +118,4 @@ export PATH=$PATH:/var/lib/gems/1.8/bin/
 ###    conky -c $HOME/.conkyrc -d -q
 ###  fi
 ###fi
+fi
