@@ -142,10 +142,8 @@ alias luksopen='sudo cryptsetup luksOpen'
 alias luksclose='sudo cryptsetup luksClose'
 
 # Environment variables
-PATH=$PATH:/var/lib/gems/1.8/bin:$HOME/scripts/rails:$HOME/scripts/linux
+PATH=$PATH:$HOME/scripts/rails:$HOME/scripts/linux
 PROMPT=$(grep setra /etc/hosts >/dev/null && echo '%m%# ' || echo '%# ')
-export RAILS_ENV=production
-export GEM_HOME=/var/lib/gems/1.8/
 export GIT_EDITOR=vi
 export SUDO_EDITOR=vi
 if ip addr show eth0 | grep -v "161.48.8" | grep -v "161.48.111" | grep "inet 161.48" >/dev/null; then
