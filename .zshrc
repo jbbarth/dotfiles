@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
-HISTSIZE=2000
-SAVEHIST=2000
+HISTSIZE=20000
+SAVEHIST=20000
 #bindkey -v
 bindkey '^[[3~' delete-char
 # End of lines configured by zsh-newuser-install
