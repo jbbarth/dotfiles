@@ -1,11 +1,10 @@
 FIRST INSTALL GIT:
 
-apt-get install git-core
+aptitude install git-core
 
 DEPLOY ON A NEW MACHINE/ACCOUNT (with zsh shell):
 
 cd
 git init
-git pull git://github.com/jbbarth/127.0.0.1.git
-sudo ./scripts/debian/first-packets.sh
+git pull git://github.com/jbbarth/dotfiles.git
 source .zshrc
