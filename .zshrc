@@ -175,4 +175,5 @@ zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*' group-name ''
 
 #RVM ( http://rvm.beginrescueend.com/install/ )
-[[ -s /home/salvor/.rvm/scripts/rvm ]] && source /home/salvor/.rvm/scripts/rvm
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+[[ -s /usr/local/rvm/scripts/rvm ]] && source /usr/local/rvm/scripts/rvm
