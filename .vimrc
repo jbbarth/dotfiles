@@ -187,3 +187,13 @@ set suffixes=.aux,.bak,.bbl,.blg,.gif,.gz,.idx,.ilg,.info,.jpg,.lof,.log,;lot,.o
 " see: http://www.vim.org/scripts/script.php?script_id=2175
 "set term=gnome-256color
 "colorscheme railscasts
+
+" toggle between paste/nopaste modes
+set pastetoggle=<F5>
+
+" display lines before/after cursors
+set scrolloff=3
+
+" default encoding
+set encoding=utf-8
+set fileencoding=utf-8
