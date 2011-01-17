@@ -26,6 +26,7 @@ setopt extended_history
 setopt correct
 setopt nonomatch
 setopt extended_glob
+setopt nullglob
 NULLCMD=:
 
 # Shell colors ; adapted from
@@ -98,7 +99,8 @@ vi() {
   fi
 }
 alias more='less'
-alias rs='ruby script/server -e development --debugger'
+alias rs='rspec spec'
+alias g='git'
 alias gc='git add . && git commit -a -m'
 alias gs='git status'
 gp() {
@@ -133,7 +135,7 @@ function ssh() {
 }
 alias go='gnome-open'
 if hostname|grep pegasus>/dev/null; then
-  alias mp='mplayer -fs -ao alsa,oss,'
+  alias mp='mplayer -fs -ao alsa,oss, -idx'
 else
   alias mp='mplayer -ao alsa,oss,'
 fi
@@ -143,7 +145,7 @@ alias luksclose='sudo cryptsetup luksClose'
 
 # Environment variables
 PATH=$PATH:$HOME/scripts/rails:$HOME/scripts/linux
-PROMPT=$(grep setra /etc/hosts >/dev/null && echo '%m%# ' || echo '%# ')
+PROMPT=$(grep setra.cs /etc/hosts >/dev/null && echo '%m%# ' || echo '%# ')
 export GIT_EDITOR=vi
 export SUDO_EDITOR=vi
 if ip addr show eth0 | grep -v "161.48.8" | grep -v "161.48.111" | grep "inet 161.48" >/dev/null; then
