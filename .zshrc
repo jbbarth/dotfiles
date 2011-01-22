@@ -107,6 +107,12 @@ gp() {
     git push --all $repo
   fi  
 }
+current_rvm_env() {
+  res=${GEM_HOME/*\/}
+  res=${res/ruby-}
+  res=$(echo $res|perl -pe 's/-p\d+($|@)/\1/')
+  echo $res
+}
 alias vds='ssh salvor@vds171.sivit.org'
 alias setra-redmine='ssh dsi.setra -L8889:localhost:80'
 alias week='ruby -e "require \"date\"; puts Date.commercial( Time.now.year, ARGV[0].to_i|1, 1 ).strftime( \"%d-%m-%Y\")"'
@@ -135,7 +141,9 @@ alias luksclose='sudo cryptsetup luksClose'
 
 # Environment variables
 PATH=$PATH:$HOME/scripts/rails:$HOME/scripts/linux
-PROMPT='%m%# '
+function precmd() {
+  PROMPT="%m:$(current_rvm_env)%# "
+}
 export GIT_EDITOR=vi
 export SUDO_EDITOR=vi
 
