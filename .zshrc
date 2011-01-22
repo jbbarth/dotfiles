@@ -57,12 +57,6 @@ zunrar() {
   echo "$nb files ; extracting with unrar $opts"
   for i in $(echo - -; tac passwd.txt | ruby -ne 'puts $_.strip.gsub(" ","BLANK")'); do
     echo "Trying password: $i"
-    #if [ "$i" == "-" ]; then
-    #  pass="-p-"
-    #else
-    #  pass="-p\"${i//BLANK/ }\""
-    #fi
-    #echo unrar $opts $pass $rar
     unrar $opts -p$i $rar && eval rm -f $(echo $rar | sed -e 's/part1.rar/part*.rar/' -e 's/part01.rar/part*.rar/')
     retval=$?
     [ "$retval" == "0" ] && break
@@ -84,7 +78,6 @@ joinsplitted() {
 }
 alias cp='cp -i'
 alias ll='ls -lh'
-alias la='ls -lAh'
 alias l='ls -CF'
 function llr {
   ls -la | sort -k 5 -n | ruby -ne 'a=$_.split;puts "#{a[4]} #{a[7..-1].join(" ")}" unless a[7].nil?'
@@ -115,17 +108,14 @@ gp() {
   fi  
 }
 alias vds='ssh salvor@vds171.sivit.org'
-alias setra-careless='ssh supervision2.setra -L8888:localhost:80'
 alias setra-redmine='ssh dsi.setra -L8889:localhost:80'
 alias week='ruby -e "require \"date\"; puts Date.commercial( Time.now.year, ARGV[0].to_i|1, 1 ).strftime( \"%d-%m-%Y\")"'
 alias ppa-key='command sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys'
 alias wupdate='sudo aptitude update && sudo aptitude safe-upgrade'
 alias iptables-list='command sudo iptables -nvL --line-numbers'
 alias iptables-clear='iptables -P INPUT ACCEPT'
-#alias man='man -a'
 alias sudo='command sudo '
 alias ssudo='command sudo sh -c '
-#alias gem='command sudo gem'
 function ssh() {
   if ip addr show eth0 | grep "inet 161.48" >/dev/null; then
     command ssh -F ~/.ssh/config.work $*
@@ -145,14 +135,9 @@ alias luksclose='sudo cryptsetup luksClose'
 
 # Environment variables
 PATH=$PATH:$HOME/scripts/rails:$HOME/scripts/linux
-PROMPT=$(grep setra.cs /etc/hosts >/dev/null && echo '%m%# ' || echo '%# ')
+PROMPT='%m%# '
 export GIT_EDITOR=vi
 export SUDO_EDITOR=vi
-if ip addr show eth0 | grep -v "161.48.8" | grep -v "161.48.111" | grep "inet 161.48" >/dev/null; then
-  export http_proxy=http://proxy:8080
-  export https_proxy=http://proxy:8080
-  export ftp_proxy=http://proxy:8080
-fi
 
 # Automatic files handling
 autoload zsh-mime-setup
