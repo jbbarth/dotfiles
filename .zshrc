@@ -101,6 +101,8 @@ gp() {
     git push --all origin
   elif [ -s .git/FETCH_HEAD ]; then
     git push --all $(ruby -ne 'puts $_.split.pop' < .git/FETCH_HEAD).git
+  elif grep "origin" .git/config >/dev/null; then
+    git push origin master
   else
     echo -n "Repo: "
     read repo
