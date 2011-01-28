@@ -100,7 +100,7 @@ gp() {
   if grep "remote = origin" .git/config >/dev/null; then
     git push --all origin
   elif [ -r .git/FETCH_HEAD ]; then
-    git push --all $(ruby -ne "puts split.pop" < .git/FETCH_HEAD).git
+    git push --all $(ruby -ne 'puts $_.split.pop' < .git/FETCH_HEAD).git
   else
     echo -n "Repo: "
     read repo
