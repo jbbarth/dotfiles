@@ -15,7 +15,7 @@ compinit
 # My own options (see man zshoptions)
 setopt auto_cd
 setopt auto_pushd
-setopt cdable_vars
+#setopt cdable_vars
 CDPATH=$CDPATH:$HOME
 PATH_DIRS=$PATH_DIRS:$HOME/scripts
 setopt pushd_ignore_dups
