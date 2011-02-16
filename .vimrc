@@ -41,7 +41,7 @@ set showcmd
 "set incsearch
 
 " Let you use mouse if your terminal can do it
-"set mouse=a
+set mouse=a
 
 " Disable auto-indent ; opposite of "paste"
 "set nopaste
