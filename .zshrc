@@ -82,6 +82,9 @@ alias l='ls -CF'
 function llr {
   ls -la | sort -k 5 -n | ruby -ne 'a=$_.split;puts "#{a[4]} #{a[7..-1].join(" ")}" unless a[7].nil?'
 }
+px() {
+  ps aux|grep $*
+}
 vi() {
   if [ -w $1 ]; then
     command vim $*
