@@ -95,7 +95,7 @@ set expandtab
 "highlight CursorLine ctermbg=blue
 
 " Show line numbers
-"set number
+set number
 
 " Use shiftwidth instead of tabstop at the beginning of the line
 " and backspace deletes everything if there are only spaces
