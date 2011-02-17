@@ -1,16 +1,8 @@
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
 HISTSIZE=20000
 SAVEHIST=20000
 #bindkey -v
 bindkey '^[[3~' delete-char
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '~/.zshrc'
-#autoload -Uz compinit
-autoload -U compinit
-compinit
-# End of lines added by compinstall
 
 # My own options (see man zshoptions)
 setopt auto_cd
@@ -23,10 +15,6 @@ setopt hist_ignore_dups
 setopt inc_append_history
 setopt extended_history
 #setopt path_dirs
-setopt correct
-setopt nonomatch
-setopt extended_glob
-setopt nullglob
 NULLCMD=:
 
 # Shell colors ; adapted from
@@ -63,18 +51,3 @@ zsh-mime-setup 2>/dev/null
 ###zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 ###precmd () { vcs_info }
 ###PS1='%F{5}[%F{2}%n%F{5}] %F{3}%3~ ${vcs_info_msg_0_}'"%f%# "
-
-# Completion development lines
-# => be as verbose as possible
-zstyle ':completion:*' verbose yes
-zstyle ':completion:*:*:*:*:*' menu select
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
-zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
-zstyle ':completion:*:descriptions' format '%B%d%b'
-zstyle ':completion:*:messages' format '%d'
-zstyle ':completion:*:warnings' format 'No matches for: %d'
-zstyle ':completion:*' group-name ''
-if [ -f ~/.ssh/known_hosts ]; then
-  zstyle ':completion:*' hosts $( sed 's/[, ].*$//' $HOME/.ssh/known_hosts )
-  zstyle ':completion:*:*:(ssh|scp):*:*' hosts `sed 's/^\([^ ,]*\).*$/\1/' ~/.ssh/known_hosts`
-fi
