@@ -47,9 +47,6 @@ for config_file ($HOME/.zsh/*.zsh) source $config_file
 
 # Environment variables
 PATH=$PATH:$HOME/scripts/rails:$HOME/scripts/linux
-function precmd() {
-  PROMPT="%m:$(current_rvm_env)%# "
-}
 export GIT_EDITOR=vi
 export SUDO_EDITOR=vi
 
@@ -81,8 +78,3 @@ if [ -f ~/.ssh/known_hosts ]; then
   zstyle ':completion:*' hosts $( sed 's/[, ].*$//' $HOME/.ssh/known_hosts )
   zstyle ':completion:*:*:(ssh|scp):*:*' hosts `sed 's/^\([^ ,]*\).*$/\1/' ~/.ssh/known_hosts`
 fi
-
-
-#RVM ( http://rvm.beginrescueend.com/install/ )
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
-[[ -s /usr/local/rvm/scripts/rvm ]] && source /usr/local/rvm/scripts/rvm
