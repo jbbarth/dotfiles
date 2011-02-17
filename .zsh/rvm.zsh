@@ -2,8 +2,8 @@
 # http://rvm.beginrescueend.com/
 
 #loading
-! which rvm>/dev/null && [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
-! which rvm>/dev/null && [[ -s /usr/local/rvm/scripts/rvm ]] && source /usr/local/rvm/scripts/rvm
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+[[ -s /usr/local/rvm/scripts/rvm ]] && source /usr/local/rvm/scripts/rvm
 
 #short current rvm env
 current_rvm_env() {
