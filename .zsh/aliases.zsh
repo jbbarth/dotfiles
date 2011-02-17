@@ -51,22 +51,6 @@ vi() {
 }
 alias more='less'
 alias rs='rspec spec'
-alias g='git'
-alias gc='git add . && git commit -a -m'
-alias gs='git status'
-gp() {
-  if grep "remote = origin" .git/config >/dev/null; then
-    git push --all origin
-  elif [ -s .git/FETCH_HEAD ]; then
-    git push --all $(ruby -ne 'puts $_.split.pop' < .git/FETCH_HEAD).git
-  elif grep "origin" .git/config >/dev/null; then
-    git push origin master
-  else
-    echo -n "Repo: "
-    read repo
-    git push --all $repo
-  fi  
-}
 alias vds='ssh salvor@vds171.sivit.org'
 alias setra-redmine='ssh dsi.setra -L8889:localhost:80'
 alias week='ruby -e "require \"date\"; puts Date.commercial( Time.now.year, ARGV[0].to_i|1, 1 ).strftime( \"%d-%m-%Y\")"'
