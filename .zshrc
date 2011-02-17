@@ -169,10 +169,12 @@ zsh-mime-setup 2>/dev/null
 # Completion development lines
 # => be as verbose as possible
 zstyle ':completion:*' verbose yes
+zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*:descriptions' format '%B%d%b'
 zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*' group-name ''
+
 
 #RVM ( http://rvm.beginrescueend.com/install/ )
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
