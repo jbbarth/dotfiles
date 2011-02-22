@@ -15,5 +15,10 @@ current_rvm_env() {
 
 #prompt with rvm env
 function precmd() {
-  PROMPT="%m:$(current_rvm_env)%# "
+  if [[ -z "$SSH_CONNECTION" ]]; then
+    #PROMPT="$(printf '\u263A'):$(current_rvm_env)%# "
+    PROMPT="local:$(current_rvm_env)%# "
+  else
+    PROMPT="%m:$(current_rvm_env)%# "
+  fi
 }
