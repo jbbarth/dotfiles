@@ -1,0 +1,5 @@
+[global_config]
+[keybindings]
+  toggle_zoom = <Control>F11
+  split_vert = <Alt>v
+  split_horiz = <Alt>h
