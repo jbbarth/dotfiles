@@ -1,5 +1,4 @@
 [global_config]
-  borderless = True
 [keybindings]
   toggle_zoom = <Control>F11
   split_vert = <Alt>v
