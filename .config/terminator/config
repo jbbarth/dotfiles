@@ -1,17 +1,16 @@
 [global_config]
 [keybindings]
+  cycle_prev = <Control>Left
   toggle_zoom = <Control>F11
+  cycle_next = <Control>Right
   split_vert = <Alt>v
   split_horiz = <Alt>h
-  cycle_prev = <Control>Left
-  cycle_next = <Control>Right
 [profiles]
   [[default]]
     use_system_font = False
     font = Monospace 9
     visible_bell = True
     scrollbar_position = hidden
-    show_titlebar = False
     copy_on_selection = True
     scrollback_infinite = True
 [layouts]
