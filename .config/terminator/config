@@ -1,5 +1,17 @@
 [global_config]
+  borderless = True
 [keybindings]
   toggle_zoom = <Control>F11
   split_vert = <Alt>v
   split_horiz = <Alt>h
+[profiles]
+  [[default]]
+    use_system_font = False
+    font = Monospace 9
+    visible_bell = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    copy_on_selection = True
+    scrollback_infinite = True
+[layouts]
+[plugins]
