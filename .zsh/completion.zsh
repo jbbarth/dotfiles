@@ -10,7 +10,7 @@ compinit
 setopt correct
 setopt nonomatch
 setopt extended_glob
-setopt nullglob
+#setopt nullglob
 
 # customizations
 zstyle ':completion:*' verbose yes
