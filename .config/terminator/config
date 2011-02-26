@@ -3,6 +3,8 @@
   toggle_zoom = <Control>F11
   split_vert = <Alt>v
   split_horiz = <Alt>h
+  cycle_prev = <Control>Left
+  cycle_next = <Control>Right
 [profiles]
   [[default]]
     use_system_font = False
