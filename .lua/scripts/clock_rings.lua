@@ -283,6 +283,7 @@ function conky_clock_rings()
         str=conky_parse(str)
         
         value=tonumber(str)
+        if (value==nil) then value=0 end
         pct=value/pt['max']
         
         draw_ring(cr,pct,pt)
