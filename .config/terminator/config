@@ -15,4 +15,11 @@
     word_chars = "-A-Za-z0-9,./?%&_"
     scrollback_infinite = True
 [layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
 [plugins]
