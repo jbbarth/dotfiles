@@ -12,6 +12,7 @@
     visible_bell = True
     scrollbar_position = hidden
     copy_on_selection = True
+    word_chars = "-A-Za-z0-9,./?%&_"
     scrollback_infinite = True
 [layouts]
 [plugins]
