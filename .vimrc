@@ -41,7 +41,7 @@ set showcmd
 "set incsearch
 
 " Let you use mouse if your terminal can do it
-set mouse=a
+" set mouse=a
 
 " Disable auto-indent ; opposite of "paste"
 "set nopaste
@@ -95,7 +95,7 @@ set expandtab
 "highlight CursorLine ctermbg=blue
 
 " Show line numbers
-set number
+" set number
 
 " Use shiftwidth instead of tabstop at the beginning of the line
 " and backspace deletes everything if there are only spaces
