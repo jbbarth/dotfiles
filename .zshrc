@@ -34,7 +34,7 @@ fi
 for config_file ($HOME/.zsh/*.zsh) source $config_file
 
 # Environment variables
-PATH=$PATH:$HOME/scripts/rails:$HOME/scripts/linux
+PATH=$PATH:$HOME/scripts/rails:$HOME/scripts/linux:$HOME/bin
 export SUDO_EDITOR=vi
 
 # Automatic files handling
