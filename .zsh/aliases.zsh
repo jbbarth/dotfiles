@@ -1,6 +1,7 @@
 # Personal aliases
 [ -e /etc/redhat-release ] && alias rm='rm -i' || alias rm='rm -I'
 alias mv='mv -i'
+alias df='df -hP'
 alias zmv='rsync --recursive --remove-source-files --progress'
 alias emptydirs='find . -type d -empty -print'
 zunrar() {
