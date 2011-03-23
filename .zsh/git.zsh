@@ -17,3 +17,6 @@ gp() {
     git push --all $repo
   fi  
 }
+if [ -s $HOME/bin/hub ]; then
+  function git(){hub "$@"}
+fi
