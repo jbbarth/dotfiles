@@ -2,7 +2,7 @@
   name = jbbarth
   email = jeanbaptiste.barth@gmail.com
 [color]
-  ui = always
+  ui = auto
 [color "branch"]
   current = yellow reverse
   local = yellow
