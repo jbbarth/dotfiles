@@ -124,7 +124,7 @@ function! ToggleCommentify()
 	if lineString != $									" don't comment empty lines
 		let isCommented = strpart(lineString,0,3)		" getting the first 3 symbols
 		let fileType = &ft								" finding out the file-type, and specifying the comment symbol
-		if fileType == 'ox' || fileType == 'cpp' || fileType == 'cu' || fileType == 'c' || fileType == 'php'
+		if fileType == 'ox' || fileType == 'cpp' || fileType == 'cu' || fileType == 'c' || fileType == 'php' || fileType == 'javascript'
 			let commentSymbol = '///'
 		elseif fileType == 'vim'
 			let commentSymbol = '"""'
