@@ -17,7 +17,7 @@ zunrar() {
     retval=$?
     [ "$retval" == "0" ] && break
   done
-  rm -f [A-Z]*(txt|url) Thumbs.db*
+  rm -f [A-Z]*(txt|url) Thumbs.db* *.url
   return $retval
 }
 zrmlocaldup() {
