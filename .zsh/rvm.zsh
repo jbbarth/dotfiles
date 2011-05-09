@@ -22,3 +22,5 @@ function precmd() {
     PROMPT="%m:$(current_rvm_env)%# "
   fi
 }
+
+cd .
