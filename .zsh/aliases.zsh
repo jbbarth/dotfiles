@@ -13,11 +13,11 @@ zunrar() {
   echo "$nb files ; extracting with unrar $opts"
   for i in $(echo - -; tac passwd.txt | ruby -ne 'puts $_.strip.gsub(" ","BLANK")'); do
     echo "Trying password: $i"
-    unrar $opts -p$i $rar && eval rm -f $(echo $rar | sed -e 's/part1.rar/part*.rar/' -e 's/part01.rar/part*.rar/')
+    unrar $opts -p$i $rar && eval rm -f "$(echo $rar | sed -e 's/part1.rar/part*.rar/' -e 's/part01.rar/part*.rar/')"
     retval=$?
     [ "$retval" == "0" ] && break
   done
-  rm -f [A-Z]*(txt|url) Thumbs.db* *.url
+  rm -f [A-Z]*.txt Thumbs.db* *.url
   return $retval
 }
 zrmlocaldup() {
