@@ -1,6 +1,6 @@
 HISTFILE=~/.zsh_history
-HISTSIZE=20000
-SAVEHIST=20000
+HISTSIZE=200000
+SAVEHIST=200000
 #bindkey -v
 bindkey '^[[3~' delete-char
 
