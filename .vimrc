@@ -9,10 +9,14 @@ syntax on
 " Automatic background color
 set background&
 
-" File type detection to indent it
-if has("autocmd")
-  filetype indent on
-endif
+" Load bundles automatically
+" Didn't have luck with tpope's pathogen, so I use this :
+" See http://snk.tuxfamily.org/log/vim-script-management-system.html
+let s:bundles = tr(globpath(&runtimepath, 'bundle/*/'), "\n", ',')
+let s:afters = tr(globpath(s:bundles, 'after/'), "\n", ',')
+let &runtimepath = join([s:bundles, &runtimepath, s:afters], ',')
+filetype off
+filetype plugin indent on
 
 " Keep cursor position when re-openning a file
 if has("autocmd")
