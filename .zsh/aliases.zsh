@@ -52,6 +52,7 @@ vi() {
 }
 alias more='less'
 alias rs='rspec spec'
+alias rake='bundle exec rake'
 alias rt='RAILS_ENV=test ruby -Itest'
 alias vds='ssh salvor@vds171.sivit.org'
 alias setra-redmine='ssh dsi.setra -L8889:localhost:80'
