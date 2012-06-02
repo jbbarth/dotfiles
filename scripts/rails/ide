@@ -16,7 +16,7 @@ PS3="Which project to start a session for? "
 if [ "$(screen -list | grep 'No Socket' >/dev/null 2>&1; echo $?)" -ne "0" ]; then
   echo "There are already running screen sessions :"
   screen -list
-  exit 1
+  #exit 1
 fi
 
 #select PROJECT in `ls -F $DEVEL_DIR | egrep /$ | sed 's/\///' `; do
@@ -49,7 +49,7 @@ select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name database.yml | fgrep confi
   eval $SLEEP
   [ -d .git/ ] && screen -X -S $SPROJECT -p 2 stuff "git status"
   [ -d .svn/ ] && screen -X -S $SPROJECT -p 2 stuff "svn status"
-  screen -X -S $SPROJECT screen -t AUTOTEST 3
+  screen -X -S $SPROJECT screen -t TEST 3
   eval $SLEEP
   #screen -X -S $SPROJECT -p 3 stuff "rake db:test:load && autotest 2>&1 | \\more"
   i=3
@@ -58,6 +58,12 @@ select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name database.yml | fgrep confi
     screen -X -S $SPROJECT screen -t DAEMONS 4
     screen -X -S $SPROJECT -p 4 stuff "RAILS_ENV=development lib/daemons/*_ctl run"
     i=4
+  fi
+  if grep mongo Gemfile >/dev/null; then
+    eval $SLEEP
+    i=$(echo "1+$i"|bc)
+    screen -X -S $SPROJECT -p $i stuff "cd dev/mongo/mongo*/bin; ./mongod --dbpath ./data/db/ --rest"
+    screen -X -S $SPROJECT screen -t MONGOD $i
   fi
   for j in $(seq 0 $i); do
     eval $SLEEP2
