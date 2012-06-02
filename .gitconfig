@@ -28,3 +28,5 @@
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   s = stash
+[core]
+	excludesfile = /home/jbbarth/.gitglobalignore
