@@ -71,6 +71,14 @@ function ssh() {
     command ssh $*
   fi
 }
+function scp() {
+  if ip addr show | grep -e "inet 10.166" -e "inet 10.167" -e "inet 172.22" >/dev/null; then
+  #if ip addr show | grep "eth0" |grep " UP" >/dev/null; then
+    command scp -F ~/.ssh/config.work $*
+  else
+    command scp $*
+  fi
+}
 alias go='gnome-open'
 if laptop-detect 2>/dev/null; then
   alias mp='mplayer -fs -ao alsa,oss, -idx -af pan=2:0.5:0.5:0.5:0.5'
