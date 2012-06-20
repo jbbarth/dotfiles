@@ -115,3 +115,4 @@ alias -g M=' 2>&1 | more'
 alias luksopen='sudo cryptsetup luksOpen'
 alias luksclose='sudo cryptsetup luksClose'
 alias pru="rvm 1.9.2 exec pru"
+alias osxhostname="sudo scutil --set HostName "
