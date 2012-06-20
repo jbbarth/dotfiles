@@ -1,5 +1,5 @@
 # Personal aliases
-[ -e /etc/redhat-release ] && alias rm='rm -i' || alias rm='rm -I'
+[ -e /etc/debian_version ] && alias rm='rm -I' || alias rm='rm -i'
 alias mv='mv -i'
 alias df='df -hP'
 alias zmv='rsync --recursive --remove-source-files --progress'
