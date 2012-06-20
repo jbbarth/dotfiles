@@ -1,3 +1,17 @@
+# Colors in commands
+# adapted from http://chm.duquesne.free.fr/blog/?p=61
+if [ -x /usr/bin/dircolors ]; then
+    eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+    #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
+    alias less='less -R'
+fi
+
 # Personal aliases
 [ -e /etc/debian_version ] && alias rm='rm -I' || alias rm='rm -i'
 alias mv='mv -i'
