@@ -25,7 +25,8 @@ fi
 
 # Personal aliases
 [ -e /etc/debian_version ] && alias rm='rm -I' || alias rm='rm -i'
-alias mv='mv -i'
+[ -e /usr/local/bin/grm ] && alias rm='grm -I'
+[ -e /usr/local/bin/gmv ] && alias mv='gmv -i' || alias mv='mv -i'
 alias df='df -hP'
 alias zmv='rsync --recursive --remove-source-files --progress'
 alias emptydirs='find . -type d -empty -print'
