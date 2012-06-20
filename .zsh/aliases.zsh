@@ -10,6 +10,17 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
     #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
     alias less='less -R'
+# MacOSX version with coreutils packages
+elif [ -x /usr/local/bin/gdircolors ]; then
+    eval "$(gdircolors -b)"
+    alias ls='gls --color=auto'
+    alias dir='gdir --color=auto'
+    alias vdir='gvdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+    #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
+    alias less='less -R'
 fi
 
 # Personal aliases
