@@ -50,5 +50,3 @@ zsh-mime-setup 2>/dev/null
 ###zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 ###precmd () { vcs_info }
 ###PS1='%F{5}[%F{2}%n%F{5}] %F{3}%3~ ${vcs_info_msg_0_}'"%f%# "
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

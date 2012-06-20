@@ -23,4 +23,8 @@ function precmd() {
   fi
 }
 
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin
+
+# Forces to load per project file in screen
 cd .
