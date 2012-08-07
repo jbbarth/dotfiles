@@ -68,6 +68,12 @@ px() {
   ps aux|grep $*
 }
 vi() {
+  #ensure we're not on a binary file
+  if [ -e $1 ]; then
+    filetype=$(file $1|grep ' text' >/dev/null && echo 'text' || echo 'other') 
+    [ "$filetype" != "text" ] && echo "Non text file: $(file $1)\nContinue ?" && read
+  fi
+  #then only edit it
   if [ -w $1 ]; then
     command vim $*
   elif [ ! -e $1 ] && [ -w $(dirname $1) ]; then
