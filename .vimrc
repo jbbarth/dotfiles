@@ -128,37 +128,39 @@ function! ToggleCommentify()
 	if lineString != $									" don't comment empty lines
 		let isCommented = strpart(lineString,0,3)		" getting the first 3 symbols
 		let fileType = &ft								" finding out the file-type, and specifying the comment symbol
+    let commentSymbolAfter = ''
 		if fileType == 'ox' || fileType == 'cpp' || fileType == 'cu' || fileType == 'c' || fileType == 'php' || fileType == 'javascript'
-			let commentSymbol = '///'
+			let commentSymbolBefore = '///'
 		elseif fileType == 'vim'
-			let commentSymbol = '"""'
+			let commentSymbolBefore = '"""'
 		elseif fileType == 'python'
-			let commentSymbol = '###'
-                else
-                    execute 'echo "WARNING: File type not detected. Using default comment token"'
-                        let commentSymbol = '###'
-                endif
-"""		else
-"""			execute 'echo "ToggleCommentify has not (yet) been implemented for this file-type"'
-"""			let commentSymbol = ''
-"""		endif
-		if isCommented == commentSymbol					
-			call UnCommentify(commentSymbol)			" if the line is already commented, uncomment
+			let commentSymbolBefore = '###'
+    elseif fileType == 'xml'
+      let commentSymbolBefore = '<!--'
+      let commentSymbolAfter  = ' -->'
+    else
+      execute 'echo "WARNING: File type not detected. Using default comment token"'
+      let commentSymbol = '###'
+    endif
+		if isCommented == strpart(commentSymbolBefore,0,3)
+			call UnCommentify(commentSymbolBefore, commentSymbolAfter) " if the line is already commented, uncomment
 		else
-			call Commentify(commentSymbol)				" if the line is uncommented, comment
+			call Commentify(commentSymbolBefore, commentSymbolAfter)				 " if the line is uncommented, comment
 		endif
 	endif
 endfunction
 
-function! Commentify(commentSymbol)	
-	set nohlsearch	
-	execute ':s+^+'.a:commentSymbol.'+'					| " go to the beginning of the line and insert the comment symbol 
-	set hlsearch										  " note: the '|' is so I can put a quote directly after an execute statement
+function! Commentify(commentSymbolBefore, commentSymbolAfter)
+	set nohlsearch
+	execute ':s+^+'.a:commentSymbolBefore.'+'					| " go to the beginning of the line and insert the comment symbol 
+	execute ':s+$+'.a:commentSymbolAfter.'+'					| " go to the end of the line and append the comment symbol 
+	set hlsearch										                    " note: the '|' is so I can put a quote directly after an execute statement
 endfunction
 	
-function! UnCommentify(commentSymbol)	
-	set nohlsearch	
-	execute ':s+'.a:commentSymbol.'++'					| " remove the first comment symbol found on a line
+function! UnCommentify(commentSymbolBefore, commentSymbolAfter)
+	set nohlsearch
+	execute ':s+^'.a:commentSymbolBefore.'++'					| " go to the beginning of the line and remove the comment symbol 
+	execute ':s+'.a:commentSymbolAfter.'$++'					| " go to the end of the line and remove the comment symbol 
 	set hlsearch	
 endfunction
 
