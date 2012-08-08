@@ -1,3 +1,5 @@
+"https://github.com/jbbarth/dotfiles/
+
 "-------------------------------------------------------------
 " 010 - include tpope's pathogen to manage plugin/bundles/etc.
 "       see: https://github.com/tpope/vim-pathogen/
