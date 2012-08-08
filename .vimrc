@@ -173,6 +173,10 @@ function! UnCommentify(commentSymbolBefore, commentSymbolAfter)
 	set hlsearch	
 endfunction
 
+" Specific mappings
+" hashrocket with Ctrl+l in insert mode
+imap <c-l> <space>=><space>
+
 " Status line
 " See: http://informatique-et-liberte.tuxfamily.org/2009/06/27/vim-et-son-vimrc-une-barre-detat-personnalisee/
 set laststatus=2 " display the status bar (0 = hide, 1 = only if splitted)
