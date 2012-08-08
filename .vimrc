@@ -16,7 +16,13 @@ set t_Co=256
 syntax on
 
 " Automatic background color
-set background&
+set background=light
+" And set a colorscheme
+let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
+colorscheme solarized
+"call togglebg#map("<F5>")
+
 
 filetype off
 filetype plugin indent on
