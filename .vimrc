@@ -1,3 +1,9 @@
+"-------------------------------------------------------------
+" 010 - include tpope's pathogen to manage plugin/bundles/etc.
+"       see: https://github.com/tpope/vim-pathogen/
+"-------------------------------------------------------------
+call pathogen#infect()
+
 " See: http://linux-attitude.fr/post/Vimrc-collaboratif
 " 
 " Defaults options (keep it at the top of your vimrc)
@@ -9,12 +15,6 @@ syntax on
 " Automatic background color
 set background&
 
-" Load bundles automatically
-" Didn't have luck with tpope's pathogen, so I use this :
-" See http://snk.tuxfamily.org/log/vim-script-management-system.html
-let s:bundles = tr(globpath(&runtimepath, 'bundle/*/'), "\n", ',')
-let s:afters = tr(globpath(s:bundles, 'after/'), "\n", ',')
-let &runtimepath = join([s:bundles, &runtimepath, s:afters], ',')
 filetype off
 filetype plugin indent on
 
