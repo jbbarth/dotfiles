@@ -140,7 +140,7 @@ function! ToggleCommentify()
       let commentSymbolAfter  = ' -->'
     else
       execute 'echo "WARNING: File type not detected. Using default comment token"'
-      let commentSymbol = '###'
+      let commentSymbolBefore = '###'
     endif
 		if isCommented == strpart(commentSymbolBefore,0,3)
 			call UnCommentify(commentSymbolBefore, commentSymbolAfter) " if the line is already commented, uncomment
