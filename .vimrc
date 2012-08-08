@@ -12,6 +12,7 @@ call pathogen#infect()
 set nocompatible
 
 " Syntax highlighting
+set t_Co=256
 syntax on
 
 " Automatic background color
