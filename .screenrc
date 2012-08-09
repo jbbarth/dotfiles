@@ -9,7 +9,7 @@ hardstatus alwayslastline
 hardstatus string "%-w%{= BW}%50>%n %t%{-}%+w%<"
 
 # Change default escape sequence
-escape ^Wa
+#escape ^Wa
 
 # Support for 256-colors in screen
 attrcolor b ".I"
