@@ -20,6 +20,9 @@ NULLCMD=:
 # Load files under .zsh/
 for config_file ($HOME/.zsh/*.zsh) source $config_file
 
+# Add ssh keys to agent if needed (MacOSX for instance)
+ssh-add -L |grep "^ssh" >/dev/null || ssh-add
+
 # Environment variables
 PATH=$PATH:$HOME/scripts/rails:$HOME/scripts/linux:$HOME/bin
 export SUDO_EDITOR=vi
