@@ -177,6 +177,9 @@ endfunction
 " hashrocket with Ctrl+l in insert mode
 imap <c-l> <space>=><space>
 
+" Map Ctrl+Q to CtrlP plugin
+map <c-p> execute ':CtrlP'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
 " Indent if we're at the beginning of a line. Else, do completion.
