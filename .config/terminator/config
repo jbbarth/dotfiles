@@ -7,10 +7,9 @@
   split_horiz = <Alt>h
 [profiles]
   [[default]]
-    use_system_font = False
-    font = Monospace 9
-    scrollbar_position = hidden
     copy_on_selection = True
+    scrollbar_position = hidden
+    font = Monospace 9
     word_chars = "-A-Za-z0-9,./?%&_"
     scrollback_infinite = True
 [layouts]
