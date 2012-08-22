@@ -11,6 +11,9 @@ call pathogen#infect()
 " Defaults options (keep it at the top of your vimrc)
 set nocompatible
 
+" Allow unsaved background buffers and remember marks/undo for them
+set hidden
+
 " Syntax highlighting
 set t_Co=256
 syntax on
@@ -23,6 +26,8 @@ let g:solarized_termcolors=256
 colorscheme solarized
 "call togglebg#map("<F5>")
 
+" Change mapleader default char
+let mapleader=";"
 
 filetype off
 filetype plugin indent on
@@ -32,6 +37,7 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal g'\"" | endif
 endif
+
 
 " If not already done, display cursor position
 set ruler
@@ -178,7 +184,7 @@ endfunction
 imap <c-l> <space>=><space>
 
 " Map Ctrl+Q to CtrlP plugin
-map <c-p> execute ':CtrlP'
+nmap <leader>n :CtrlP<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
