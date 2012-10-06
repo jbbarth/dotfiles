@@ -150,7 +150,7 @@ function! ToggleCommentify()
 			let commentSymbolBefore = '"""'
 		elseif fileType == 'python'
 			let commentSymbolBefore = '###'
-    elseif fileType == 'xml'
+    elseif fileType == 'xml' || fileType == 'html'
       let commentSymbolBefore = '<!--'
       let commentSymbolAfter  = ' -->'
     else
