@@ -18,6 +18,6 @@ gp() {
   fi  
 }
 if which hub >/dev/null; then
-  #function git(){hub "$@"}
-  alias git=hub
+  # do not use an alias or shell comp won't work
+  function git(){hub "$@"}
 fi
