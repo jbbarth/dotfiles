@@ -148,9 +148,9 @@ function! ToggleCommentify()
 			let commentSymbolBefore = '///'
 		elseif fileType == 'vim'
 			let commentSymbolBefore = '"""'
-		elseif fileType == 'python'
+		elseif fileType == 'python' || fileType == 'ruby'
 			let commentSymbolBefore = '###'
-    elseif fileType == 'xml' || fileType == 'html'
+    elseif fileType == 'xml' || fileType == 'html' || fileType == 'eruby'
       let commentSymbolBefore = '<!--'
       let commentSymbolAfter  = ' -->'
     else
