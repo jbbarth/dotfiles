@@ -29,7 +29,6 @@ select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name environment.rb | fgrep con
 
   cd $DEVEL_DIR/$PROJECT
   env="development"
-  echo $PROJECT|grep redmine>/dev/null && env="production"
   if [ -e "script/server" ]; then
     cmd_console="ruby script/console development"
     cmd_server="ruby script/server -e $env --debugger"
