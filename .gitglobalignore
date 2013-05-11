@@ -1,3 +1,4 @@
 .powrc
+.ruby-*
 .rvmrc
 .rvmrc.*
