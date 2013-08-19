@@ -129,6 +129,12 @@ endfunction
 
 au BufWritePost * call ModeChange()
 
+" Instead of reverting the cursor to the last position in the buffer, we
+" set it to the first line when editing a git commit message
+"
+" taken from: https://github.com/keelerm84/spf13-vim/commit/1eb005b
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
 " Better autoindent
 set noautoindent
 filetype plugin indent on
