@@ -6,7 +6,6 @@ update: --no-rdoc --no-ri
 :verbose: true
 :backtrace: false
 :sources: 
-- http://rubygems.org
-- http://gems.github.com
-- http://gems.opscode.com
+- file:///home/jbbarth/.rubygems/
+- https://rubygems.org
 :bulk_threshold: 1000
