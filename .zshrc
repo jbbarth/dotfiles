@@ -15,7 +15,6 @@ setopt auto_cd
 setopt auto_pushd
 #setopt cdable_vars
 CDPATH=$CDPATH:$HOME
-PATH_DIRS=$PATH_DIRS:$HOME/scripts
 setopt pushd_ignore_dups
 setopt hist_ignore_dups
 setopt inc_append_history
@@ -30,7 +29,7 @@ for config_file ($HOME/.zsh/*.zsh) source $config_file
 ssh-add -L |grep "^ssh" >/dev/null || ssh-add
 
 # Environment variables
-PATH=$PATH:$HOME/scripts/rails:$HOME/scripts/linux:$HOME/bin
+PATH=$PATH:$HOME/bin
 export SUDO_EDITOR=vi
 
 # Automatic files handling
