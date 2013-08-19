@@ -2,3 +2,4 @@
 .ruby-*
 .rvmrc
 .rvmrc.*
+libpeerconnection.log
