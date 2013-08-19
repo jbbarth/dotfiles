@@ -2,7 +2,13 @@ HISTFILE=~/.zsh_history
 HISTSIZE=100000000
 SAVEHIST=100000000
 #bindkey -v
+bindkey -e
+#bindkey -s '\el' 'ls\n'                             # [Esc-l] - run command: ls
+#bindkey -s '\e.' '..\n'                             # [Esc-.] - run command: .. (up directory)
 bindkey '^[[3~' delete-char
+bindkey '^R' history-incremental-search-backward
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
 
 # My own options (see man zshoptions)
 setopt auto_cd
