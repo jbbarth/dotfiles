@@ -1,6 +1,6 @@
 FIRST INSTALL GIT:
 
-aptitude install git-core
+aptitude install git
 
 DEPLOY ON A NEW MACHINE/ACCOUNT (with zsh shell):
 
