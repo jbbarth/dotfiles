@@ -16,16 +16,6 @@ if type rvm >/dev/null 2>&1; then
     echo $res
   }
 
-  #prompt with rvm env
-  function precmd() {
-    if [[ -z "$SSH_CONNECTION" ]]; then
-      #PROMPT="$(printf '\u263A'):$(current_rvm_env)%# "
-      PROMPT="local:$(current_rvm_env)%# "
-    else
-      PROMPT="%m:$(current_rvm_env)%# "
-    fi
-  }
-
   #add RVM to PATH for scripting
   PATH=$PATH:$HOME/.rvm/bin
 

@@ -40,3 +40,24 @@ zsh-mime-setup 2>/dev/null
 ###zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 ###precmd () { vcs_info }
 ###PS1='%F{5}[%F{2}%n%F{5}] %F{3}%3~ ${vcs_info_msg_0_}'"%f%# "
+
+# precmd() for rvm prompt + no hist dirs
+function precmd() {
+  #RVM
+  if [[ -z "$SSH_CONNECTION" ]]; then
+    #PROMPT="$(printf '\u263A'):$(current_rvm_env)%# "
+    PROMPT="local:$(current_rvm_env)%# "
+  else
+    PROMPT="%m:$(current_rvm_env)%# "
+  fi
+  #No history directories
+  if test -e ~/.nohistdirs && pwd | grep -F -f ~/.nohistdirs >/dev/null; then
+    fc -W
+    unset HISTFILE
+  else
+    #fc -W
+    export HISTFILE=~/.zsh_history
+  fi
+}
+
+PATH=$PATH:/usr/local/rvm/bin # Add RVM to PATH for scripting
