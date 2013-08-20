@@ -120,3 +120,4 @@ alias luksclose='sudo cryptsetup luksClose'
 alias pru="rvm 1.9.2 exec pru"
 alias osxhostname="sudo scutil --set HostName "
 alias clean-file-names="rename 's/ /_/g' *; rename 's/_-_/_/g' *"
+alias convert-ruby-hash-syntax="perl -pi -e 's/:([\w\d_]+)(\s*)=>/\1:/g' **/*.rb"
