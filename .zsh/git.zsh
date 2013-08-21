@@ -2,8 +2,16 @@
 
 export GIT_EDITOR=vi
 alias g='git'
-alias gc='git status --porcelain | grep "^M" >/dev/null || git add . ; git commit'
 alias gs='git status'
+gc() {
+  git status --porcelain | grep "^M" >/dev/null || git add .
+  opts=""
+  if [ "$1" != "" ]; then
+    git commit -e -m "$1"
+  else
+    git commit
+  fi
+}
 gp() {
   if grep "remote = origin" .git/config >/dev/null; then
     git push --all origin
