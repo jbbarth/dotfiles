@@ -3,6 +3,8 @@
 [user]
   name = jbbarth
   email = jeanbaptiste.barth@gmail.com
+[branch]
+  autosetuprebase = always #always "pull --rebase"
 [color]
   ui = auto
 [color "branch"]
