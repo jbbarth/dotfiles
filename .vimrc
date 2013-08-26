@@ -26,6 +26,12 @@ let g:solarized_termcolors=256
 colorscheme solarized
 "call togglebg#map("<F5>")
 
+" Manually force transparent background because tmux forces it to a dark one
+" and I couldn't find out why
+if &term =~ 'screen-256color'
+  highlight Normal ctermbg=None
+endif
+
 " Change mapleader default char
 let mapleader=";"
 
