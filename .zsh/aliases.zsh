@@ -29,6 +29,7 @@ fi
 [ -e /usr/local/bin/gmv ] && alias mv='gmv -i' || alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias df='df -hP'
+alias tmux='tmux -2'
 alias zmv='rsync --recursive --remove-source-files --progress'
 alias emptydirs='find . -type d -empty -print'
 zunrar() {

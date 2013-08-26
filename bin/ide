@@ -7,16 +7,15 @@
 #   http://blog.lathi.net/articles/2008/09/13/scripting-screen
 
 DEVEL_DIR=$([ -d $HOME/dev ] && echo "$HOME/dev" || echo "/home/app")
-SCREEN_OPTS="-A -U"
 
 OLD_PS3=$PS3
 PS3="Which project to start a session for? "
 
-#check if there are already running screen sessions
-if [ "$(screen -list | grep 'No Socket' >/dev/null 2>&1; echo $?)" -ne "0" ]; then
-  echo "There are already running screen sessions :"
-  screen -list
-  #exit 1
+#if tmux not installed
+if ! which tmux >/dev/null 2>/dev/null; then
+  echo "Tmux not installed, falling back to screen..."
+  bash ~/bin/ide-screen
+  exit $?
 fi
 
 #select PROJECT in `ls -F $DEVEL_DIR | egrep /$ | sed 's/\///' `; do
@@ -36,39 +35,43 @@ select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name environment.rb 2>/dev/null
     cmd_console="rails console"
     cmd_server="RAILS_ENV=$env rails server"
   fi
+  [ -d .git/ ] && cmd_status="git status"
+  [ -d .svn/ ] && cmd_status="svn status"
+  cmd_test="rake test"
+  [ -d spec ] && cmd_test="bundle exec rspec"
+  [ -f Guardfile ] && cmd_test="bundle exec guard"
 
-  screen -d -m $SCREEN_OPTS -S $SPROJECT
-  screen -X -S $SPROJECT -p 0 title SERVER
-  eval $SLEEP
-  screen -X -S $SPROJECT -p 0 stuff "$cmd_server"
-  screen -X -S $SPROJECT screen -t CONSOLE 1
-  eval $SLEEP
-  screen -X -S $SPROJECT -p 1 stuff "$cmd_console"
-  screen -X -S $SPROJECT screen -t DEV 2
-  eval $SLEEP
-  [ -d .git/ ] && screen -X -S $SPROJECT -p 2 stuff "git status"
-  [ -d .svn/ ] && screen -X -S $SPROJECT -p 2 stuff "svn status"
-  screen -X -S $SPROJECT screen -t TEST 3
-  eval $SLEEP
-  #screen -X -S $SPROJECT -p 3 stuff "rake db:test:load && autotest 2>&1 | \\more"
-  i=3
-  if [ -d lib/daemons ]; then
-    eval $SLEEP
-    screen -X -S $SPROJECT screen -t DAEMONS 4
-    screen -X -S $SPROJECT -p 4 stuff "RAILS_ENV=development lib/daemons/*_ctl run"
-    i=4
-  fi
-  if grep mongo Gemfile >/dev/null; then
-    eval $SLEEP
-    i=$(echo "1+$i"|bc)
-    screen -X -S $SPROJECT -p $i stuff "cd dev/mongo/mongo*/bin; ./mongod --dbpath ./data/db/ --rest"
-    screen -X -S $SPROJECT screen -t MONGOD $i
-  fi
-  for j in $(seq 0 $i); do
-    eval $SLEEP2
-    screen -X -S $SPROJECT -p $j stuff ""
-  done
-  screen -x $SPROJECT -p 2
+  tmux start-server
+  tmux new-session -d -s $SPROJECT -n SERVER
+  tmux new-window -t $SPROJECT:1 -n CONSOLE
+  tmux new-window -t $SPROJECT:2 -n DEV
+  tmux new-window -t $SPROJECT:3 -n TEST
+  
+  tmux send-keys -t $SPROJECT:0 "$cmd_server" Enter
+  tmux send-keys -t $SPROJECT:1 "$cmd_console" Enter
+  tmux send-keys -t $SPROJECT:2 "$cmd_status" Enter
+  tmux send-keys -t $SPROJECT:3 "$cmd_test" Enter
+
+###  i=3
+###  if [ -d lib/daemons ]; then
+###    eval $SLEEP
+###    screen -X -S $SPROJECT screen -t DAEMONS 4
+###    screen -X -S $SPROJECT -p 4 stuff "RAILS_ENV=development lib/daemons/*_ctl run"
+###    i=4
+###  fi
+###  if grep mongo Gemfile >/dev/null; then
+###    eval $SLEEP
+###    i=$(echo "1+$i"|bc)
+###    screen -X -S $SPROJECT -p $i stuff "cd dev/mongo/mongo*/bin; ./mongod --dbpath ./data/db/ --rest"
+###    screen -X -S $SPROJECT screen -t MONGOD $i
+###  fi
+###  for j in $(seq 0 $i); do
+###    eval $SLEEP2
+###    screen -X -S $SPROJECT -p $j stuff ""
+###  done
+
+  tmux select-window -t $SPROJECT:2
+  tmux attach-session -t $SPROJECT
   
   break
 
