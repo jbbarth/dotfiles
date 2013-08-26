@@ -109,7 +109,6 @@ function scp() {
     command scp $*
   fi
 }
-alias go='gnome-open'
 if laptop-detect 2>/dev/null; then
   alias mp='mplayer -fs -ao alsa,oss, -idx -af pan=2:0.5:0.5:0.5:0.5'
 else
