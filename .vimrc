@@ -30,6 +30,7 @@ colorscheme solarized
 " and I couldn't find out why
 if &term =~ 'screen-256color'
   highlight Normal ctermbg=None
+  highlight rubyDefine ctermbg=None
 endif
 
 " Change mapleader default char
