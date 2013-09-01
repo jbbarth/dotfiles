@@ -18,6 +18,9 @@ set hidden
 set t_Co=256
 syntax on
 
+" Go syntaxhl
+au BufRead,BufNewFile *.go set filetype=go
+
 " Automatic background color
 set background=light
 " And set a colorscheme
