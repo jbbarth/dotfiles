@@ -21,6 +21,9 @@ syntax on
 " Go syntaxhl
 au BufRead,BufNewFile *.go set filetype=go
 
+" Exuberant ctags
+set tags=./tags,tags,.git/tags,/;
+
 " Automatic background color
 set background=light
 " And set a colorscheme
