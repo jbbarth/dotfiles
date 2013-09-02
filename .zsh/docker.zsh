@@ -1,6 +1,6 @@
 #aliases for docker
 alias dkr-add-zsh-completion="curl https://raw.github.com/felixr/docker-zsh-completion/master/_docker |sudo tee /usr/share/zsh/functions/Completion/Linux/_docker; source ~/.zshrc"
-alias dkr-remove-test-images="docker images |grep '<none>' |awk '{print \$3}' |xargs --no-run-if-empty -n 1 echo docker rmi"
+alias dkr-remove-test-images="docker images |grep '<none>' |awk '{print \$3}' |xargs --no-run-if-empty -n 1 docker rmi"
 dkr-install() {
   sudo apt-get update
   sudo apt-get install linux-image-extra-\$(uname -r)
