@@ -49,7 +49,9 @@ zsh-mime-setup 2>/dev/null
 # precmd() for rvm prompt + no hist dirs
 function precmd() {
   #RVM
-  if [[ -z "$SSH_CONNECTION" ]]; then
+  if [[ ! -z "$SIMPLE_PROMPT" ]]; then
+    PROMPT="$SIMPLE_PROMPT"
+  elif [[ -z "$SSH_CONNECTION" ]]; then
     #PROMPT="$(printf '\u263A'):$(current_rvm_env)%# "
     PROMPT="local:$(current_rvm_env)%# "
   else
@@ -64,8 +66,17 @@ function precmd() {
     export HISTFILE=~/.zsh_history
   fi
 }
+# switch between simple and normal prompt
+function r() {
+  if [ "$SIMPLE_PROMPT" ]; then
+    unset SIMPLE_PROMPT
+  else
+    export SIMPLE_PROMPT="%# "
+  fi
+}
 
-PATH=$PATH:/usr/local/rvm/bin # Add RVM to PATH for scripting
+# Add RVM to PATH for scripting
+PATH=$PATH:/usr/local/rvm/bin
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
