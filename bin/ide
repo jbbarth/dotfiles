@@ -19,7 +19,7 @@ if ! which tmux >/dev/null 2>/dev/null; then
 fi
 
 #select PROJECT in `ls -F $DEVEL_DIR | egrep /$ | sed 's/\///' `; do
-select PROJECT in $(find $DEVEL_DIR -maxdepth 4 -name environment.rb 2>/dev/null | fgrep config/environment.rb | sed 's#/config/environment.rb##' | sed "s#$DEVEL_DIR/##" | sort); do
+select PROJECT in $(find $DEVEL_DIR $DEVEL_DIR/work -maxdepth 4 -name environment.rb 2>/dev/null | fgrep config/environment.rb | sed 's#/config/environment.rb##' | sed "s#$DEVEL_DIR/##" | sort); do
   
   PS3=$OLD_PS3
   SPROJECT=$(echo $PROJECT | sed 's#/#_#g')
