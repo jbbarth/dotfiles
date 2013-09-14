@@ -25,6 +25,7 @@ select PROJECT in $(find $DEVEL_DIR $DEVEL_DIR/work -maxdepth 4 -name environmen
   SPROJECT=$(echo $PROJECT | sed 's#/#_#g')
   SLEEP="sleep 1"
   SLEEP2=""
+  TMUX="tmux -2"
 
   cd $DEVEL_DIR/$PROJECT
   env="development"
@@ -41,16 +42,16 @@ select PROJECT in $(find $DEVEL_DIR $DEVEL_DIR/work -maxdepth 4 -name environmen
   [ -d spec ] && cmd_test="bundle exec rspec"
   [ -f Guardfile ] && cmd_test="bundle exec guard"
 
-  tmux start-server
-  tmux new-session -d -s $SPROJECT -n SERVER
-  tmux new-window -t $SPROJECT:1 -n CONSOLE
-  tmux new-window -t $SPROJECT:2 -n DEV
-  tmux new-window -t $SPROJECT:3 -n TEST
+  $TMUX start-server
+  $TMUX new-session -d -s $SPROJECT -n SERVER
+  $TMUX new-window -t $SPROJECT:1 -n CONSOLE
+  $TMUX new-window -t $SPROJECT:2 -n DEV
+  $TMUX new-window -t $SPROJECT:3 -n TEST
   
-  tmux send-keys -t $SPROJECT:0 "$cmd_server" Enter
-  tmux send-keys -t $SPROJECT:1 "$cmd_console" Enter
-  tmux send-keys -t $SPROJECT:2 "$cmd_status" Enter
-  tmux send-keys -t $SPROJECT:3 "$cmd_test" Enter
+  $TMUX send-keys -t $SPROJECT:0 "$cmd_server" Enter
+  $TMUX send-keys -t $SPROJECT:1 "$cmd_console" Enter
+  $TMUX send-keys -t $SPROJECT:2 "$cmd_status" Enter
+  $TMUX send-keys -t $SPROJECT:3 "$cmd_test" Enter
 
 ###  i=3
 ###  if [ -d lib/daemons ]; then
@@ -70,8 +71,8 @@ select PROJECT in $(find $DEVEL_DIR $DEVEL_DIR/work -maxdepth 4 -name environmen
 ###    screen -X -S $SPROJECT -p $j stuff ""
 ###  done
 
-  tmux select-window -t $SPROJECT:2
-  tmux attach-session -t $SPROJECT
+  $TMUX select-window -t $SPROJECT:2
+  $TMUX attach-session -t $SPROJECT
   
   break
 
