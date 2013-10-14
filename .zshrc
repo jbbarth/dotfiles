@@ -75,8 +75,5 @@ function r() {
   fi
 }
 
-# Add RVM to PATH for scripting
-PATH=$PATH:/usr/local/rvm/bin
-
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="$PATH:/usr/local/heroku/bin"
