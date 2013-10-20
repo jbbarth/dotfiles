@@ -70,6 +70,8 @@ px() {
   ps aux|grep $*
 }
 vi() {
+  #restore a correct $TERM if we're under a tmux session
+  [ ! -z "$TMUX" ] && export TERM=screen-256color
   #ensure we're not on a binary file
   if [ -e $1 ]; then
     filetype=$(file $1|grep -e ' text' -e ': data' -e ' empty' >/dev/null && echo 'text' || echo 'other') 
