@@ -4,7 +4,7 @@ export GIT_EDITOR=vi
 alias g='git'
 alias gs='git status'
 gc() {
-  git status --porcelain | grep "^M" >/dev/null || git add .
+  git status --porcelain | grep -e "^M" -e "^A" >/dev/null || git add .
   opts=""
   if [ "$1" != "" ]; then
     git commit -e -m "$1"
