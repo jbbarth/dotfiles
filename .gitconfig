@@ -5,8 +5,6 @@
 [user]
   name = jbbarth
   email = jeanbaptiste.barth@gmail.com
-[http]
-  proxy = ""
 [branch]
   autosetuprebase = always #always "pull --rebase"
 [color]
