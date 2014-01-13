@@ -6,7 +6,12 @@
 # It is adapted from the script provided in this article :
 #   http://blog.lathi.net/articles/2008/09/13/scripting-screen
 
-DEVEL_DIR=$([ -d $HOME/dev ] && echo "$HOME/dev" || echo "/home/app")
+DEVEL_DIR=""
+#last ones are prioritized
+for dir in $HOME/dev $HOME/Projects; do
+  [ -e "$dir" ] && DEVEL_DIR="$dir"
+done
+DEVEL_DIR=${DEVEL_DIR:-/home/app}
 
 OLD_PS3=$PS3
 PS3="Which project to start a session for? "
