@@ -21,6 +21,7 @@ elif [ -x /usr/local/bin/gdircolors ]; then
     alias egrep='egrep --color=auto'
     alias chown='gchown'
     alias chmod='gchmod'
+    alias df='gdf'
     #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
     alias less='less -R'
 fi
