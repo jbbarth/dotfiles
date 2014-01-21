@@ -18,7 +18,4 @@ if type rvm >/dev/null 2>&1; then
 
   # Add RVM to PATH for scripting
   PATH=$PATH:$rvm_path/bin
-
-  #forces to load per project file in screen
-  cd .
 fi
