@@ -47,6 +47,7 @@ select PROJECT in $(find $DEVEL_DIR $DEVEL_DIR/work -maxdepth 4 -name environmen
   cmd_test="rake test"
   [ -d spec ] && cmd_test="bundle exec rspec"
   [ -f Guardfile ] && cmd_test="bundle exec guard"
+  [ -f lib/redmine.rb ] && cmd_test="echo 'not lauching tests automatically on redmine'"
 
   $TMUX start-server
   $TMUX new-session -d -s $SPROJECT -n SERVER
