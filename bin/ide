@@ -41,6 +41,7 @@ select PROJECT in $(find $DEVEL_DIR $DEVEL_DIR/work -maxdepth 4 -name environmen
     cmd_console="rails console"
     cmd_server="RAILS_ENV=$env rails server"
   fi
+  [ -e .powrc ] && cmd_server="echo 'managed by Pow'"
   [ -d .git/ ] && cmd_status="git status"
   [ -d .svn/ ] && cmd_status="svn status"
   cmd_test="rake test"
