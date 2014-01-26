@@ -58,24 +58,6 @@ select PROJECT in $(find $DEVEL_DIR $DEVEL_DIR/work -maxdepth 4 -name environmen
   $TMUX send-keys -t $SPROJECT:2 "$cmd_status" Enter
   $TMUX send-keys -t $SPROJECT:3 "$cmd_test" Enter
 
-###  i=3
-###  if [ -d lib/daemons ]; then
-###    eval $SLEEP
-###    screen -X -S $SPROJECT screen -t DAEMONS 4
-###    screen -X -S $SPROJECT -p 4 stuff "RAILS_ENV=development lib/daemons/*_ctl run"
-###    i=4
-###  fi
-###  if grep mongo Gemfile >/dev/null; then
-###    eval $SLEEP
-###    i=$(echo "1+$i"|bc)
-###    screen -X -S $SPROJECT -p $i stuff "cd dev/mongo/mongo*/bin; ./mongod --dbpath ./data/db/ --rest"
-###    screen -X -S $SPROJECT screen -t MONGOD $i
-###  fi
-###  for j in $(seq 0 $i); do
-###    eval $SLEEP2
-###    screen -X -S $SPROJECT -p $j stuff ""
-###  done
-
   $TMUX select-window -t $SPROJECT:2
   $TMUX attach-session -t $SPROJECT
   
