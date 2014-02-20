@@ -31,6 +31,10 @@ fi
 [ -e /usr/local/bin/grm ] && alias rm='grm -I'
 [ -e /usr/local/bin/gmv ] && alias mv='gmv -i' || alias mv='mv -i'
 alias mkdir='mkdir -p'
+mkcd() {
+  mkdir -p $1
+  cd $1
+}
 alias df='df -hP'
 alias tmux='tmux -2'
 alias zmv='rsync --recursive --remove-source-files --progress'
