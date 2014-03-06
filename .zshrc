@@ -74,6 +74,8 @@ function r() {
     export SIMPLE_PROMPT="%# "
   fi
 }
+# initialize prompt to simple prompt by default
+r
 
 ### Added by the Heroku Toolbelt
 export PATH="$PATH:/usr/local/heroku/bin"
