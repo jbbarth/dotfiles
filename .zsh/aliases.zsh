@@ -138,3 +138,4 @@ alias convert-ruby-hash-syntax="perl -pi -e 's/:([\w\d_]+)(\s*)=>/\1:/g' **/*.rb
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 alias ct="ctags -R --tag-relative=yes -f ./.git/tags ."
 alias jsonpp="python -mjson.tool"
+loop() { while :; do clear; date; eval $*; sleep 5; done }
