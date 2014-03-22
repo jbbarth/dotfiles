@@ -97,6 +97,9 @@ else
     set backupdir=$HOME/.vim/backup
   endif
 endif
+" Skip backup strategy for crontab files, else they break on MacOSX
+" http://drawohara.com/post/6344279/crontab-temp-file-must-be-edited-in-place
+au FileType crontab set nobackup nowritebackup
 
 " Disable wrap for loooong lines
 set wrap
