@@ -71,6 +71,7 @@ joinsplitted() {
 alias cp='cp -i'
 alias ll='ls -lh'
 alias l='ls -CF'
+alias lt='ls -lht'
 function llr {
   ls -la | sort -k 5 -n | ruby -ne 'a=$_.split;puts "#{a[4]} #{a[7..-1].join(" ")}" unless a[7].nil?'
 }
