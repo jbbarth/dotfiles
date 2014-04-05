@@ -3,7 +3,7 @@
 [init]
   templatedir = ~/.git_template
 [user]
-  name = jbbarth
+  name = Jean-Baptiste Barth
   email = jeanbaptiste.barth@gmail.com
 [branch]
   autosetuprebase = always #always "pull --rebase"
