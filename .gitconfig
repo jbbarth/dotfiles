@@ -35,3 +35,5 @@
   s = stash
 [push]
   default = simple
+[github]
+  user = jbbarth
