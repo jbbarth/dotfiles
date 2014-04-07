@@ -36,6 +36,7 @@ mkcd() {
   cd $1
 }
 alias df='df -hP'
+alias tail='tail -n 0'
 alias tmux='tmux -2'
 alias zmv='rsync --recursive --remove-source-files --progress'
 alias emptydirs='find . -type d -empty -print'
