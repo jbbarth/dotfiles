@@ -249,6 +249,9 @@ set suffixes=.aux,.bak,.bbl,.blg,.gif,.gz,.idx,.ilg,.info,.jpg,.lof,.log,;lot,.o
 " ruby folding
 "autocmd Filetype ruby source ~/.vim/scripts/ruby-macros.vim
 
+" go tabs insead of spaces
+autocmd FileType go setlocal noexpandtab
+
 " toggle between paste/nopaste modes
 set pastetoggle=<F5>
 
