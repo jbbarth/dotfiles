@@ -48,8 +48,10 @@ zsh-mime-setup 2>/dev/null
 
 # precmd() for rvm prompt + no hist dirs
 function precmd() {
+  if [[ "$USER" == "vagrant" ]]; then
+    PROMPT="vagrant% "
   #RVM
-  if [[ ! -z "$SIMPLE_PROMPT" ]]; then
+  elif [[ ! -z "$SIMPLE_PROMPT" ]]; then
     PROMPT="$SIMPLE_PROMPT"
   elif [[ -z "$SSH_CONNECTION" ]]; then
     #PROMPT="$(printf '\u263A'):$(current_rvm_env)%# "
