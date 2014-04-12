@@ -49,7 +49,7 @@ zsh-mime-setup 2>/dev/null
 # precmd() for rvm prompt + no hist dirs
 function precmd() {
   if [[ "$USER" == "vagrant" ]]; then
-    PROMPT="vagrant% "
+    PROMPT="vagrant%# "
   #RVM
   elif [[ ! -z "$SIMPLE_PROMPT" ]]; then
     PROMPT="$SIMPLE_PROMPT"
