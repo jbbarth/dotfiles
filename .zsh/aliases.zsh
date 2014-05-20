@@ -8,6 +8,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias df='df -hP'
     #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
     alias less='less -R'
 # MacOSX version with coreutils packages
@@ -21,7 +22,7 @@ elif [ -x /usr/local/bin/gdircolors ]; then
     alias egrep='egrep --color=auto'
     alias chown='gchown'
     alias chmod='gchmod'
-    alias df='gdf'
+    alias df='gdf -hP'
     #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
     alias less='less -R'
 fi
@@ -35,7 +36,6 @@ mkcd() {
   mkdir -p $1
   cd $1
 }
-alias df='df -hP'
 alias tail='tail -n 0'
 alias tmux='tmux -2'
 alias zmv='rsync --recursive --remove-source-files --progress'
