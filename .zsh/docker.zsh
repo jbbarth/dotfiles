@@ -9,3 +9,5 @@ dkr-install() {
   sudo apt-get update
   sudo apt-get install lxc-docker
 }
+alias dkr-run="docker run"
+alias dkr-irun="docker run -it"
