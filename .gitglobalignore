@@ -2,4 +2,5 @@
 .ruby-*
 .rvmrc
 .rvmrc.*
+.DS_Store
 libpeerconnection.log
