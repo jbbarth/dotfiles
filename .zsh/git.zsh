@@ -2,7 +2,7 @@
 
 export GIT_EDITOR=vi
 alias g='git'
-alias gs='git status'
+alias gs='git status -sb'
 gc() {
   git status --porcelain | grep -e "^M" -e "^A" >/dev/null || git add .
   opts=""
