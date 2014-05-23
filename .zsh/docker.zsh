@@ -1,4 +1,3 @@
-#aliases for docker
 docker-add-zsh-completion() { curl https://raw.github.com/felixr/docker-zsh-completion/master/_docker |sudo tee /usr/share/zsh/functions/Completion/Linux/_docker; source ~/.zshrc }
 docker-remove-test-images() { docker images |grep '<none>' |awk '{print $3}' | xargs --no-run-if-empty -n 1 echo docker rmi }
 docker-install() {
