@@ -1,6 +1,6 @@
 #aliases for docker
-alias docker-add-zsh-completion="curl https://raw.github.com/felixr/docker-zsh-completion/master/_docker |sudo tee /usr/share/zsh/functions/Completion/Linux/_docker; source ~/.zshrc"
-alias docker-remove-test-images="docker images |grep '<none>' |awk '{print \$3}' |xargs --no-run-if-empty -n 1 docker rmi"
+docker-add-zsh-completion() { curl https://raw.github.com/felixr/docker-zsh-completion/master/_docker |sudo tee /usr/share/zsh/functions/Completion/Linux/_docker; source ~/.zshrc }
+docker-remove-test-images() { docker images |grep '<none>' |awk '{print $3}' | xargs --no-run-if-empty -n 1 echo docker rmi }
 docker-install() {
   if [[ "$OSTYPE" == "darwin"* ]]; then
     echo "* Installign docker through Homebrew"
@@ -25,8 +25,8 @@ docker-install() {
     rm /tmp/dockviz.zip
   fi
 }
-alias docker-run="docker run"
-alias docker-irun="docker run -it"
-alias docker-last="docker ps -ql"
+docker-run() { docker run }
+docker-irun() { docker run -it }
+docker-last() { docker ps -ql }
 docker-images-tree() { curl -s ${DOCKER_HOST/tcp/http}/images/json?all=1 | dockviz images --tree }
 docker-images-viz() { curl -s ${DOCKER_HOST/tcp/http}/images/json?all=1 | dockviz images --dot | dot -Tpng -o /tmp/docker-tree.png; open /tmp/docker-tree.png }
