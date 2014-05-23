@@ -1,5 +1,11 @@
 docker-add-zsh-completion() { curl https://raw.github.com/felixr/docker-zsh-completion/master/_docker |sudo tee /usr/share/zsh/functions/Completion/Linux/_docker; source ~/.zshrc }
-docker-remove-test-images() { docker images |grep '<none>' |awk '{print $3}' | xargs --no-run-if-empty -n 1 docker rmi }
+docker-cleanup() {
+  echo "* Removing test (untagged) images"
+  docker images |grep '<none>' |awk '{print $3}' | xargs --no-run-if-empty -n 1 docker rmi }
+  #TODO: replace with: docker rmi $(docker images -q) ? ; not sure it won't delete more images
+  echo "* Removing old containers"
+  docker rm $(docker ps -qa)
+}
 docker-install() {
   if [[ "$OSTYPE" == "darwin"* ]]; then
     echo "* Installign docker through Homebrew"
