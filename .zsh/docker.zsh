@@ -26,3 +26,5 @@ docker-install() {
 alias docker-run="docker run"
 alias docker-irun="docker run -it"
 alias docker-last="docker ps -ql"
+docker-images-tree() { curl -s ${DOCKER_HOST/tcp/http}/images/json?all=1 | dockviz images --tree }
+docker-images-viz() { curl -s ${DOCKER_HOST/tcp/http}/images/json?all=1 | dockviz images --dot | dot -Tpng -o /tmp/docker-tree.png; open /tmp/docker-tree.png }
