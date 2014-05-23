@@ -11,3 +11,4 @@ docker-install() {
 }
 alias docker-run="docker run"
 alias docker-irun="docker run -it"
+alias docker-last="docker ps -ql"
