@@ -9,6 +9,7 @@ docker-install() {
     curl -L http://gobuild.io/github.com/justone/dockviz/master/darwin/amd64 -o /tmp/dockviz.zip
     cd ~/bin
     unzip /tmp/dockviz.zip dockviz
+    rm /tmp/dockviz.zip
   else
     echo "* Installign docker through APT packages"
     sudo apt-get update
@@ -21,6 +22,7 @@ docker-install() {
     curl -L http://gobuild.io/github.com/justone/dockviz/master/linux/amd64 -o /tmp/dockviz.zip
     cd ~/bin
     unzip /tmp/dockviz.zip dockviz
+    rm /tmp/dockviz.zip
   fi
 }
 alias docker-run="docker run"
