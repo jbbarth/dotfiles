@@ -25,6 +25,7 @@ elif [ -x /usr/local/bin/gdircolors ]; then
     alias df='gdf -hP'
     #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
     alias less='less -R'
+    alias xargs='gxargs'
 fi
 
 # Personal aliases
