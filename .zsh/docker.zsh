@@ -36,3 +36,12 @@ docker-images-tree() { curl -s ${DOCKER_HOST/tcp/http}/images/json?all=1 | dockv
 docker-images-viz() { curl -s ${DOCKER_HOST/tcp/http}/images/json?all=1 | dockviz images --dot | dot -Tpng -o /tmp/docker-tree.png; open /tmp/docker-tree.png }
 docker-images-shortlist() { docker images | tail -n +2 | awk '{print $1}' | sort -u }
 docker-ipaddress() { docker inspect --format '{{ .NetworkSettings.IPAddress }}' $1 }
+docker-lxc-attach() {
+  container=$(docker ps --no-trunc -q | awk "NR == ${1:-1}")
+  if which dvm >/dev/null 2>/dev/null; then
+    dvm ssh -- "sudo lxc-attach -n $container"
+  else
+    sudo lxc-attach -n $container
+  fi
+}
+#TODO: add a docker-ssh() function with a nsenter/nsinit alternative to docker-lxc-attach() above
