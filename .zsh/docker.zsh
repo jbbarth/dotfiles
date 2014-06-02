@@ -1,9 +1,9 @@
 docker-cleanup() {
+  echo "* Removing old containers"
+  docker ps -qa | xargs --no-run-if-empty -n 1 docker rm
   echo "* Removing test (untagged) images"
   docker images |grep '<none>' |awk '{print $3}' | xargs --no-run-if-empty -n 1 docker rmi
   #TODO: replace with: docker rmi $(docker images -q) ? ; not sure it won't delete more images
-  echo "* Removing old containers"
-  docker ps -qa | xargs --no-run-if-empty -n 1 docker rm
 }
 docker-install() {
   if [[ "$OSTYPE" == "darwin"* ]]; then
