@@ -1,5 +1,3 @@
-# GIT
-
 export GIT_EDITOR=vi
 alias g='git'
 alias gs='git status -sb'
