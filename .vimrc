@@ -273,3 +273,8 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
+" highlight non-breaking spaces
+highlight SpecialKey ctermfg=9 ctermbg=9 gui=bold guifg=Blue
+"set list listchars=nbsp:!,eol:¶,tab:>-,extends:»,precedes:«,trail:•
+set list listchars=nbsp:x
