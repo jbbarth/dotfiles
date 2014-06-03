@@ -265,3 +265,11 @@ set scrolloff=3
 " default encoding
 set encoding=utf-8
 set fileencoding=utf-8
+
+" highlight trailing white spaces in red
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
