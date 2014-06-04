@@ -266,6 +266,7 @@ set scrolloff=3
 set encoding=utf-8
 set fileencoding=utf-8
 
+"TODO: refactor the next 3 sections using matchadd()/matchdelete()
 " highlight trailing white spaces in red
 highlight ExtraWhitespace ctermbg=blue guibg=red
 2match ExtraWhitespace /\s\+$/
