@@ -267,14 +267,20 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 " highlight trailing white spaces in red
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+highlight ExtraWhitespace ctermbg=blue guibg=red
+2match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * 2match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * call clearmatches()
+autocmd InsertLeave * 2match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " highlight non-breaking spaces
-highlight SpecialKey ctermfg=9 ctermbg=9 gui=bold guifg=Blue
-"set list listchars=nbsp:!,eol:¶,tab:>-,extends:»,precedes:«,trail:•
-set list listchars=nbsp:x
+highlight NbSp ctermbg=red guibg=red
+3match NbSp /\%xa0/
+autocmd BufWinEnter * 3match NbSp /\%xa0/
+autocmd InsertEnter * 3match NbSp /\%xa0/
+autocmd InsertLeave * 3match NbSp /\%xa0/
+autocmd BufWinLeave * call clearmatches()
+" an other solution below, but it also highlights tabs and I didn't find
+" how to disable that
+"   set list listchars=nbsp:\ 
