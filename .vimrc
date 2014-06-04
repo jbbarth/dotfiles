@@ -272,7 +272,6 @@ highlight ExtraWhitespace ctermbg=blue guibg=red
 autocmd BufWinEnter * 2match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * call clearmatches()
 autocmd InsertLeave * 2match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
 
 " highlight non-breaking spaces
 highlight NbSp ctermbg=red guibg=red
@@ -280,7 +279,8 @@ highlight NbSp ctermbg=red guibg=red
 autocmd BufWinEnter * 3match NbSp /\%xa0/
 autocmd InsertEnter * 3match NbSp /\%xa0/
 autocmd InsertLeave * 3match NbSp /\%xa0/
-autocmd BufWinLeave * call clearmatches()
 " an other solution below, but it also highlights tabs and I didn't find
-" how to disable that
-"   set list listchars=nbsp:\ 
+" how to disable that: set list listchars=nbsp:\ 
+
+" clear highlights when leaving buffer
+autocmd BufWinLeave * call clearmatches()
