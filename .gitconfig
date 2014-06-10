@@ -34,6 +34,6 @@
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   s = stash
 [push]
-  default = simple
+  default = tracking
 [github]
   user = jbbarth
