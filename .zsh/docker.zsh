@@ -32,6 +32,7 @@ docker-install() {
 docker-run() { docker run $* }
 docker-irun() { docker run -it $* }
 docker-last() { docker ps -ql $* }
+docker-last-image() { docker images -q|head -n 1 }
 docker-images-tree() { curl -s ${DOCKER_HOST/tcp/http}/images/json?all=1 | dockviz images --tree }
 docker-images-viz() { curl -s ${DOCKER_HOST/tcp/http}/images/json?all=1 | dockviz images --dot | dot -Tpng -o /tmp/docker-tree.png; open /tmp/docker-tree.png }
 docker-images-shortlist() { docker images | tail -n +2 | awk '{print $1}' | sort -u }
