@@ -46,3 +46,25 @@ docker-lxc-attach() {
   fi
 }
 #TODO: add a docker-ssh() function with a nsenter/nsinit alternative to docker-lxc-attach() above
+
+docker-create-repo() {
+  name=${1/docker-}
+  [ "$name" = "" ] && echo "Missing repo name!" >&2 && return
+  username=$(git config --get github.user)
+  [ "$username" = "" ] && echo "Missing username!" >&2 && return
+  echo "* Creating the github.com repo $username/docker-$name"
+  curl https://api.github.com/user/repos \
+       -u "$username" \
+       -w "%{http_code} %{url_effective}\n" \
+       -d "{
+           \"name\": \"docker-$name\",
+           \"description\": \"Docker repository for $username/$name\"
+          }"
+  echo "* Creating the hub.docker.com repo $username/$name"
+  echo "ERROR: you need to do this manually until the Hub has a complete/official API"
+###  curl https://hub.docker.com/v1/repositories/$username/$name \
+###       -X PUT \
+###       -u "$username" \
+###       -H "Content-Type: application/json" # \
+###       #-w "%{http_code} %{url_effective}\n"
+}
