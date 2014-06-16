@@ -22,7 +22,7 @@ gp() {
     echo -n "Repo: "
     read repo
     git push --all $repo
-  fi  
+  fi
 }
 if which hub >/dev/null; then
   # do not use an alias or shell comp won't work

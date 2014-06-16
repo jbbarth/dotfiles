@@ -91,7 +91,7 @@ vi() {
   [ ! -z "$TMUX" ] && export TERM=screen-256color
   #ensure we're not on a binary file
   if [ -e $1 ]; then
-    filetype=$(file $1|grep -e ' text' -e ': data' -e ' empty' >/dev/null && echo 'text' || echo 'other') 
+    filetype=$(file $1|grep -e ' text' -e ': data' -e ' empty' >/dev/null && echo 'text' || echo 'other')
     [ "$filetype" != "text" ] && echo "Non text file: $(file $1)\nContinue ?" && read
   fi
   #then only edit it
