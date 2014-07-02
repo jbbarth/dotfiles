@@ -285,3 +285,7 @@ autocmd InsertLeave * 3match NbSp /\%xa0/
 
 " clear highlights when leaving buffer
 autocmd BufWinLeave * call clearmatches()
+
+" set our shell
+" TODO: make it load .zshrc ; -l/--login doesn't seem to be sufficient!
+set shell=/bin/zsh\ -l
