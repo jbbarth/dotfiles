@@ -42,8 +42,8 @@ docker-enter() {
   [ -z "$container" ] && container=$(docker ps -q -n -1)
   if which dvm >/dev/null; then
     dvm ssh -- -q -t "
-      which nsenter >/dev/null || (docker run -v /usr/local/bin:/target jpetazzo/nsenter; sudo sed -i 's/nsenter/sudo nsenter/' /usr/local/bin/docker-enter);
-      docker-enter $container /bin/bash
+      which nsenter >/dev/null || docker run -v /usr/local/bin:/target jpetazzo/nsenter;
+      sudo docker-enter $container /bin/bash
     "
   else
     echo "not implemented" >&2
