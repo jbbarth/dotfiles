@@ -55,6 +55,11 @@ docker-create-repo() {
   [ "$name" = "" ] && echo "Missing repo name!" >&2 && return
   username=$(git config --get github.user)
   [ "$username" = "" ] && echo "Missing username!" >&2 && return
+  echo "* Creating local directory ~/Projects/docker-$name"
+  mkdir ~/Projects/docker-$name
+  cd ~/Projects/docker-$name
+  git init
+  git remote add origin git@github.com:$username/docker-$name
   echo "* Creating the github.com repo $username/docker-$name"
   curl https://api.github.com/user/repos \
        -u "$username" \
