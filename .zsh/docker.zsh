@@ -37,6 +37,7 @@ docker-images-tree() { curl -s ${DOCKER_HOST/tcp/http}/images/json?all=1 | dockv
 docker-images-viz() { curl -s ${DOCKER_HOST/tcp/http}/images/json?all=1 | dockviz images --dot | dot -Tpng -o /tmp/docker-tree.png; open /tmp/docker-tree.png }
 docker-images-shortlist() { docker images | tail -n +2 | awk '{print $1}' | sort -u }
 docker-ipaddress() { docker inspect --format '{{ .NetworkSettings.IPAddress }}' $1 }
+docker-pgrep() { docker ps | awk "\$2 ~ /$1/" | awk '{print $1}' }
 docker-enter() {
   container="$1"
   [ -z "$container" ] && container=$(docker ps -q -n -1)
