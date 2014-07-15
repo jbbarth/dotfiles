@@ -33,6 +33,7 @@
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   s = stash
+  root = rev-parse --show-toplevel
 [push]
   default = tracking
 [github]
