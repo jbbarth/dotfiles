@@ -40,7 +40,7 @@ docker-ipaddress() { docker inspect --format '{{ .NetworkSettings.IPAddress }}' 
 docker-pgrep() { docker ps | awk "\$2 ~ /$1/" | awk '{print $1}' }
 docker-enter() {
   container="$1"
-  [ -z "$container" ] && container=$(docker ps -q -n -1)
+  [ -z "$container" ] && container=$(docker ps -q -n 1)
   if which dvm >/dev/null; then
     dvm ssh -- -q -t "
       which nsenter >/dev/null || docker run -v /usr/local/bin:/target jpetazzo/nsenter;
