@@ -35,6 +35,7 @@
   s = stash
   root = rev-parse --show-toplevel
   up = pull --ff-only
+  amend = commit --amend
 [push]
   default = tracking
 [github]
