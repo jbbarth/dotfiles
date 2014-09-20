@@ -33,6 +33,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias tail='gtail -n 0'
   alias head='ghead'
   alias tac='gtac'
+  alias wc='gwc'
 else
   alias tail='tail -n 0'
 fi
