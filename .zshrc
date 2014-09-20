@@ -37,6 +37,10 @@ export SVN_EDITOR=vi
 autoload zsh-mime-setup
 zsh-mime-setup 2>/dev/null
 
+# Auto-rehash to avoid problems after package installs
+# http://www.zsh.org/mla/users/2011/msg00531.html
+zstyle ':completion:*' rehash true
+
 # Version control system
 ###autoload -Uz vcs_info
 ###zstyle ':vcs_info:*' actionformats \
