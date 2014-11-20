@@ -16,7 +16,6 @@ install graphviz
 install imagemagick
 install leiningen
 install libmagic
-install maven30
 install mplayer
 install mysql
 install nmap
