@@ -46,7 +46,6 @@ cask install virtualbox
 cask install vagrant
 
 cask install google-chrome
-cask install iterm2
 
 cask install rdio
 cask install slack
