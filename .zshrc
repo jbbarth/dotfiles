@@ -29,7 +29,7 @@ for config_file ($HOME/.zsh/*.zsh) source $config_file
 ssh-add -L |grep "^ssh" >/dev/null || ssh-add
 
 # Environment variables
-PATH=$PATH:$HOME/bin
+PATH=$PATH:$HOME/bin:/usr/local/as-cli/bin:/usr/local/ec2-cli/bin
 export SUDO_EDITOR=vi
 export SVN_EDITOR=vi
 
@@ -53,17 +53,18 @@ zstyle ':completion:*' rehash true
 
 # precmd() for rvm prompt + no hist dirs
 function precmd() {
-  if [[ "$USER" == "vagrant" ]]; then
-    PROMPT="vagrant%# "
-  #RVM
-  elif [[ ! -z "$SIMPLE_PROMPT" ]]; then
-    PROMPT="$SIMPLE_PROMPT"
-  elif [[ -z "$SSH_CONNECTION" ]]; then
-    #PROMPT="$(printf '\u263A'):$(current_rvm_env)%# "
-    PROMPT="local:$(current_rvm_env)%# "
-  else
-    PROMPT="%m:$(current_rvm_env)%# "
-  fi
+  PROMPT="$(pwd|perl -pe 's#^/Users/jbbarth#~#,s#^~/(botify|dev/botify|Projects/botify)#[B]#')%# "
+###  if [[ "$USER" == "vagrant" ]]; then
+###    PROMPT="vagrant%# "
+###  #RVM
+###  elif [[ ! -z "$SIMPLE_PROMPT" ]]; then
+###    PROMPT="$SIMPLE_PROMPT"
+###  elif [[ -z "$SSH_CONNECTION" ]]; then
+###    #PROMPT="$(printf '\u263A'):$(current_rvm_env)%# "
+###    PROMPT="local:$(current_rvm_env)%# "
+###  else
+###    PROMPT="%m:$(current_rvm_env)%# "
+###  fi
   #No history directories
   if test -e ~/.nohistdirs && pwd | grep -F -f ~/.nohistdirs >/dev/null; then
     fc -W
