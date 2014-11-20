@@ -51,3 +51,5 @@ cask install rdio
 cask install slack
 
 cask install inkscape
+
+cask install sublime-text
