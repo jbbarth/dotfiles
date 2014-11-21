@@ -114,18 +114,6 @@ alias iptables-list='command sudo iptables -nvL --line-numbers'
 alias iptables-clear='iptables -P INPUT ACCEPT'
 alias sudo='command sudo '
 alias ssudo='command sudo sh -c '
-function ssh() {
-  #find correct ssh config
-  if which ip >/dev/null && ip addr show | grep -e "inet 10.166" -e "inet 10.167" -e "inet 172.22" >/dev/null; then
-    ssh_config=~/.ssh/config.work
-  else
-    ssh_config=~/.ssh/config.personal
-  fi
-  #replace it if needed
-  diff ~/.ssh/config $ssh_config >/dev/null 2>/dev/null || { rm -f ~/.ssh/config; cp $ssh_config ~/.ssh/config; }
-  #hyper-space!
-  command ssh $*
-}
 function scp() {
   if ip addr show | grep -e "inet 10.166" -e "inet 10.167" -e "inet 172.22" >/dev/null; then
   #if ip addr show | grep "eth0" |grep " UP" >/dev/null; then
