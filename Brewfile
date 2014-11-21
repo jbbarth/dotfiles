@@ -38,18 +38,23 @@ install wget
 install caskroom/cask/brew-cask
 
 # Install Casks
-cask install iterm2
 cask install alfred
+cask install anvil
+cask install adobe-air
+cask install adobe-reader
 cask install caffeine
-
-cask install virtualbox
-cask install vagrant
-
+cask install dropbox
+cask install gimp
 cask install google-chrome
-
-cask install rdio
-cask install slack
-
 cask install inkscape
-
+cask install iterm2
+cask install istat-menus
+cask install little-snitch
+cask install pencil
+cask install pgadmin3
+cask install postgres
+cask install rdio
 cask install sublime-text
+cask install transmit
+cask install virtualbox
+cask install vagrant #after virtualbox
