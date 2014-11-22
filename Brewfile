@@ -54,6 +54,7 @@ cask install pencil
 cask install pgadmin3
 cask install postgres
 cask install rdio
+cask install spectacle
 cask install sublime-text
 cask install transmit
 cask install virtualbox
