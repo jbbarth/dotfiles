@@ -22,9 +22,11 @@ install mysql
 install nmap
 install nodejs
 install pcre
+install pstree
 install qt4
 install rename
 install tmux
+install tree
 install unrar
 install weechat
 install watch
