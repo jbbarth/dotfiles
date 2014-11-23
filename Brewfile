@@ -6,6 +6,7 @@ install collectd
 install colordiff
 install coreutils
 install findutils
+install fdupes
 install fping
 install ghostscript
 install hg
