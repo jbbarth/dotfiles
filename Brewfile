@@ -52,7 +52,6 @@ cask install google-chrome
 cask install inkscape
 cask install iterm2
 cask install istat-menus
-cask install little-snitch
 cask install pencil
 cask install pgadmin3
 cask install postgres
