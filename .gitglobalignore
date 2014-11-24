@@ -5,3 +5,4 @@
 .DS_Store
 libpeerconnection.log
 **/test.yml
+**/test-inventory
