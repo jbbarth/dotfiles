@@ -29,7 +29,7 @@ for config_file ($HOME/.zsh/*.zsh) source $config_file
 ssh-add -L |grep "^ssh" >/dev/null || ssh-add
 
 # Environment variables
-PATH=$PATH:$HOME/bin:/usr/local/as-cli/bin:/usr/local/ec2-cli/bin
+PATH=$PATH:$HOME/bin
 export SUDO_EDITOR=vi
 export SVN_EDITOR=vi
 
