@@ -1,2 +1,2 @@
 export AWS_AUTO_SCALING_HOME=/usr/local/as-cli/
-export JAVA_HOME=/usr
+test -x /usr/libexec/java_home && export JAVA_HOME=$(/usr/libexec/java_home)
