@@ -36,6 +36,7 @@
   root = rev-parse --show-toplevel
   up = pull --ff-only
   amend = commit --amend
+  cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|devel' | xargs -n 1 git branch -d"
 [push]
   default = tracking
 [github]
