@@ -39,8 +39,8 @@ else
 fi
 
 # Personal aliases
-[ -e /etc/debian_version ] && alias rm='rm -I' || alias rm='rm -i'
-[ -e /usr/local/bin/grm ] && alias rm='grm -I'
+[ -e /etc/debian_version ] && alias rm='rm -Id' || alias rm='rm -id'
+[ -e /usr/local/bin/grm ] && alias rm='grm -Id'
 [ -e /usr/local/bin/gmv ] && alias mv='gmv -i' || alias mv='mv -i'
 alias mkdir='mkdir -p'
 mkcd() {
