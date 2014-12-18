@@ -256,6 +256,9 @@ set suffixes=.aux,.bak,.bbl,.blg,.gif,.gz,.idx,.ilg,.info,.jpg,.lof,.log,;lot,.o
 " go tabs insead of spaces
 autocmd FileType go setlocal noexpandtab
 
+" python 4 spaces indents, instead of 2
+autocmd FileType python set shiftwidth=4
+
 " toggle between paste/nopaste modes
 set pastetoggle=<F5>
 
