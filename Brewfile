@@ -21,6 +21,7 @@ install mplayer
 install mysql
 install nmap
 install nodejs
+install parallel
 install pcre
 install pstree
 install qt4
