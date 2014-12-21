@@ -1,10 +1,12 @@
 # Std brew packages
 tap homebrew/dupes
 install ack
+install boot2docker
 install bzr
 install collectd
 install colordiff
 install coreutils
+install docker
 install findutils
 install fdupes
 install fping
