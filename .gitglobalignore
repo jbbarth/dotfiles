@@ -6,3 +6,5 @@
 libpeerconnection.log
 **/test.yml
 **/test-inventory
+venv/
+**/*.pyc
