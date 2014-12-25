@@ -41,16 +41,6 @@ zsh-mime-setup 2>/dev/null
 # http://www.zsh.org/mla/users/2011/msg00531.html
 zstyle ':completion:*' rehash true
 
-# Version control system
-###autoload -Uz vcs_info
-###zstyle ':vcs_info:*' actionformats \
-###  '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-###zstyle ':vcs_info:*' formats \
-###  '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
-###zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-###precmd () { vcs_info }
-###PS1='%F{5}[%F{2}%n%F{5}] %F{3}%3~ ${vcs_info_msg_0_}'"%f%# "
-
 # precmd() for rvm prompt + no hist dirs
 function precmd() {
   PROMPT="$(pwd|perl -pe 's#^/Users/jbbarth#~#,s#^~/(botify|dev/botify|Projects/botify)#[B]#')%# "
