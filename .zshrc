@@ -65,14 +65,6 @@ function precmd() {
 ###  else
 ###    PROMPT="%m:$(current_rvm_env)%# "
 ###  fi
-  #No history directories
-  if test -e ~/.nohistdirs && pwd | grep -F -f ~/.nohistdirs >/dev/null; then
-    fc -W
-    unset HISTFILE
-  else
-    #fc -W
-    export HISTFILE=~/.zsh_history
-  fi
 }
 # switch between simple and normal prompt
 function r() {
