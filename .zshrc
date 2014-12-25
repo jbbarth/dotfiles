@@ -43,21 +43,24 @@ zstyle ':completion:*' rehash true
 
 # precmd() for rvm prompt + no hist dirs
 function precmd() {
-  PROMPT="$(pwd|perl -pe 's#^/Users/jbbarth#~#,s#^~/(botify|dev/botify|Projects/botify)#[B]#')%# "
-###  if [[ "$USER" == "vagrant" ]]; then
-###    PROMPT="vagrant%# "
-###  #RVM
-###  elif [[ ! -z "$SIMPLE_PROMPT" ]]; then
-###    PROMPT="$SIMPLE_PROMPT"
-###  elif [[ -z "$SSH_CONNECTION" ]]; then
-###    #PROMPT="$(printf '\u263A'):$(current_rvm_env)%# "
-###    PROMPT="local:$(current_rvm_env)%# "
-###  else
-###    PROMPT="%m:$(current_rvm_env)%# "
-###  fi
+  if ! test -z "$SIMPLE_PROMPT"; then
+    PROMPT="$SIMPLE_PROMPT"
+  else
+    dir=$(pwd|perl -pe 's#^/(Users|home)/jbbarth#~#,s#^~/(botify|dev/botify|Projects/botify)#[B]#')
+    if which ec2metadata >/dev/null; then
+      env=$(ec2metadata --security-groups|cut -d. -f4)
+      env=$(echo $env|sed -e "s/prod/\\o033[31mPROD\\o033[0m/;s/staging/\o033[34mstaging\\o033[0m/")
+      userhost="[$env]%n@%m"
+    elif ! test -z "$SSH_CONNECTION"; then
+      userhost="%n@%m"
+    else
+      userhost="%n@local"
+    fi
+    PROMPT="$userhost:$dir%# "
+  fi
 }
 # switch between simple and normal prompt
-function r() {
+function ss() {
   if [ "$SIMPLE_PROMPT" ]; then
     unset SIMPLE_PROMPT
   else
