@@ -292,3 +292,6 @@ autocmd BufWinLeave * call clearmatches()
 " set our shell
 " TODO: make it load .zshrc ; -l/--login doesn't seem to be sufficient!
 set shell=/bin/zsh\ -l
+
+" soft wrap markdown files at 80 chars
+au BufRead,BufNewFile *.md setlocal textwidth=79
