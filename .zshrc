@@ -49,8 +49,8 @@ function precmd() {
     dir=$(pwd|perl -pe 's#^/(Users|home)/jbbarth#~#,s#^~/(botify|dev/botify|Projects/botify)#[B]#')
     if which ec2metadata >/dev/null; then
       env=$(ec2metadata --security-groups|cut -d. -f4)
-      env=$(echo $env|sed -e "s/prod/\\o033[31mPROD\\o033[0m/;s/staging/\o033[34mstaging\\o033[0m/")
-      userhost="[$env]%n@%m"
+      env=$(echo $env|sed -e "s/prod/\\o033[31mPROD\\o033[0m/;s/staging/\o033[36mstaging\\o033[0m/")
+      userhost="$env|%n@%m"
     elif ! test -z "$SSH_CONNECTION"; then
       userhost="%n@%m"
     else
