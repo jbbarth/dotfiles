@@ -53,13 +53,13 @@ function precmd() {
     if which ec2metadata >/dev/null; then
       #AWS machines
       env=$(ec2metadata --security-groups|cut -d. -f4|sed 's#%2F#/#')
-      [ "$env" == "prod" ] && env="%{$fg[red]%}prod%{$reset_color%}"
-      [ "$env" == "staging" ] && env="%{$fg[cyan]%}staging%{$reset_color%}"
-      userhost="$env|%n@%m"
+      [ "$env" == "prod" ] && env="%{$fg[red]%}prod"
+      [ "$env" == "staging" ] && env="%{$fg[cyan]%}staging"
+      userhost="$env%{$reset_color%}|%n@%m"
     elif test -e /usr/local/rtm/bin/rtm; then
       #OVH machines
-      env="%{$fg[blue]%}ovh%{$reset_color%}"
-      userhost="$env|%n@%m"
+      env="%{$fg[blue]%}ovh"
+      userhost="$env%{$reset_color%}|%n@%m"
     elif ! test -z "$SSH_CONNECTION"; then
       #other ssh-accessed machines
       userhost="%n@%m"
