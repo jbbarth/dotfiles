@@ -41,6 +41,9 @@ zsh-mime-setup 2>/dev/null
 # http://www.zsh.org/mla/users/2011/msg00531.html
 zstyle ':completion:*' rehash true
 
+# Easy colors in ZSH scripting
+autoload -U colors && colors
+
 # precmd() for rvm prompt + no hist dirs
 function precmd() {
   if ! test -z "$SIMPLE_PROMPT"; then
@@ -50,11 +53,12 @@ function precmd() {
     if which ec2metadata >/dev/null; then
       #AWS machines
       env=$(ec2metadata --security-groups|cut -d. -f4)
-      env=$(echo $env|sed -e "s/prod/\\o033[31mprod\\o033[0m/;s/staging/\o033[36mstaging\\o033[0m/")
+      [ "$env" == "prod" ] && env="%{$fg[red]%}prod%{$reset_color%}"
+      [ "$env" == "staging" ] && env="%{$fg[cyan]%}staging%{$reset_color%}"
       userhost="$env|%n@%m"
     elif test -e /usr/local/rtm/bin/rtm; then
       #OVH machines
-      env=$(echo "OVH"|sed -e "s/^/\\o033[34m/;s/$/\\o033[0m/")
+      env="%{$fg[blue%}ovh%{$reset_color%}"
       userhost="$env|%n@%m"
     elif ! test -z "$SSH_CONNECTION"; then
       #other ssh-accessed machines
