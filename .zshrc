@@ -52,7 +52,7 @@ function precmd() {
     dir=$(pwd|perl -pe 's#^/(Users|home)/jbbarth#~#,s#^~/(botify|dev/botify|Projects/botify)#[B]#')
     if which ec2metadata >/dev/null; then
       #AWS machines
-      env=$(ec2metadata --security-groups|cut -d. -f4)
+      env=$(ec2metadata --security-groups|cut -d. -f4|sed 's#%2F#/#')
       [ "$env" == "prod" ] && env="%{$fg[red]%}prod%{$reset_color%}"
       [ "$env" == "staging" ] && env="%{$fg[cyan]%}staging%{$reset_color%}"
       userhost="$env|%n@%m"
