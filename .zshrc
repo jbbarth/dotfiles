@@ -48,10 +48,16 @@ function precmd() {
   else
     dir=$(pwd|perl -pe 's#^/(Users|home)/jbbarth#~#,s#^~/(botify|dev/botify|Projects/botify)#[B]#')
     if which ec2metadata >/dev/null; then
+      #AWS machines
       env=$(ec2metadata --security-groups|cut -d. -f4)
       env=$(echo $env|sed -e "s/prod/\\o033[31mprod\\o033[0m/;s/staging/\o033[36mstaging\\o033[0m/")
       userhost="$env|%n@%m"
+    elif test -e /usr/local/rtm/bin/rtm; then
+      #OVH machines
+      env=$(echo "OVH"|sed -e "s/^/\\o033[34m/;s/$/\\o033[0m/")
+      userhost="$env|%n@%m"
     elif ! test -z "$SSH_CONNECTION"; then
+      #other ssh-accessed machines
       userhost="%n@%m"
     else
       userhost="%n@local"
