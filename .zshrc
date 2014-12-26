@@ -58,7 +58,7 @@ function precmd() {
       userhost="$env|%n@%m"
     elif test -e /usr/local/rtm/bin/rtm; then
       #OVH machines
-      env="%{$fg[blue%}ovh%{$reset_color%}"
+      env="%{$fg[blue]%}ovh%{$reset_color%}"
       userhost="$env|%n@%m"
     elif ! test -z "$SSH_CONNECTION"; then
       #other ssh-accessed machines
