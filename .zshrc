@@ -70,7 +70,7 @@ function precmd() {
   fi
 }
 # switch between simple and normal prompt
-function ss() {
+function sp() {
   if [ "$SIMPLE_PROMPT" ]; then
     unset SIMPLE_PROMPT
   else
