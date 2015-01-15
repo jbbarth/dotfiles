@@ -50,6 +50,7 @@ brew cask install alfred
 brew cask install anvil
 brew cask install adobe-air
 brew cask install adobe-reader
+brew cask install atom
 brew cask install caffeine
 brew cask install dropbox
 brew cask install gimp
