@@ -166,7 +166,7 @@ function! ToggleCommentify()
 		let isCommented = strpart(lineString,0,3)		" getting the first 3 symbols
 		let fileType = &ft								" finding out the file-type, and specifying the comment symbol
     let commentSymbolAfter = ''
-		if fileType == 'ox' || fileType == 'cpp' || fileType == 'cu' || fileType == 'c' || fileType == 'php' || fileType == 'javascript' || fileType == 'go'
+		if fileType == 'ox' || fileType == 'cpp' || fileType == 'cu' || fileType == 'c' || fileType == 'php' || fileType == 'javascript' || fileType == 'go' || fileType == 'scss'
 			let commentSymbolBefore = '///'
 		elseif fileType == 'vim'
 			let commentSymbolBefore = '"""'
