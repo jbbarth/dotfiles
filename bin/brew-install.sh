@@ -12,6 +12,7 @@ brew install docker
 brew install findutils
 brew install fdupes
 brew install fping
+brew install fswatch
 brew install ghostscript
 brew install hg
 brew install go
