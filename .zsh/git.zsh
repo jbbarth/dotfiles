@@ -3,8 +3,8 @@ alias g='git'
 alias gs='git status -sb'
 alias gd='git diff'
 gc() {
-  ( cd $(git root); git ls-files | xargs ack --nobreak --color "TODO:|FIXME:" | perl -pe "s#$(git root)/##" )
-  ( cd $(git root); git ls-files | ack '.md$' | xargs ack --nobreak --color 'TODO( |$)' | perl -pe "s#$(git root)/##" )
+  ( cd $(git root); git ls-files | xargs ack --no-recurse --nobreak --color "TODO:|FIXME:" | perl -pe "s#$(git root)/##" )
+  ( cd $(git root); git ls-files | ack '.md$' | xargs ack --no-recurse --nobreak --color 'TODO( |$)' | perl -pe "s#$(git root)/##" )
   git status --porcelain | grep -e "^M" -e "^A" >/dev/null || ( cd $(git root); git add . )
   opts=""
   if [ "$1" != "" ]; then
