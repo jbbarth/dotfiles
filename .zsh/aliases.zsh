@@ -134,3 +134,4 @@ loop() { while :; do clear; date; eval $*; sleep 5; done }
 inodes_count() { for d in `sudo gfind -maxdepth 1 -type d |cut -d\/ -f2 |grep -xv . |sort`; do c=$(sudo find $d |wc -l) ; printf "$c $d\n" ; done }
 inodes_top() { inodes_count|sort -nr|head -10 }
 alias rsync='rsync -avz --progress'
+alias taillogs='sudo bash -c "tail -n 0 -F /var/log/syslog /var/log/**/*.log"'
