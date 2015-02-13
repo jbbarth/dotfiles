@@ -48,7 +48,9 @@ autoload -U colors && colors
 function precmd() {
   if ! test -z "$SIMPLE_PROMPT"; then
     PROMPT="$SIMPLE_PROMPT"
+    RPROMPT=""
   else
+    RPROMPT=$(date "+%H:%M")
     dir=$(pwd|perl -pe 's#^/(Users|home)/jbbarth#~#,s#^~/(botify|dev/botify|Projects/botify)#[B]#')
     if which ec2metadata >/dev/null; then
       #AWS machines
@@ -66,7 +68,10 @@ function precmd() {
     else
       userhost="%n@local"
     fi
-    PROMPT="$userhost:$dir%# "
+    if [ "$VIRTUAL_ENV" != "" ]; then
+      virtualenv="($(basename $VIRTUAL_ENV))"
+    fi
+    PROMPT="$virtualenv$userhost:$dir%# "
   fi
 }
 # switch between simple and normal prompt
