@@ -28,6 +28,7 @@ brew install nmap
 brew install nodejs
 brew install parallel
 brew install pcre
+brew install phantomjs
 brew install pstree
 brew install qt4
 brew install rename
