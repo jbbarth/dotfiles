@@ -108,6 +108,7 @@ vi() {
     command sudo -e $*
   fi
 }
+alias vii='vi $(fc -e - ack="ack -l" grep="grep -l" -1)'
 alias more='less'
 alias rake='bundle exec rake'
 alias week='ruby -e "require \"date\"; puts Date.commercial( Time.now.year, ARGV[0].to_i|1, 1 ).strftime( \"%d-%m-%Y\")"'
