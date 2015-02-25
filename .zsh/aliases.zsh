@@ -35,6 +35,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias tac='gtac'
   alias wc='gwc'
   alias timeout='gtimeout'
+  alias mktemp='gmktemp'
+  alias readlink='greadlink'
 else
   alias tail='tail -n 0'
 fi
