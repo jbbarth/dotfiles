@@ -9,3 +9,4 @@ libpeerconnection.log
 **/test-inventory
 venv/
 **/*.pyc
+node_modules/
