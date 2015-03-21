@@ -295,3 +295,4 @@ set shell=/bin/zsh\ -l
 
 " soft wrap markdown files at 80 chars
 au BufRead,BufNewFile *.md setlocal textwidth=79
+au BufRead,BufNewFile *.py setlocal textwidth=79
