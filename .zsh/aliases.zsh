@@ -37,6 +37,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias timeout='gtimeout'
   alias mktemp='gmktemp'
   alias readlink='greadlink'
+  alias touch='gtouch'
 else
   alias tail='tail -n 0'
 fi
