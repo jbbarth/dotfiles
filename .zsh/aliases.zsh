@@ -38,9 +38,13 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias mktemp='gmktemp'
   alias readlink='greadlink'
   alias touch='gtouch'
+  alias date='gdate'
 else
   alias tail='tail -n 0'
 fi
+
+# Use gnutar by default
+export PATH=/usr/local/opt/gnu-tar/libexec/gnubin:$PATH
 
 # Personal aliases
 [ -e /etc/debian_version ] && alias rm='rm -I' || alias rm='rm -i'
