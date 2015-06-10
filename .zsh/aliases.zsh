@@ -99,12 +99,7 @@ px() {
 vi() {
   #restore a correct $TERM if we're under a tmux session
   [ ! -z "$TMUX" ] && export TERM=screen-256color
-  #ensure we're not on a binary file
-  if [ -e $1 ]; then
-    filetype=$(file $1|grep -e 'regular' -e ' text' -e ': data' -e ' empty' >/dev/null && echo 'text' || echo 'other')
-    [ "$filetype" != "text" ] && echo "Non text file: $(file $1)\nContinue ?" && read
-  fi
-  #then only edit it
+  #edit it
   if [ -w $1 ]; then
     command vim $*
   elif [ ! -e $1 ] && [ -w $(dirname $1) ]; then
