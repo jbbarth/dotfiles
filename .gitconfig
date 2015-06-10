@@ -37,6 +37,8 @@
   up = pull --ff-only
   amend = commit --amend
   cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|devel' | xargs -n 1 git branch -d"
+  whendeleted = log -1 --
+  lastcommiton = log -1 --
 [push]
   default = tracking
 [github]
