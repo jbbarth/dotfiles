@@ -69,7 +69,12 @@ function precmd() {
     if [ "$VIRTUAL_ENV" != "" ]; then
       virtualenv="($(basename $VIRTUAL_ENV))"
     fi
-    PROMPT="$virtualenv$userhost:$dir%# "
+    if test -e $(pwd)/.ruby-version; then
+      rvm_env="{$(current_rvm_env)}"
+    else
+      rvm_env=""
+    fi
+    PROMPT="$rvm_env$virtualenv$userhost:$dir%# "
   fi
 }
 # switch between simple and normal prompt
