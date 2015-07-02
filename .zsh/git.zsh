@@ -2,7 +2,7 @@ export GIT_EDITOR=vi
 alias g='git'
 alias gs='git status -sb'
 alias gd='git diff'
-alias gp='git push'
+alias gp='git push origin HEAD'
 gc() {
   todos
   git status --porcelain | grep -e "^M" -e "^A" >/dev/null || ( cd $(git root); git add . )
