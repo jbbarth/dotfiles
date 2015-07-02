@@ -1,3 +1,4 @@
+.eggs
 .grunt
 .powrc
 .ruby-*
@@ -10,3 +11,4 @@ libpeerconnection.log
 venv/
 **/*.pyc
 node_modules/
+examples/
