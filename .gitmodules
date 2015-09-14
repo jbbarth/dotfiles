@@ -19,3 +19,12 @@
 [submodule ".vim/bundle/Dockerfile"]
 	path = .vim/bundle/Dockerfile
 	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule ".vim/bundle/clojure"]
+	path = .vim/bundle/clojure
+	url = https://github.com/guns/vim-clojure-static.git
+[submodule ".vim/bundle/crystal"]
+	path = .vim/bundle/crystal
+	url = https://github.com/rhysd/vim-crystal
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
