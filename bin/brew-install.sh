@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Update the index
+brew update
+
 # Std brew packages
 brew tap homebrew/dupes
 brew install ack
