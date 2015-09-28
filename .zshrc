@@ -68,6 +68,8 @@ function precmd() {
     fi
     if [ "$VIRTUAL_ENV" != "" ]; then
       virtualenv="($(basename $VIRTUAL_ENV))"
+    else
+      virtualenv=""
     fi
     if test -e $(pwd)/.ruby-version; then
       rvm_env="{$(current_rvm_env)}"
