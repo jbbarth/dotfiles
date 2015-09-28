@@ -21,7 +21,7 @@ elif [ -x /usr/local/bin/gdircolors ]; then
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
   #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
-  if \watch --help|grep -- --color >/dev/null 2>/dev/null; then
+  if \watch --help 2>/dev/null|grep -- --color >/dev/null; then
     alias watch='watch --color'
   fi
 fi
