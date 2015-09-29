@@ -63,6 +63,7 @@ brew cask install google-chrome
 brew cask install inkscape
 brew cask install iterm2
 brew cask install istat-menus
+brew cask install java
 brew cask install pencil
 brew cask install pgadmin3
 brew cask install postgres
