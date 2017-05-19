@@ -7,7 +7,7 @@
 call pathogen#infect()
 
 " See: http://linux-attitude.fr/post/Vimrc-collaboratif
-" 
+"
 " Defaults options (keep it at the top of your vimrc)
 set nocompatible
 
@@ -21,6 +21,9 @@ syntax on
 " Go syntaxhl
 au BufRead,BufNewFile *.go set filetype=go
 
+" JSX syntaxhl
+au BufRead,BufNewFile *.jsx set filetype=javascript
+
 " Exuberant ctags
 set tags=./tags,tags,.git/tags,/;
 
@@ -29,6 +32,7 @@ set background=light
 " And set a colorscheme
 let g:solarized_termcolors=256
 "let g:solarized_termtrans=1
+"""""""""""""""""""""""""""""" COMMENTED OUT bc/ grey is too dark: colorscheme solarized
 colorscheme solarized
 "call togglebg#map("<F5>")
 
@@ -130,7 +134,7 @@ set expandtab
 "highlight CursorLine ctermbg=blue
 
 " Show line numbers
-" set number
+"set number
 
 " Use shiftwidth instead of tabstop at the beginning of the line
 " and backspace deletes everything if there are only spaces
@@ -160,34 +164,35 @@ filetype indent on
 
 map <F9> :%s/\t/  /g
 map <F8> :call ToggleCommentify()<CR>j
+map <c-c> :call ToggleCommentify()<CR>j
 function! ToggleCommentify()
 	let lineString = getline(".")
-	if lineString != $									" don't comment empty lines
-		let isCommented = strpart(lineString,0,3)		" getting the first 3 symbols
-		let fileType = &ft								" finding out the file-type, and specifying the comment symbol
-    let commentSymbolAfter = ''
-		if fileType == 'ox' || fileType == 'cpp' || fileType == 'cu' || fileType == 'c' || fileType == 'php' || fileType == 'javascript' || fileType == 'go' || fileType == 'scss'
-			let commentSymbolBefore = '///'
-		elseif fileType == 'vim'
-			let commentSymbolBefore = '"""'
-		elseif fileType == 'python' || fileType == 'ruby'
-			let commentSymbolBefore = '###'
-    elseif fileType == 'xml' || fileType == 'html' || fileType == 'eruby'
-      let commentSymbolBefore = '<!--'
-      let commentSymbolAfter  = ' -->'
-    else
-      execute 'echo "WARNING: File type not detected. Using default comment token"'
-      let commentSymbolBefore = '###'
-    endif
-		if isCommented == strpart(commentSymbolBefore,0,3)
-			call UnCommentify(commentSymbolBefore, commentSymbolAfter) " if the line is already commented, uncomment
-		else
-			call Commentify(commentSymbolBefore, commentSymbolAfter)				 " if the line is uncommented, comment
-		endif
+	" if lineString !~ '$'									" don't comment empty lines
+	let isCommented = strpart(lineString,0,3)		" getting the first 3 symbols
+	let fileType = &ft								" finding out the file-type, and specifying the comment symbol
+  let commentSymbolAfter = ''
+	if fileType == 'ox' || fileType == 'cpp' || fileType == 'cu' || fileType == 'c' || fileType == 'php' || fileType == 'javascript' || fileType == 'go' || fileType == 'scss'
+		let commentSymbolBefore = '///'
+	elseif fileType == 'vim'
+		let commentSymbolBefore = '"""'
+	elseif fileType == 'python' || fileType == 'ruby'
+		let commentSymbolBefore = '###'
+  elseif fileType == 'xml' || fileType == 'html' || fileType == 'eruby'
+    let commentSymbolBefore = '<!--'
+    let commentSymbolAfter  = ' -->'
+  else
+    execute 'echo "WARNING: File type not detected. Using default comment token"'
+    let commentSymbolBefore = '###'
+  endif
+	if isCommented == strpart(commentSymbolBefore,0,3)
+		call UnCommentify(commentSymbolBefore, commentSymbolAfter) " if the line is already commented, uncomment
+	else
+		call Commentify(commentSymbolBefore, commentSymbolAfter)				 " if the line is uncommented, comment
 	endif
 endfunction
 
 function! Commentify(commentSymbolBefore, commentSymbolAfter)
+  execute 'echo "commenting"'
 	set nohlsearch
 	execute ':s+^+'.a:commentSymbolBefore.'+'					| " go to the beginning of the line and insert the comment symbol 
 	execute ':s+$+'.a:commentSymbolAfter.'+'					| " go to the end of the line and append the comment symbol 
@@ -195,6 +200,7 @@ function! Commentify(commentSymbolBefore, commentSymbolAfter)
 endfunction
 	
 function! UnCommentify(commentSymbolBefore, commentSymbolAfter)
+  execute 'echo "uncommenting"'
 	set nohlsearch
 	execute ':s+^'.a:commentSymbolBefore.'++'					| " go to the beginning of the line and remove the comment symbol 
 	execute ':s+'.a:commentSymbolAfter.'$++'					| " go to the end of the line and remove the comment symbol 
@@ -269,30 +275,40 @@ set scrolloff=3
 set encoding=utf-8
 set fileencoding=utf-8
 
-"TODO: refactor the next 3 sections using matchadd()/matchdelete()
-" highlight trailing white spaces in red
-highlight ExtraWhitespace ctermbg=blue guibg=red
-2match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * 2match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * call clearmatches()
-autocmd InsertLeave * 2match ExtraWhitespace /\s\+$/
+""" THE NEXT SECTIONS ARE BUGGY, THEY CLASH WITH RECENT VIMS (OSX SIERRA)
+""" "TODO: refactor the next 3 sections using matchadd()/matchdelete()
+""" " highlight trailing white spaces in red
+""" highlight ExtraWhitespace ctermbg=blue guibg=red
+""" 2match ExtraWhitespace /\s\+$/
+""" autocmd BufWinEnter * 2match ExtraWhitespace /\s\+$/
+""" autocmd InsertEnter * call clearmatches()
+""" autocmd InsertLeave * 2match ExtraWhitespace /\s\+$/
+"""
+""" " highlight non-breaking spaces
+""" highlight NbSp ctermbg=red guibg=red
+""" 3match NbSp /\%xa0/
+""" autocmd BufWinEnter * 3match NbSp /\%xa0/
+""" autocmd InsertEnter * 3match NbSp /\%xa0/
+""" autocmd InsertLeave * 3match NbSp /\%xa0/
 
-" highlight non-breaking spaces
-highlight NbSp ctermbg=red guibg=red
-3match NbSp /\%xa0/
-autocmd BufWinEnter * 3match NbSp /\%xa0/
-autocmd InsertEnter * 3match NbSp /\%xa0/
-autocmd InsertLeave * 3match NbSp /\%xa0/
-" an other solution below, but it also highlights tabs and I didn't find
-" how to disable that: set list listchars=nbsp:\ 
-
-" clear highlights when leaving buffer
-autocmd BufWinLeave * call clearmatches()
-
-" set our shell
-" TODO: make it load .zshrc ; -l/--login doesn't seem to be sufficient!
-set shell=/bin/zsh\ -l
-
-" soft wrap markdown files at 80 chars
-au BufRead,BufNewFile *.md setlocal textwidth=79
-au BufRead,BufNewFile *.py setlocal textwidth=79
+" Adapted from: http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+highlight BadWhitespace ctermbg=red guibg=red
+augroup WhitespaceMatch
+  " Remove ALL autocommands for the WhitespaceMatch group.
+  autocmd!
+  autocmd BufWinEnter * let w:whitespace_match_number = matchadd('ExtraWhitespace', '\s\+$')
+  autocmd BufWinEnter * let w:bad_whitespace_match_number = matchadd('BadWhitespace', '\%xa0')
+  autocmd InsertEnter * call s:ToggleWhitespaceMatch('i')
+  autocmd InsertLeave * call s:ToggleWhitespaceMatch('n')
+augroup END
+function! s:ToggleWhitespaceMatch(mode)
+  let pattern = (a:mode == 'i') ? '\s\+\%#\@<!$' : '\s\+$'
+  if exists('w:whitespace_match_number')
+    call matchdelete(w:whitespace_match_number)
+    call matchadd('ExtraWhitespace', pattern, 10, w:whitespace_match_number)
+  else
+    " Something went wrong, try to be graceful.
+    let w:whitespace_match_number =  matchadd('ExtraWhitespace', pattern)
+  endif
+endfunction
