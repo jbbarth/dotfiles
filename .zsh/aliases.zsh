@@ -108,7 +108,7 @@ vi() {
   elif [ ! -e $1 ] && [ -w $(dirname $1) ]; then
     command vim $*
   else
-    command sudo -e $*
+    command sudo vim $*
   fi
 }
 alias vii='vi $(fc -e - ack="ack -l" grep="grep -l" -1)'
