@@ -14,14 +14,14 @@ gc() {
   fi
 }
 todos() {
-  cd $(git root)
+  # cd $(git root)
   if test -e .git/ignoretodos; then
     echo "TODOs display is disabled because you have a .git/ignoretodos file"
   else
     git ls-files | xargs ack --no-recurse --nobreak --color "TODO:|FIXME:" | perl -pe "s#$(git root)/##" | wrap200
     git ls-files | ack '.md$' | xargs ack --no-recurse --nobreak --color 'TODO( |$)' | perl -pe "s#$(git root)/##" | wrap200
   fi
-  cd - >/dev/null
+  #cd - >/dev/null
 }
 wrap200() {
   perl -pe 's/^(.{0,200})(.*)$/$1.($2?"...":"")/e'
