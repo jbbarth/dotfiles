@@ -55,7 +55,7 @@ filetype plugin indent on
 " Keep cursor position when re-openning a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal g'\"" | endif
+    \| exe "normal g`\"" | endif
 endif
 
 
