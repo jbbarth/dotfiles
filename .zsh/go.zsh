@@ -1,3 +1,4 @@
 #Golang related stuff
-export GOPATH=~/dev/go/
+export GOPATH=$HOME/.go
 export PATH=$GOPATH/bin:$PATH
+export GO15VENDOREXPERIMENT=1
