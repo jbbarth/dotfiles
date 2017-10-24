@@ -30,3 +30,19 @@ if which hub >/dev/null; then
   # do not use an alias or shell comp won't work
   function git(){hub "$@"}
 fi
+###alias git=hub
+
+gsync() {
+  set -e
+  if [ "$(git status --short)" != "" ]; then
+    echo "Error: clean up your git status first!" >&2
+    return
+  fi
+  git branch|grep -q devel && branch=devel || branch=master
+  echo "> git checkout $branch"
+  git checkout $branch
+  echo "> git sync"
+  git sync
+  echo "> git cleanup"
+  git cleanup
+}
