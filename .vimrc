@@ -14,6 +14,9 @@ set nocompatible
 " Allow unsaved background buffers and remember marks/undo for them
 set hidden
 
+" Larger vim default buffer
+set viminfo='20,<1000
+
 " Syntax highlighting
 set t_Co=256
 syntax on
