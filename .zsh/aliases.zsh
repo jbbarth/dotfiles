@@ -142,3 +142,8 @@ loop() { while :; do clear; date; eval $*; sleep 5; done }
 inodes_count() { for d in `sudo gfind -maxdepth 1 -type d |cut -d\/ -f2 |grep -xv . |sort`; do c=$(sudo find $d |wc -l) ; printf "$c $d\n" ; done }
 inodes_top() { inodes_count|sort -nr|head -10 }
 alias taillogs='sudo bash -c "tail -n 0 -F /var/log/syslog /var/log/**/*.log"'
+duration() {
+  d=$(mplayer -really-quiet -ao null -vo null -identify -frames 0 "$1"|grep ID_LENGTH|cut -d= -f 2)
+  echo $d
+  echo $((d / 60.0))
+}
