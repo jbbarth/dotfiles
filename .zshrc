@@ -13,7 +13,7 @@ bindkey '^[[1;9C' forward-word                       # [Alt-RightArrow] - move f
 bindkey '^[[1;9D' backward-word                      # [Alt-LeftArrow] - move backward one word
 
 # My own options (see man zshoptions)
-setopt auto_cd
+#setopt auto_cd
 setopt auto_pushd
 #setopt cdable_vars
 CDPATH=$CDPATH:$HOME
