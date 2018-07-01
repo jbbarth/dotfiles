@@ -9,6 +9,8 @@ bindkey '^[[3~' delete-char
 bindkey '^R' history-incremental-search-backward
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
+bindkey '^[[1;9C' forward-word                       # [Alt-RightArrow] - move forward one word
+bindkey '^[[1;9D' backward-word                      # [Alt-LeftArrow] - move backward one word
 
 # My own options (see man zshoptions)
 setopt auto_cd
