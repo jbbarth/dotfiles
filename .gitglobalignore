@@ -1,13 +1,16 @@
 .cache
 .eggs
+.env*
 .idea
 .grunt
+.mypy_cache/
 .nvmrc
 .powrc
 .powrc.disabled
 .ruby-*
 .rvmrc
 .rvmrc.*
+.python-*
 .DS_Store
 *.swp
 *.swo
@@ -20,3 +23,10 @@ node_modules/
 bower_components/
 examples/
 htmlcov/
+tmp/
+
+
+# terraform state
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
