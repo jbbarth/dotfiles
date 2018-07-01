@@ -27,6 +27,11 @@ au BufRead,BufNewFile *.go set filetype=go
 " JSX syntaxhl
 au BufRead,BufNewFile *.jsx set filetype=javascript
 
+" Proto syntaxhl
+augroup filetype
+  au! BufRead,BufNewFile *.proto setfiletype proto
+augroup end
+
 " Exuberant ctags
 set tags=./tags,tags,.git/tags,/;
 
