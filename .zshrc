@@ -24,16 +24,20 @@ setopt extended_history
 #setopt path_dirs
 NULLCMD=:
 
+# Environment variables
+PATH=$HOME/bin:$PATH
+export SUDO_EDITOR=vi
+export SVN_EDITOR=vi
+export EDITOR=vi
+
 # Load files under .zsh/
-for config_file ($HOME/.zsh/*.zsh) source $config_file
+for config_file ($HOME/.zsh/*.zsh); do
+  #echo "loading $config_file"
+  source $config_file
+done
 
 # Add ssh keys to agent if needed (MacOSX for instance)
 ssh-add -L |grep "^ssh" >/dev/null || ssh-add
-
-# Environment variables
-PATH=$PATH:$HOME/bin
-export SUDO_EDITOR=vi
-export SVN_EDITOR=vi
 
 # Automatic files handling
 autoload zsh-mime-setup
