@@ -129,11 +129,6 @@ alias iptables-list='command sudo iptables -nvL --line-numbers'
 alias iptables-clear='iptables -P INPUT ACCEPT'
 alias sudo='command sudo '
 alias ssudo='command sudo sh -c '
-if laptop-detect 2>/dev/null; then
-  alias mp='mplayer -fs -ao alsa,oss, -idx -af pan=2:0.5:0.5:0.5:0.5'
-else
-  alias mp='mplayer -ao alsa,oss,'
-fi
 alias -g M=' 2>&1 | more'
 alias -g P=' 2>&1 | \grep Playing'
 alias -g C=' | column -t'
