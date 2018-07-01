@@ -77,3 +77,7 @@ docker-create-repo() {
 ###       -H "Content-Type: application/json" # \
 ###       #-w "%{http_code} %{url_effective}\n"
 }
+
+de() {
+  docker exec -it $(docker-last) env TERM=xterm bash
+}

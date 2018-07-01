@@ -3,6 +3,7 @@ alias g='git'
 alias gs='git status -sb'
 alias gd='git diff'
 alias gp='git push origin HEAD'
+alias gitx='open -a GitX'
 gc() {
   todos
   git status --porcelain | grep -e "^M" -e "^A" >/dev/null || ( cd $(git root); git add . )

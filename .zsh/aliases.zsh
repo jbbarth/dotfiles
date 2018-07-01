@@ -130,6 +130,7 @@ alias iptables-clear='iptables -P INPUT ACCEPT'
 alias sudo='command sudo '
 alias ssudo='command sudo sh -c '
 alias -g M=' 2>&1 | more'
+alias -g J=' | jq --color-output . | more'
 alias -g P=' 2>&1 | \grep Playing'
 alias -g C=' | column -t'
 alias luksopen='sudo cryptsetup luksOpen'
@@ -150,3 +151,4 @@ duration() {
   echo $d
   echo $((d / 60.0))
 }
+tox() { (unset PYTHONPATH; command tox $*;) }
