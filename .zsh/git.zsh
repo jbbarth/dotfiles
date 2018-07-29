@@ -47,3 +47,13 @@ gsync() {
   echo "> git cleanup"
   git cleanup
 }
+
+gcleanup() {
+  git branch --format="%(refname:short)" | grep -qE '^devel$' && main=devel || main=master
+  git checkout -q $main && git for-each-ref refs/heads/ --format="%(refname:short)" | while read branch; do
+    merge_base=$(git merge-base $main $branch)
+    if [[ $(git cherry $main $(git commit-tree $(git rev-parse $branch^{tree}) -p $merge_base -m _)) == "-"* ]]; then
+      git branch -D $branch
+    fi
+  done
+}
