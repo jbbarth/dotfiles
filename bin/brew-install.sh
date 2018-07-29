@@ -21,6 +21,7 @@ brew install fdupes
 brew install flock
 brew install fping
 brew install fswatch
+brew install fzf
 brew install ghostscript
 brew install hg
 brew install go
@@ -37,6 +38,7 @@ brew install mplayer
 brew install mysql
 brew install nmap
 brew install nodejs
+brew install openssh
 brew install parallel
 brew install pcre
 brew install phantomjs
@@ -44,7 +46,10 @@ brew install pstree
 brew install pwgen
 brew install qt4
 brew install rename
+brew install selecta
+brew install telnet
 brew install tmux
+brew install tnftp
 brew install tree
 brew install unrar
 brew install weechat
