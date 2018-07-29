@@ -52,3 +52,10 @@ if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
   #Rails.logger = 
   RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
 end
+
+# if Rails here, load all models
+if defined?(Rails)
+  Rails.application.eager_load!
+end
+
+#Hirb.enable rescue nil
