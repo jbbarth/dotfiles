@@ -51,7 +51,7 @@ zstyle ':completion:*' rehash true
 autoload -U colors && colors
 
 # precmd() for rvm prompt + no hist dirs
-function precmd() {
+function __precmd() {
   if ! test -z "$SIMPLE_PROMPT"; then
     PROMPT="$SIMPLE_PROMPT"
   else
@@ -84,6 +84,7 @@ function precmd() {
     fi
     PROMPT="$rvm_env$virtualenv$userhost:$dir%# "
   fi
+  PROMPT='$(kube_ps1)'$PROMPT
 }
 # switch between simple and normal prompt
 function sp() {
@@ -93,6 +94,7 @@ function sp() {
     export SIMPLE_PROMPT="%# "
   fi
 }
+export SIMPLE_PROMPT="%# "
 
 ### Added by the Heroku Toolbelt
 export PATH="$PATH:/usr/local/heroku/bin"
