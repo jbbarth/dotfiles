@@ -39,7 +39,7 @@ set tags=./tags,tags,.git/tags,/;
 set background=light
 " And set a colorscheme
 let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
+let g:solarized_termtrans=1
 """""""""""""""""""""""""""""" COMMENTED OUT bc/ grey is too dark: colorscheme solarized
 colorscheme solarized
 "call togglebg#map("<F5>")
