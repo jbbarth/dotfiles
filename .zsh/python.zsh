@@ -1,6 +1,10 @@
 export PYTHONPATH=.
 export PYTHONDONTWRITEBYTECODE=true
 
+black() {
+  docker run -v $(pwd):/code jbbarth/black $*
+}
+
 workon() {
   [[ "$1" != . ]] && cd $1
   project=$(readlink -f $(pwd)|xargs basename)
