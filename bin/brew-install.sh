@@ -9,7 +9,6 @@ brew tap discoteq/discoteq # for "flock"
 brew tap johanhaleby/kubetail # for "kubetail"
 
 # Std brew packages
-brew tap homebrew/dupes
 brew install ack
 brew install boot2docker
 brew install bzr
