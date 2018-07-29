@@ -1,4 +1,5 @@
 #!/bin/bash
+set -xeuo pipefail
 
 # Update the index
 brew update
