@@ -27,6 +27,7 @@
   ci = commit
   br = branch
   co = checkout
+  cp = cherry-pick
   df = diff
   dff = diff --cached
   lg = log -p
@@ -36,9 +37,11 @@
   root = rev-parse --show-toplevel
   up = pull --ff-only
   amend = commit --amend
+  aamend = "!git add . --verbose && git commit --amend --no-edit"
   cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|devel' | xargs -n 1 git branch -d"
   whendeleted = log -1 --
   lastcommiton = log -1 --
+	lm = log --pretty=format:'%Cred%h%Creset   %C(bold blue)<%an>%Creset -%C(yellow)%d%Creset %C(bold cyan)%s   %Cgreen(%cr)%n%Creset%n - %b%n' --abbrev-commit --date=relative --merges
 [push]
   default = tracking
 [github]
@@ -47,3 +50,11 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[pull]
+	rebase = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/es6"]
 	path = .vim/bundle/es6
 	url = https://github.com/isRuslan/vim-es6.git
+[submodule "/Users/jbbarth/.vim/bundle/vim-elixir"]
+	path = /Users/jbbarth/.vim/bundle/vim-elixir
+	url = https://github.com/elixir-lang/vim-elixir.git
