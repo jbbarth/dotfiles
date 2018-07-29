@@ -2,7 +2,7 @@ export PYTHONPATH=.
 export PYTHONDONTWRITEBYTECODE=true
 
 workon() {
-  cd $1
+  [[ "$1" != . ]] && cd $1
   project=$(readlink -f $(pwd)|xargs basename)
   venv="$HOME/.virtualenvs/$project"
   if ! test -e "$venv"; then
@@ -12,3 +12,5 @@ workon() {
   echo "Loading virtualenv $project"
   source "$venv/bin/activate"
 }
+
+export PATH=$PATH:$HOME/.pyenv/versions/3.6.3/bin
