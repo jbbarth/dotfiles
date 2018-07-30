@@ -30,7 +30,7 @@ precmd() {
 
   # virtualenvs
   if ! test -z "$VIRTUAL_ENV"; then
-    venv=$(echo "$VIRTUAL_ENV" | sed "s#^$HOME#~#;s#~/.virtualenvs/##")
+    venv=$(echo "$VIRTUAL_ENV" | perl -pe "s#^$HOME#~#;s#~/.virtualenvs/##" | perl -pe 's#~/.pyenv/versions/([^/]+)/envs/([^/]+)$#$1/$2#')
     header_line+=$'%F{green}%B(P)%b%f'"$venv "
   fi
 
