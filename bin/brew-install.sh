@@ -26,6 +26,7 @@ brew install hub
 brew install gist
 brew install graphviz
 brew install imagemagick
+brew install jq
 brew install kubectl
 brew install kubetail
 brew install leiningen
