@@ -24,6 +24,7 @@ brew install go
 brew install gnu-tar
 brew install hub
 brew install gist
+brew install gpg
 brew install graphviz
 brew install imagemagick
 brew install jq
