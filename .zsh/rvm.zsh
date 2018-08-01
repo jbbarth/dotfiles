@@ -1,5 +1,5 @@
 # RVM: Ruby Version Manager
-# http://rvm.beginrescueend.com/
+# https://rvm.io/
 
 #loading
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
