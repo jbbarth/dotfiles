@@ -85,6 +85,7 @@ brew cask install pgadmin4
 brew cask install postgres
 brew cask install postman
 brew cask install pycharm
+brew cask install redis-app
 brew cask install skitch
 # the standard "Slack.app" is too slow/memory hog
 brew cask install homebrew/cask-versions/slack-beta
