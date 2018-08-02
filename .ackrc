@@ -1,0 +1,13 @@
+--ignore-dir=build
+--ignore-dir=dist
+--ignore-dir=var
+--ignore-dir=.tox
+--ignore-dir=coverage
+--ignore-dir=data
+--ignore-dir=tmp
+--ignore-dir=vendor
+--ignore-file=is:bundle.js
+--ignore-file=match:.*\.log$
+--ignore-dir=public/packs/
+--ignore-dir=public/packs-test/
+--ignore-dir=.terraform/
