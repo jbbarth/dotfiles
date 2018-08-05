@@ -35,6 +35,7 @@ brew install leiningen
 brew install libmagic
 brew install mplayer
 brew install mysql
+brew install ncdu
 brew install nmap
 brew install nodejs
 brew install nvm
