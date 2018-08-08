@@ -14,6 +14,7 @@ brew install bzr
 brew install colordiff
 brew install coreutils
 brew install crystal
+brew install crystal-icr
 brew install findutils
 brew install fdupes
 brew install flock
