@@ -115,7 +115,7 @@ vi() {
     ruby -c $(for w in $*; do echo $w; done >/dev/null | grep -F '.rb')
   fi
 
-  if echo $* | grep -qF ".py"; then
+  if which flake8 >/dev/null && echo $* | grep -qF ".py"; then
     flake8 $(for w in $*; do echo $w; done | grep -v -e .virtualenv -e dist-packages -e site-packages)
   fi
 }
