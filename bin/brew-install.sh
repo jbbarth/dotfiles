@@ -47,6 +47,7 @@ brew install pwgen
 brew install pyenv
 brew install rename
 brew install selecta
+brew install s3cmd
 brew install telnet
 brew install tmux
 brew install tnftp
