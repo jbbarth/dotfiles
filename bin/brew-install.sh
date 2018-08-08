@@ -42,6 +42,7 @@ brew install nmap
 brew install nodejs
 brew install nvm
 brew install openssh
+brew install overmind
 brew install parallel
 brew install pcre
 brew install pstree
