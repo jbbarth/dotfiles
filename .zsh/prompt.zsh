@@ -54,7 +54,7 @@ precmd() {
 
   # directory
   dir=$(echo $PWD | sed "s#^$HOME#~#")
-  dir=""
+  header_line="$dir $header_line"
 
   # hour
   hour=$'%F{240}%D{%H:%M:%S}%f'
@@ -66,7 +66,7 @@ precmd() {
     userhost=" %n@%m"
   fi
 
-  PROMPT=$'\n'"$header_line$dir$hour$userhost $char "
+  PROMPT=$'\n'"$header_line$hour$userhost $char "
 }
 
 # precmd() for rvm prompt + no hist dirs
