@@ -98,6 +98,7 @@ brew cask install skitch
 brew cask install homebrew/cask-versions/slack-beta
 brew cask install sketch
 brew cask install sourcetree
+brew cask install spectacle
 brew cask install spotify
 brew cask install transmit
 brew cask install virtualbox
