@@ -11,6 +11,12 @@ on_cd() {
     echo "sourcing ~/.zsh/nvm.zsh.auto"
     source ~/.zsh/nvm.zsh.auto
   fi
+
+  # re-evaluate available binaries
+  if [[ -d node_modules/.bin ]]; then
+    path=$(echo $PATH | perl -pe 's#(^|:)[^:]*/node_modules/.bin(:|$)#$1$2#')
+    export PATH=$(pwd)/node_modules/.bin:$PATH
+  fi
 }
 autoload -U add-zsh-hook
 add-zsh-hook -Uz chpwd(){ on_cd; }
