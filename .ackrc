@@ -11,4 +11,6 @@
 --ignore-dir=public/packs/
 --ignore-dir=public/packs-test/
 --ignore-dir=.terraform/
---ignore-dir=static/css
+--ignore-dir=client/static/
+--ignore-dir=client/.next/
+--ignore-dir=.next/
