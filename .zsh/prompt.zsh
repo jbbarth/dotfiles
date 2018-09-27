@@ -1,5 +1,11 @@
 # basic dynamic prompt
 precmd() {
+  # return simple prompt if there
+  if ! test -z "$SIMPLE_PROMPT"; then
+    PROMPT="$SIMPLE_PROMPT"
+    return
+  fi
+
   # char
   last_exit_code=$?
   if [[ $last_exit_code -ne 0 && $last_exit_code -ne 130 ]]; then
@@ -114,4 +120,3 @@ function sp() {
     export SIMPLE_PROMPT="%# "
   fi
 }
-export SIMPLE_PROMPT="%# "

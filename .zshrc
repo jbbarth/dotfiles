@@ -50,53 +50,7 @@ zstyle ':completion:*' rehash true
 # Easy colors in ZSH scripting
 autoload -U colors && colors
 
-# precmd() for rvm prompt + no hist dirs
-function __precmd() {
-  if ! test -z "$SIMPLE_PROMPT"; then
-    PROMPT="$SIMPLE_PROMPT"
-  else
-    dir=$(pwd|perl -pe 's#^/(Users|home)/jbbarth#~#,s#^~/(botify|dev/botify|Projects/botify)#[B]#')
-    if which ec2metadata >/dev/null; then
-      #AWS machines
-      env=$(ec2metadata --security-groups|head -n 1|cut -d. -f4|sed 's#%2F#/#')
-      [ "$env" == "prod" ] && env="%{$fg[red]%}prod"
-      [ "$env" == "staging" ] && env="%{$fg[cyan]%}staging"
-      userhost="$env%{$reset_color%}|%n@%m"
-    elif test -e /usr/local/rtm/bin/rtm; then
-      #OVH machines
-      env="%{$fg[blue]%}ovh"
-      userhost="$env%{$reset_color%}|%n@%m"
-    elif ! test -z "$SSH_CONNECTION"; then
-      #other ssh-accessed machines
-      userhost="%n@%m"
-    else
-      userhost="%n@local"
-    fi
-    if [ "$VIRTUAL_ENV" != "" ]; then
-      virtualenv="($(basename $VIRTUAL_ENV))"
-    else
-      virtualenv=""
-    fi
-    if test -e "$(pwd)/.ruby-version"; then
-      rvm_env="{$(current_rvm_env)}"
-    else
-      rvm_env=""
-    fi
-    PROMPT="$rvm_env$virtualenv$userhost:$dir%# "
-  fi
-  PROMPT='$(kube_ps1)'$PROMPT
-}
-# switch between simple and normal prompt
-function sp() {
-  if [ "$SIMPLE_PROMPT" ]; then
-    unset SIMPLE_PROMPT
-  else
-    export SIMPLE_PROMPT="%# "
-  fi
-}
-export SIMPLE_PROMPT="%# "
-
-### Added by the Heroku Toolbelt
+# Added by the Heroku Toolbelt
 export PATH="$PATH:/usr/local/heroku/bin"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
