@@ -1,1 +1,6 @@
 --- \set PROMPT1 '(%n@%M:%>) %`date +%H:%M:%S` [%/] \n%x%# '
+-- \timing
+-- \echo "Setting lock_timeout to 2s"
+--- set lock_timeout to 2000;
+-- \echo "Setting statement_timeout to 20s"
+-- set statement_timeout to 20000;
