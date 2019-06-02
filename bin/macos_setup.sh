@@ -1,6 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
+echo "hostname? "
+read hostname
+echo
+
 # adapted from https://pawelgrzybek.com/change-macos-user-preferences-via-command-line/
 # adapted from https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
@@ -11,9 +15,9 @@ osascript -e 'tell application "System Preferences" to quit'
 
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "rycon"
-sudo scutil --set HostName "rycon"
-sudo scutil --set LocalHostName "rycon"
+sudo scutil --set ComputerName "$hostname"
+sudo scutil --set HostName "$hostname"
+sudo scutil --set LocalHostName "$hostname"
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
