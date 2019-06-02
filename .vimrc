@@ -21,6 +21,13 @@ set viminfo='20,<1000
 set t_Co=256
 syntax on
 
+" Python flake8 on save
+"au BufWritePost *.py !test -e ./script/check && ./script/check %:p
+"flake8 %:p && /Users/jbbarth/.pyenv/shims/black
+"&& LC_ALL=C.UTF-8 black %:p
+au BufWritePost *.py edit
+au BufWritePost *.py syn on
+
 " Go syntaxhl
 au BufRead,BufNewFile *.go set filetype=go
 
@@ -355,7 +362,7 @@ function! MapCR()
   nnoremap <cr> :call RunTestFile()<cr>
   "nnoremap <cr> :!lua %:p
 endfunction
-call MapCR()
+" call MapCR()
 nnoremap <leader>T :call RunNearestTest()<cr>
 nnoremap <leader>a :call RunTests('')<cr>
 

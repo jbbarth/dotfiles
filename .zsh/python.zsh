@@ -1,7 +1,7 @@
 export PYTHONPATH=.
 export PYTHONDONTWRITEBYTECODE=true
 
-black() {
+bblack() {
   docker run -v $(pwd):/code jbbarth/black $*
 }
 
@@ -18,3 +18,5 @@ workon() {
 }
 
 export PATH=$PATH:$HOME/.pyenv/versions/3.6.3/bin
+
+#export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES

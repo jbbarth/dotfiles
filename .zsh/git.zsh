@@ -31,7 +31,7 @@ if which hub >/dev/null; then
   # do not use an alias or shell comp won't work
   function git(){hub "$@"}
 fi
-###alias git=hub
+alias git='LANG=C hub'
 
 gsync() {
   set -e

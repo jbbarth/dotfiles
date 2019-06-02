@@ -115,9 +115,9 @@ vi() {
     ruby -c $(for w in $*; do echo $w; done >/dev/null | grep -F '.rb')
   fi
 
-  if which flake8 >/dev/null && echo $* | grep -qF ".py"; then
-    flake8 $(for w in $*; do echo $w; done | grep -v -e .virtualenv -e dist-packages -e site-packages)
-  fi
+  # if which flake8 >/dev/null && echo $* | grep -qF ".py"; then
+  #   flake8 $(for w in $*; do echo $w; done | grep -v -e .virtualenv -e dist-packages -e site-packages)
+  # fi
 }
 alias vii='vi $(fc -e - ack="ack -l" grep="grep -l" -1)'
 alias vif='vi $(git ls-files | fzf | head -n 1)'
@@ -131,7 +131,7 @@ alias iptables-clear='iptables -P INPUT ACCEPT'
 alias sudo='command sudo '
 alias ssudo='command sudo sh -c '
 alias -g M=' 2>&1 | more'
-alias -g J=' | jq --color-output . | more'
+alias -g J=' | jq --color-output .'
 alias -g P=' 2>&1 | \grep Playing'
 alias -g C=' | column -t'
 alias luksopen='sudo cryptsetup luksOpen'

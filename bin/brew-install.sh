@@ -15,6 +15,7 @@ brew install colordiff
 brew install coreutils
 brew install crystal
 brew install crystal-icr
+brew install elixir
 brew install findutils
 brew install fdupes
 brew install flock
@@ -34,7 +35,10 @@ brew install jq
 brew install kubectl
 brew install kubetail
 brew install leiningen
+brew install lftp
 brew install libmagic
+brew install lua@5.1
+brew install luarocks
 brew install mplayer
 brew install mysql
 brew install ncdu
@@ -79,8 +83,11 @@ brew cask install docker
 brew cask install dropbox
 brew cask install firefox
 brew cask install gimp
+brew cask install goland
 brew cask install google-chrome
 brew cask install google-cloud-sdk
+brew cask install google-drive-file-stream
+brew cask install hma-pro-vpn
 brew cask install iterm2
 brew cask install istat-menus
 brew cask install little-snitch
@@ -93,10 +100,12 @@ brew cask install postgres
 brew cask install postman
 brew cask install pycharm
 brew cask install redis-app
+brew cask install rubymine
 brew cask install skitch
 # the standard "Slack.app" is too slow/memory hog
 brew cask install homebrew/cask-versions/slack-beta
 brew cask install sketch
+brew cask install sip
 brew cask install sourcetree
 brew cask install spectacle
 brew cask install spotify
@@ -106,3 +115,7 @@ brew cask install vagrant #after virtualbox
 brew cask install visual-studio-code
 brew cask install witch
 brew cask install zoomus
+
+# post-install for some packages
+$(brew --prefix)/opt/fzf/install
+
