@@ -119,3 +119,5 @@ export PATH=$PATH:/var/lib/gems/1.8/bin/
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
