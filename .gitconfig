@@ -3,8 +3,8 @@
 [init]
   templatedir = ~/.git_template
 [user]
-  name = Jean-Baptiste Barth
-  email = jeanbaptiste.barth@gmail.com
+	name = Jean-Baptiste Barth
+	email = jeanbaptiste.barth@gmail.com
 [branch]
   autosetuprebase = always #always "pull --rebase"
 [color]
@@ -47,9 +47,10 @@
 [github]
   user = jbbarth
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 [pull]
 	rebase = true
 [difftool "sourcetree"]
@@ -58,5 +59,3 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[remote "origin"]
-	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
