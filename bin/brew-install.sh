@@ -17,6 +17,7 @@ brew install crystal
 brew install crystal-icr
 brew install elixir
 brew install findutils
+brew install fd
 brew install fdupes
 brew install flock
 brew install fping
