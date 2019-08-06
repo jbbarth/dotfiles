@@ -104,8 +104,7 @@ brew cask install pycharm
 brew cask install redis-app
 brew cask install rubymine
 brew cask install skitch
-# the standard "Slack.app" is too slow/memory hog
-brew cask install homebrew/cask-versions/slack-beta
+brew cask install slack
 brew cask install sketch
 brew cask install sip
 brew cask install sourcetree
