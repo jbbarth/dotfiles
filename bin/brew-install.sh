@@ -110,6 +110,7 @@ brew cask install sip
 brew cask install sourcetree
 brew cask install spectacle
 brew cask install spotify
+brew cask install textual
 brew cask install transmit
 brew cask install virtualbox
 brew cask install vagrant #after virtualbox
