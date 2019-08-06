@@ -79,6 +79,7 @@ brew cask install adobe-acrobat-reader
 brew cask install alfred
 brew cask install amazon-chime
 brew cask install basecamp
+brew cask install contexts
 brew cask install dash
 brew cask install docker
 brew cask install dropbox
@@ -114,7 +115,6 @@ brew cask install transmit
 brew cask install virtualbox
 brew cask install vagrant #after virtualbox
 brew cask install visual-studio-code
-brew cask install witch
 brew cask install zoomus
 
 # post-install for some packages
