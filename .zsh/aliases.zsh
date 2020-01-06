@@ -159,3 +159,6 @@ flamedir() {
   sudo ./files.pl $1 | ./flamegraph.pl --hash --countname=bytes > $file
   open -a "Google Chrome" $file
 }
+sdupes() {
+  gfind ${1:-.} -type f -printf "%p - %s\n" | gsort -nr -k3 | guniq -D -f1
+}
