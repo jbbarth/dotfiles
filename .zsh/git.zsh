@@ -14,6 +14,13 @@ gc() {
     git commit
   fi
 }
+gclone() {
+  url=$1
+  echo $url | grep -q github.com || url=$(echo "$url" | perl -pe 's#^#git\@github.com:#')
+  repo=$(echo $url | perl -pe 's#^(git\@github\.com:|https://github\.com/)##; s#\.git$##')
+  git clone $url $repo
+  cd $repo
+}
 todos() {
   # cd $(git root)
   if test -e .git/ignoretodos; then
