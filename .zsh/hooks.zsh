@@ -12,6 +12,12 @@ on_cd() {
     source ~/.zsh/nvm.zsh.auto
   fi
 
+  # autoload pyenv zsh file if local directory has a .python-version
+  if [[ -e $(pwd)/.python-version && -z $ZSH_AUTO_PYENV_LOADED ]]; then
+    echo "sourcing ~/.zsh/pyenv.zsh.auto"
+    source ~/.zsh/pyenv.zsh.auto
+  fi
+
   # re-evaluate available binaries
   if [[ -d node_modules/.bin ]]; then
     path=$(echo $PATH | perl -pe 's#(^|:)[^:]*/node_modules/.bin(:|$)#$1$2#')
