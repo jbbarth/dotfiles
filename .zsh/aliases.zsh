@@ -153,3 +153,9 @@ duration() {
   echo $((d / 60.0))
 }
 tox() { (unset PYTHONPATH; command tox $*;) }
+flamedir() {
+  file=$(gmktemp -t tmp.XXXXXXXXXX.svg)
+  cd $HOME/dev/brendangregg/FlameGraph
+  sudo ./files.pl $1 | ./flamegraph.pl --hash --countname=bytes > $file
+  open -a "Google Chrome" $file
+}
