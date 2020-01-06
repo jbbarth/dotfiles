@@ -47,7 +47,7 @@ else
 fi
 
 # Use gnutar by default
-export PATH=/usr/local/opt/gnu-tar/libexec/gnubin:$PATH
+add_to_path /usr/local/opt/gnu-tar/libexec/gnubin
 
 # Personal aliases
 [ -e /etc/debian_version ] && alias rm='rm -I' || alias rm='rm -i'

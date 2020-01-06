@@ -17,6 +17,6 @@ workon() {
   source "$venv/bin/activate"
 }
 
-export PATH=$PATH:$HOME/.pyenv/versions/3.6.3/bin
+add_to_path $HOME/.pyenv/versions/3.6.3/bin after
 
 #export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES

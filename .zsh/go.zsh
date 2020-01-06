@@ -1,3 +1,3 @@
 #Golang related stuff
 export GOPATH=$HOME/.go
-export PATH=$GOPATH/bin:$PATH
+add_to_path $GOPATH/bin

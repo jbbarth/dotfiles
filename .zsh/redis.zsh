@@ -1,2 +1,2 @@
 # Redis.app for redis-cli
-export PATH=$PATH:/Applications/Redis.app/Contents/Resources/Vendor/redis/bin
+add_to_path /Applications/Redis.app/Contents/Resources/Vendor/redis/bin after

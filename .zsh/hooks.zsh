@@ -21,7 +21,7 @@ on_cd() {
   # re-evaluate available binaries
   if [[ -d node_modules/.bin ]]; then
     path=$(echo $PATH | perl -pe 's#(^|:)[^:]*/node_modules/.bin(:|$)#$1$2#')
-    export PATH=$(pwd)/node_modules/.bin:$PATH
+    add_to_path $(pwd)/node_modules/.bin
   fi
 }
 autoload -U add-zsh-hook

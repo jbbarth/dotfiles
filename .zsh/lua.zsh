@@ -13,4 +13,4 @@ vilua() {
   fi
 }
 
-export PATH=$PATH:$HOME/.luarocks/bin
+add_to_path $HOME/.luarocks/bin

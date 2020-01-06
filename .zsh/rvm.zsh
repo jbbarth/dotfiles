@@ -17,5 +17,5 @@ if type rvm >/dev/null 2>&1; then
   }
 
   # Add RVM to PATH for scripting
-  PATH=$PATH:$rvm_path/bin
+  add_to_path $rvm_path/bin
 fi

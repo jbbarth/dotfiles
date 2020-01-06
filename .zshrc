@@ -25,7 +25,16 @@ setopt extended_history
 NULLCMD=:
 
 # Environment variables
-PATH=$HOME/bin:$PATH
+add_to_path() {
+  if [[ ":$PATH:" != *":$1:"* ]]; then
+    if [[ "$2" = "after" ]]; then
+      PATH="${PATH}:$1"
+    else
+      PATH="$1:${PATH}"
+    fi
+  fi
+}
+add_to_path $HOME/bin
 export SUDO_EDITOR=vi
 export SVN_EDITOR=vi
 export EDITOR=vi
@@ -51,7 +60,7 @@ zstyle ':completion:*' rehash true
 autoload -U colors && colors
 
 # Added by the Heroku Toolbelt
-export PATH="$PATH:/usr/local/heroku/bin"
+add_to_path /usr/local/heroku/bin after
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
