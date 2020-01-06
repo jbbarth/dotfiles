@@ -63,10 +63,3 @@ autoload -U colors && colors
 add_to_path /usr/local/heroku/bin after
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/jbbarth/dev/botify-hq/botify-agile-ops/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/jbbarth/dev/botify-hq/botify-agile-ops/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/jbbarth/dev/botify-hq/botify-agile-ops/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/jbbarth/dev/botify-hq/botify-agile-ops/node_modules/tabtab/.completions/sls.zsh
