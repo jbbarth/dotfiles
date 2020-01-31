@@ -62,4 +62,4 @@ autoload -U colors && colors
 # Added by the Heroku Toolbelt
 add_to_path /usr/local/heroku/bin after
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
