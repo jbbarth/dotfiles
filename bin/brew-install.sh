@@ -18,20 +18,20 @@ brew install crystal-icr
 brew install elixir
 brew install findutils
 brew install fd
-brew install fdupes
 brew install flock
 brew install fping
 brew install fswatch
 brew install fzf
-brew install hg
 brew install go
 brew install gnu-tar
+brew install hg
 brew install hub
 brew install gist
 brew install glances
 brew install gpg
 brew install graphviz
 brew install imagemagick
+brew install jdupes
 brew install jq
 brew install kubectl
 brew install kubetail
@@ -101,7 +101,7 @@ brew cask install pgadmin4
 brew cask install postgres
 brew cask install postman
 brew cask install pycharm
-brew cask install redis-app
+brew cask install redis
 brew cask install rubymine
 brew cask install skitch
 brew cask install slack
@@ -119,4 +119,3 @@ brew cask install zoomus
 
 # post-install for some packages
 $(brew --prefix)/opt/fzf/install
-
