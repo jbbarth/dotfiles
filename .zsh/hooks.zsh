@@ -10,6 +10,7 @@ on_cd() {
   if [[ -e $(pwd)/.nvmrc && -z $ZSH_AUTO_NVM_LOADED ]]; then
     echo "sourcing ~/.zsh/nvm.zsh.auto"
     source ~/.zsh/nvm.zsh.auto
+    nvm use
   fi
 
   # autoload pyenv zsh file if local directory has a .python-version
