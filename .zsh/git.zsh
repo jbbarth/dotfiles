@@ -1,4 +1,5 @@
 export GIT_EDITOR=vi
+export GPG_TTY=$(tty)
 alias g='git'
 alias gs='git status -sb'
 alias gd='git diff'
