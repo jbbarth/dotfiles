@@ -69,7 +69,7 @@ brew install wget
 ###brew install postgresql
 
 # Install Cask
-brew install caskroom/cask/brew-cask
+brew install homebrew/cask-cask
 
 # Install Casks
 brew cask install 1password
