@@ -40,7 +40,6 @@ brew install lftp
 brew install libmagic
 brew install lua@5.1
 brew install luarocks
-brew install mplayer
 brew install mysql
 brew install ncdu
 brew install nmap
@@ -115,7 +114,11 @@ brew cask install transmit
 brew cask install virtualbox
 brew cask install vagrant #after virtualbox
 brew cask install visual-studio-code
+brew cask install xquartz
 brew cask install zoomus
+
+# depend on xquartz
+brew install mplayer
 
 # post-install for some packages
 $(brew --prefix)/opt/fzf/install
