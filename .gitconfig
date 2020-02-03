@@ -4,7 +4,8 @@
   templatedir = ~/.git_template
 [user]
 	name = Jean-Baptiste Barth
-	email = jeanbaptiste.barth@gmail.com
+  # "email" below is commented since I now manage it in each repository
+	# email = jeanbaptiste.barth@gmail.com
 [branch]
   autosetuprebase = always #always "pull --rebase"
 [color]
