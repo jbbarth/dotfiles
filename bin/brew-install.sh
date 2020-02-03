@@ -111,6 +111,7 @@ brew cask install spectacle
 brew cask install spotify
 brew cask install textual
 brew cask install transmit
+brew cask install tunnelblick
 brew cask install virtualbox
 brew cask install vagrant #after virtualbox
 brew cask install visual-studio-code
