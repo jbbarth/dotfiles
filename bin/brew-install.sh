@@ -10,6 +10,7 @@ brew tap johanhaleby/kubetail # for "kubetail"
 
 # Std brew packages
 brew install ack
+brew install awscli
 brew install bzr
 brew install colordiff
 brew install coreutils
