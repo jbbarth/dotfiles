@@ -28,6 +28,7 @@ brew install gnu-tar
 brew install hg
 brew install hub
 brew install gist
+brew install github/gh/gh
 brew install glances
 brew install gpg
 brew install graphviz
