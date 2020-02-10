@@ -27,8 +27,8 @@ todos() {
   if test -e .git/ignoretodos; then
     echo "TODOs display is disabled because you have a .git/ignoretodos file"
   else
-    git ls-files | xargs ack --no-recurse --nobreak --color "TODO:|FIXME:" | perl -pe "s#$(git root)/##" | wrap200
-    git ls-files | ack '.md$' | xargs ack --no-recurse --nobreak --color 'TODO( |$)' | perl -pe "s#$(git root)/##" | wrap200
+    git ls-files | xargs ack --with-filename --no-recurse --nobreak --color "TODO:|FIXME:" | grep -v ".yarn/" | perl -pe "s#$(git root)/##" | wrap200
+    git ls-files | ack '.md$' | xargs ack --with-filename --no-recurse --nobreak --color 'TODO( |$)' | perl -pe "s#$(git root)/##" | wrap200
   fi
   #cd - >/dev/null
 }
