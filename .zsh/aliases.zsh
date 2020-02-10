@@ -58,6 +58,10 @@ mkcd() {
   mkdir -p $1
   cd $1
 }
+gcd() {
+  root=$(git rev-parse --show-toplevel || echo ".")
+  cd "$root/$1"
+}
 alias tmux='tmux -2'
 alias zmv='rsync --recursive --remove-source-files --progress'
 alias emptydirs='find . -type d -empty -print'
