@@ -1,10 +1,10 @@
 FIRST INSTALL GIT:
 
-aptitude install git
+    aptitude install git
 
 DEPLOY ON A NEW MACHINE/ACCOUNT (with zsh shell):
 
-cd
-git init
-git pull git://github.com/jbbarth/dotfiles.git
-source .zshrc
+    cd
+    git init
+    git pull git://github.com/jbbarth/dotfiles.git
+    source .zshrc
