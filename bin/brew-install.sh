@@ -7,6 +7,7 @@ brew update
 # Taps
 brew tap discoteq/discoteq # for "flock"
 brew tap johanhaleby/kubetail # for "kubetail"
+brew tap heroku/brew # for "heroku"
 
 # Std brew packages
 brew install ack
@@ -25,6 +26,7 @@ brew install fswatch
 brew install fzf
 brew install go
 brew install gnu-tar
+brew install heroku
 brew install hg
 brew install hub
 brew install gist
