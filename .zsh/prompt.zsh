@@ -24,7 +24,7 @@ precmd() {
   fi
 
   # kubernetes current context
-  if { echo $PWD | grep -q /kube; } || { test -e "$git_root/zapp.yml.j2" }; then
+  if { echo $PWD | grep -v /dev/kubernetes | grep -q /kube; } || { test -e "$git_root/zapp.yml.j2" }; then
     header_line+=$'%F{blue}\u2388%f '"$(kubectl config current-context) "
   fi
 

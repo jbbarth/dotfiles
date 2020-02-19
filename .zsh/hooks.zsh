@@ -1,7 +1,7 @@
 # run commands after any "cd"
 on_cd() {
   # autoload kubernetes zsh file if not loaded yet
-  if [[ $(pwd) = *kubernetes* && -z $ZSH_AUTO_K8S_LOADED ]]; then
+  if echo $PWD | grep -v /dev/kubernetes | grep -q /kube && test -z $ZSH_AUTO_K8S_LOADED; then
     echo "sourcing ~/.zsh/kubernetes.zsh.auto"
     source ~/.zsh/kubernetes.zsh.auto
   fi
