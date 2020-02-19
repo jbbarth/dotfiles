@@ -6,7 +6,7 @@
 	name = Jean-Baptiste Barth
   # "email" below is commented since I now manage it in each repository
 	email = jeanbaptiste.barth@gmail.com
-[includeIf "gitdir:~/dev/honesitca/"]
+[includeIf "gitdir:~/dev/honestica/"]
   path = ~/.gitconfig.lifen
 [branch]
   autosetuprebase = always #always "pull --rebase"
