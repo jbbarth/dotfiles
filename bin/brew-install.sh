@@ -12,6 +12,7 @@ brew tap heroku/brew # for "heroku"
 # Std brew packages
 brew install ack
 brew install awscli
+brew install bash
 brew install bzr
 brew install colordiff
 brew install coreutils
@@ -114,6 +115,7 @@ brew cask install sourcetree
 brew cask install spectacle
 brew cask install spotify
 brew cask install textual
+brew cask install textmate
 brew cask install transmit
 brew cask install tunnelblick
 brew cask install virtualbox

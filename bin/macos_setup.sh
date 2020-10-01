@@ -215,6 +215,11 @@ defaults write com.apple.ControlStrip MiniCustomized -array \
   "com.apple.system.volume" \
   "com.apple.system.mute"
 
+# Avoid non-breaking spaces inputs
+sudo mkdir ~/Library/KeyBindings/
+echo -e "{\n\"~ \" = (\"insertText:\", \" \");\n}" | \
+  sudo tee ~/Library/KeyBindings/DefaultKeyBinding.dict
+
 # Kill affected apps
 for app in "Dock" "Finder"; do
   killall "${app}" > /dev/null 2>&1

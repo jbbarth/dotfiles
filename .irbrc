@@ -16,28 +16,24 @@ end
 
 #require 'map_by_method'
 #require 'what_methods'
-%w(yaml pp open-uri rubygems hpricot wirble irb/completion irb/ext/save-history ).each do |x|
+%w(yaml pp open-uri rubygems irb/completion irb/ext/save-history ).each do |x|
   begin
     require x
-    if x == "wirble"
-      Wirble.init
-      Wirble.colorize
-    end
   rescue LoadError => e
     puts "Unable to load #{x}"
     #e.inspect
   end
 end
- 
+
 ARGV.concat %w( --readline )
- 
+
 module Kernel
-  { #:h => :Hpricot,
+  {
     :r => :require,
     :x => :exit
   }.each { |n,o| alias_method n, o }
 end
- 
+
 IRB.conf.merge! \
   :PROMPT_MODE => :SIMPLE,
   :AUTO_INDENT => true,

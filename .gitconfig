@@ -8,6 +8,8 @@
 	email = jeanbaptiste.barth@gmail.com
 [includeIf "gitdir:~/dev/honestica/"]
   path = ~/.gitconfig.lifen
+[includeIf "gitdir:~/projects/lifen/"]
+  path = ~/.gitconfig.lifen
 [branch]
   autosetuprebase = always #always "pull --rebase"
 [color]
