@@ -11,6 +11,7 @@ on_cd() {
     echo "sourcing ~/.zsh/nvm.zsh.auto"
     source ~/.zsh/nvm.zsh.auto
     nvm use
+    ZSH_AUTO_NVM_LOADED=yes
   fi
 
   # autoload pyenv zsh file if local directory has a .python-version

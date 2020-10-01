@@ -10,63 +10,68 @@ brew tap johanhaleby/kubetail # for "kubetail"
 brew tap heroku/brew # for "heroku"
 
 # Std brew packages
-brew install ack
-brew install awscli
-brew install bash
-brew install bzr
-brew install colordiff
-brew install coreutils
-brew install crystal
-brew install crystal-icr
-brew install elixir
-brew install findutils
-brew install fd
-brew install flock
-brew install fping
-brew install fswatch
-brew install fzf
-brew install go
-brew install gnu-tar
-brew install heroku
-brew install hg
-brew install hub
-brew install gist
-brew install github/gh/gh
-brew install glances
-brew install gpg
-brew install graphviz
-brew install imagemagick
-brew install jdupes
-brew install jq
-brew install kubectl
-brew install kubetail
-brew install leiningen
-brew install lftp
-brew install libmagic
-brew install lua@5.1
-brew install luarocks
-brew install mysql
-brew install ncdu
-brew install nmap
-brew install nodejs
-brew install nvm
-brew install openssh
-brew install overmind
-brew install parallel
-brew install pcre
-brew install pstree
-brew install pwgen
-brew install pyenv
-brew install rename
-brew install selecta
-brew install s3cmd
-brew install telnet
-brew install tmux
-brew install tnftp
-brew install tree
-brew install unrar
-brew install watch
-brew install wget
+brew install ack \
+  awscli \
+  bash \
+  bzr \
+  colordiff \
+  coreutils \
+  crystal \
+  crystal-icr \
+  derailed/k9s/k9s \
+  elixir \
+  findutils \
+  fd \
+  flock \
+  fping \
+  fswatch \
+  fzf \
+  go \
+  gnu-tar \
+  heroku \
+  hg \
+  hub \
+  gist \
+  github/gh/gh \
+  glances \
+  gpg \
+  graphviz \
+  imagemagick \
+  jdupes \
+  jq \
+  kubectl \
+  kubetail \
+  leiningen \
+  lftp \
+  libmagic \
+  lua@5.1 \
+  luarocks \
+  mysql \
+  ncdu \
+  nmap \
+  nodejs \
+  nvm \
+  openssh \
+  overmind \
+  parallel \
+  pcre \
+  pinentry-mac \
+  pstree \
+  pwgen \
+  pyenv \
+  rbenv \
+  rbenv-gemset \
+  rename \
+  selecta \
+  s3cmd \
+  teleport \
+  telnet \
+  tmux \
+  tnftp \
+  tree \
+  unrar \
+  watch \
+  wget
 
 ###brew install openssl
 ###brew install optipng
@@ -82,6 +87,7 @@ brew cask install adobe-air
 brew cask install adobe-acrobat-reader
 brew cask install alfred
 brew cask install amazon-chime
+brew cask install aws-vault
 brew cask install basecamp
 brew cask install contexts
 brew cask install dash

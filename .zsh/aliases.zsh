@@ -115,9 +115,9 @@ vi() {
     command sudo vim $*
   fi
 
-  if echo $* | grep -qF ".rb"; then
-    ruby -c $(for w in $*; do echo $w; done >/dev/null | grep -F '.rb')
-  fi
+  # if echo $* | grep -qF ".rb"; then
+  #   ruby -c $(for w in $*; do echo $w; done >/dev/null | grep -F '.rb')
+  # fi
 
   # if which flake8 >/dev/null && echo $* | grep -qF ".py"; then
   #   flake8 $(for w in $*; do echo $w; done | grep -v -e .virtualenv -e dist-packages -e site-packages)
@@ -159,9 +159,10 @@ duration() {
 tox() { (unset PYTHONPATH; command tox $*;) }
 flamedir() {
   (
+    dir=$(greadlink -f $1)
     file=$(gmktemp -t tmp.XXXXXXXXXX.svg)
     cd $HOME/dev/brendangregg/FlameGraph
-    sudo ./files.pl $1 | ./flamegraph.pl --hash --countname=bytes > $file
+    sudo ./files.pl "$dir" | ./flamegraph.pl --hash --countname=bytes > $file
     open -a "Google Chrome" $file
   )
 }

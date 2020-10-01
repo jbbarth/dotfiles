@@ -4,5 +4,3 @@ export NVM_BREW=/usr/local/opt/nvm
 mkdir -p $NVM_DIR
 source $NVM_BREW/nvm.sh --no-use  # nvm itself
 source $NVM_BREW/etc/bash_completion.d/nvm  # nvm bash_completion
-
-ZSH_AUTO_NVM_LOADED=yes

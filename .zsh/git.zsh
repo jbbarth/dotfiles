@@ -35,14 +35,12 @@ todos() {
 wrap200() {
   perl -pe 's/^(.{0,200})(.*)$/$1.($2?"...":"")/e'
 }
-if which hub >/dev/null; then
+if false && which hub >/dev/null; then
   # do not use an alias or shell comp won't work
   function git(){hub "$@"}
 fi
-alias git='LANG=C hub'
 
 gsync() {
-  set -e
   if [ "$(git status --short)" != "" ]; then
     echo "Error: clean up your git status first!" >&2
     return
@@ -50,8 +48,8 @@ gsync() {
   git branch|grep -q devel && branch=devel || branch=master
   echo "> git checkout $branch"
   git checkout $branch
-  echo "> git sync"
-  git sync
+  echo "> hub sync"
+  hub sync || echo "failed"
   echo "> git cleanup"
   git cleanup
 }

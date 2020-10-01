@@ -24,8 +24,8 @@ precmd() {
   fi
 
   # kubernetes current context
-  if { echo $PWD | grep -v /dev/kubernetes | grep -q /kube; } || { test -e "$git_root/zapp.yml.j2" }; then
-    header_line+=$'%F{blue}\u2388%f '"$(kubectl config current-context) "
+  if { echo $PWD | grep -v /dev/kubernetes | grep -q /kube; } || { test -e "$git_root/zapp.yml.j2" } || { ! test -z "$EXECUTED_KUBECTL" }; then
+    header_line+=$'%F{blue}\u2388%f '"$(NO_ECHO=1 kubectl config current-context) "
   fi
 
   # kong current admin url
@@ -36,7 +36,9 @@ precmd() {
 
   # virtualenvs
   if ! test -z "$VIRTUAL_ENV"; then
-    venv=$(echo "$VIRTUAL_ENV" | perl -pe "s#^$HOME#~#;s#~/.virtualenvs/##" | perl -pe 's#~/.pyenv/versions/([^/]+)/envs/([^/]+)$#$1/$2#')
+    venv=$(echo "$VIRTUAL_ENV" | \
+             perl -pe "s#^$HOME#~#;s#~/(.virtualenvs|.local/share/virtualenvs)/##;" | \
+             perl -pe 's#~/.pyenv/versions/([^/]+)/envs/([^/]+)$#$1/$2#')
     header_line+=$'%F{green}%B(P)%b%f'"$venv "
   fi
 
@@ -48,9 +50,14 @@ precmd() {
   fi
 
   # nvm environment
-  if test -e "$git_root/.nvmrc"; then
+  if test -e "$git_root/.nvmrc" && which nvm >/dev/null; then
     nvmcurrent=$(nvm current)
     header_line+=$'%F{green}%B(N)%b%f'"$nvmcurrent "
+  fi
+
+  # heroku
+  if ! test -z "$HEROKU_APP"; then
+    header_line+=$'%F{magenta}%B(H)%b%f'"$HEROKU_APP "
   fi
 
   # keep header line if here
