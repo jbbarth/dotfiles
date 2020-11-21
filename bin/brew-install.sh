@@ -46,6 +46,7 @@ brew install ack \
   libmagic \
   lua@5.1 \
   luarocks \
+  moreutils \
   mysql \
   ncdu \
   nmap \
@@ -53,7 +54,6 @@ brew install ack \
   nvm \
   openssh \
   overmind \
-  parallel \
   pcre \
   pinentry-mac \
   pstree \
