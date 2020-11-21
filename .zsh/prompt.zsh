@@ -124,6 +124,8 @@ function sp() {
   if [ "$SIMPLE_PROMPT" ]; then
     unset SIMPLE_PROMPT
   else
-    export SIMPLE_PROMPT="%# "
+    export SIMPLE_PROMPT="%1d%# "
   fi
 }
+
+export SIMPLE_PROMPT="%1d%# "
