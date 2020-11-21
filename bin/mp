@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+$LOAD_PATH << File.expand_path(File.dirname(__FILE__))
+require "xfile"
+
+movable = ARGV.delete("--movable")
+
+files = ARGV.map do |v|
+  if File.directory?(v)
+    %x(find "#{v}/" -type f -maxdepth 1 ! -name .purged).split("\n")
+  else
+    v
+  end
+end.flatten.reject do |v|
+  v.match /\.jpg|\.jpeg/i
+end.map do |v|
+  %("#{v}")
+end
+
+# limit to movable files if any
+if movable
+  files.select! do |file|
+    first_word = File.basename(file).split("_").first
+    if first_word.scan(/[A-Z]/).count <= 1
+      expected_dir = "mnt/misc"
+    else
+     expected_dir = "mnt/" + first_word.gsub(/(.)([A-Z])/, '\1_\2').downcase
+    end
+    File.directory?(expected_dir)
+  end
+end
+
+#cmd = "mplayer -volume 3 -fs -ao alsa,oss, -idx #{ARGV.map{|v| %("#{v}")}.join(" ")} 2>&1"
+#cmd = "mplayer -fs -ao alsa,oss, -idx #{ARGV.map{|v| %("#{v}")}.join(" ")} 2>&1"
+cmd = "mplayer2 -volume 3 -vf expand -fs -ao alsa,oss, -idx #{files.join(" ")} 2>&1"
+io = IO.popen({"PATH"=>ENV["PATH"]}, cmd)
+begin
+  while p = io.readpartial(1024)
+    p.lines.to_a.select do |line|
+      #$stderr.puts "DEBUG: #{line}"
+      if line.include?("Playing")
+        video = line.chomp.gsub(/Playing /, "").gsub(/\.$/, "")
+        size = format_size(File.size(video)) rescue "ERROR"
+        puts "Playing #{size} #{video}"
+      end
+    end
+    $stdout.flush
+  end
+rescue EOFError
+end
