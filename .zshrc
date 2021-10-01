@@ -9,6 +9,7 @@ bindkey '^[[3~' delete-char
 bindkey '^R' history-incremental-search-backward
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
+bindkey '^v' edit-command-line
 bindkey '^[[1;9C' forward-word                       # [Alt-RightArrow] - move forward one word
 bindkey '^[[1;9D' backward-word                      # [Alt-LeftArrow] - move backward one word
 
@@ -63,3 +64,6 @@ autoload -U colors && colors
 add_to_path /usr/local/heroku/bin after
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin

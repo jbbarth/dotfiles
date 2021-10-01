@@ -6,7 +6,7 @@ alias gd='git diff'
 alias gp='git push origin HEAD'
 alias gitx='open -a GitX'
 gc() {
-  # todos
+  todos
   git status --porcelain | grep -e "^M" -e "^A" >/dev/null || ( cd $(git root); git add . )
   opts=""
   if [ "$1" != "" ]; then
@@ -40,12 +40,16 @@ if false && which hub >/dev/null; then
   function git(){hub "$@"}
 fi
 
+gmainBranch() {
+  git branch --format="%(refname:short)" | grep -E '^(devel|develop|master|main)$' | sort | head -n 1
+}
+
 gsync() {
   if [ "$(git status --short)" != "" ]; then
     echo "Error: clean up your git status first!" >&2
     return
   fi
-  git branch|grep -q devel && branch=devel || branch=master
+  branch=$(gmainBranch)
   echo "> git checkout $branch"
   git checkout $branch
   echo "> hub sync"
@@ -55,7 +59,7 @@ gsync() {
 }
 
 gcleanup() {
-  git branch --format="%(refname:short)" | grep -qE '^devel$' && main=devel || main=master
+  main=$(gmainBranch)
   git checkout -q $main && git for-each-ref refs/heads/ --format="%(refname:short)" | while read branch; do
     merge_base=$(git merge-base $main $branch)
     if [[ $(git cherry $main $(git commit-tree $(git rev-parse $branch^{tree}) -p $merge_base -m _)) == "-"* ]]; then

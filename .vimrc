@@ -225,9 +225,16 @@ endfunction
 " Specific mappings
 " hashrocket with Ctrl+l in insert mode
 imap <c-l> <space>=><space>
+imap <c-t> t('')
+imap <c-f> # frozen_string_literal: true
 
-" Map Ctrl+Q to CtrlP plugin
-nmap <leader>n :CtrlP<CR>
+" Map ;p to CtrlP plugin
+nmap <leader>p :CtrlP<CR>
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
@@ -266,7 +273,7 @@ if has("wildmenu")
 endif
 " Ignored extensions
 if has("wildignore")
- set wildignore=*.swp
+ set wildignore=*/tmp/*,*.so,*.swp,*.zip,node_modules/*
 endif
 " Minor priority extensions
 set suffixes=.aux,.bak,.bbl,.blg,.gif,.gz,.idx,.ilg,.info,.jpg,.lof,.log,;lot,.o,.obj,.pdf,.png,.swp,.tar,.toc,~

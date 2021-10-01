@@ -2,11 +2,13 @@
 .eggs
 .env*
 .idea
+.generators
 .grunt
 .mypy_cache/
 #.nvmrc
 .powrc
 .powrc.disabled
+.projections.json
 .ruby-*
 .rvmrc
 .rvmrc.*
@@ -30,6 +32,7 @@ htmlcov/
 
 # terraform state
 .terraform/
+.tfstates/
 terraform.tfstate
 terraform.tfstate.backup
 
@@ -42,3 +45,6 @@ terraform.tfstate.backup
 
 # rails
 lib/tasks/log.rake
+
+# rubocop vomit
+.rubocop.yml

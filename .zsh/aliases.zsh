@@ -147,7 +147,7 @@ alias convert-ruby-hash-syntax="perl -pi -e 's/:([\w\d_]+)(\s*)=>/\1:/g' **/*.rb
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 alias ct="ctags -R --tag-relative=yes -f ./.git/tags ."
 alias jsonpp="python -mjson.tool"
-loop() { while :; do clear; date; eval "$@"; sleep 5; done }
+loop() { while :; do clear; date; eval "$@"; sleep 2; done }
 inodes_count() { for d in `sudo gfind -maxdepth 1 -type d |cut -d\/ -f2 |grep -xv . |sort`; do c=$(sudo find $d |wc -l) ; printf "$c $d\n" ; done }
 inodes_top() { inodes_count|sort -nr|head -10 }
 alias taillogs='sudo bash -c "tail -n 0 -F /var/log/syslog /var/log/**/*.log"'

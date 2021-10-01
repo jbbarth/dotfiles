@@ -2,13 +2,14 @@
   excludesfile = ~/.gitglobalignore
 [init]
   templatedir = ~/.git_template
+	defaultBranch = main
 [user]
 	name = Jean-Baptiste Barth
   # "email" below is commented since I now manage it in each repository
 	email = jeanbaptiste.barth@gmail.com
-[includeIf "gitdir:~/dev/honestica/"]
+[includeIf "gitdir:dev/honestica/"]
   path = ~/.gitconfig.lifen
-[includeIf "gitdir:~/projects/lifen/honestica/"]
+[includeIf "gitdir:projects/lifen/honestica/"]
   path = ~/.gitconfig.lifen
 [branch]
   autosetuprebase = always #always "pull --rebase"
@@ -43,7 +44,7 @@
   up = pull --ff-only
   amend = commit --amend
   aamend = "!git add . --verbose && git commit --amend --no-edit"
-  cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|devel' | xargs -n 1 git branch -d"
+  cleanup = "!git branch --merged | grep  -v '\\*\\|main\\|master\\|devel' | xargs -n 1 git branch -d"
   whendeleted = log -1 --
   lastcommiton = log -1 --
 	lm = log --pretty=format:'%Cred%h%Creset   %C(bold blue)<%an>%Creset -%C(yellow)%d%Creset %C(bold cyan)%s   %Cgreen(%cr)%n%Creset%n - %b%n' --abbrev-commit --date=relative --merges

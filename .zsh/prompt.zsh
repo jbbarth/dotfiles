@@ -128,4 +128,5 @@ function sp() {
   fi
 }
 
-export SIMPLE_PROMPT="%1d%# "
+# export SIMPLE_PROMPT="%1d%# "
+export SIMPLE_PROMPT="%# "

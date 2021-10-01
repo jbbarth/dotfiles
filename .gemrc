@@ -5,7 +5,5 @@ update: --no-rdoc --no-ri
 :update_sources: true
 :verbose: true
 :backtrace: false
-:sources: 
-- http://rubygems.org
 :bulk_threshold: 1000
 :ssl_verify_mode: 1

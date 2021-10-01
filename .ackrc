@@ -3,7 +3,6 @@
 --ignore-dir=var
 --ignore-dir=.tox
 --ignore-dir=coverage
---ignore-dir=data
 --ignore-dir=tmp
 --ignore-dir=vendor
 --ignore-file=is:bundle.js
@@ -15,3 +14,4 @@
 --ignore-dir=client/static/
 --ignore-dir=client/.next/
 --ignore-dir=.next/
+--ignore-dir=.idea/

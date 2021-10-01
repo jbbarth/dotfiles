@@ -28,17 +28,23 @@ brew install ack \
   fzf \
   go \
   gnu-tar \
+  gron \
+  gist \
+  git-lfs \
+  github/gh/gh \
+  glances \
+  gnu-time \
+  gpg \
+  graphviz \
   heroku \
   hg \
   hub \
-  gist \
-  github/gh/gh \
-  glances \
-  gpg \
-  graphviz \
   imagemagick \
   jdupes \
   jq \
+  jsonnet \
+  jsonnet-bundler \
+  k3d \
   kubectl \
   kubetail \
   leiningen \
@@ -63,6 +69,7 @@ brew install ack \
   rbenv-gemset \
   rename \
   selecta \
+  stern \
   s3cmd \
   teleport \
   telnet \
@@ -71,6 +78,8 @@ brew install ack \
   tree \
   unrar \
   watch \
+  warrensbox/tap/tfswitch \
+  warrensbox/tap/tgswitch \
   wget
 
 ###brew install openssl
