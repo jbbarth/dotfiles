@@ -1,5 +1,4 @@
 if which pyenv >/dev/null; then
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
+  eval "$(pyenv init --path)"
 fi
 ZSH_AUTO_PYENV_LOADED=yes
