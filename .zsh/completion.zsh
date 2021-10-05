@@ -5,7 +5,7 @@ zstyle :compinstall filename '~/.zshrc'
 #autoload -Uz compinit #doesn't work on old zsh (redhat..)
 fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
-compinit
+compinit -u
 
 # some options
 setopt correct
