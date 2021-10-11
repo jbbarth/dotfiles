@@ -61,6 +61,7 @@
 	process = git-lfs filter-process
 [pull]
 	rebase = true
+  ff = only
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
