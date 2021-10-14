@@ -128,4 +128,5 @@ function sp() {
   fi
 }
 
-export SIMPLE_PROMPT="%1d%# "
+# uncomment to use a simple prompt by default
+#sp
