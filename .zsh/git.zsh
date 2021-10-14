@@ -46,6 +46,7 @@ gsync() {
     return
   fi
   git branch|grep -q devel && branch=devel || branch=master
+  git branch|grep -q acceptance && branch=acceptance
   echo "> git checkout $branch"
   git checkout $branch
   echo "> hub sync"
