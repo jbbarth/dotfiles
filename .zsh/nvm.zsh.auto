@@ -3,5 +3,5 @@ export NVM_BREW=/usr/local/opt/nvm
 export ZSH_DISABLE_COMPFIX=true
 
 mkdir -p $NVM_DIR
-source $NVM_BREW/nvm.sh --no-use  # nvm itself
+source $NVM_BREW/nvm.sh  # nvm itself
 source $NVM_BREW/etc/bash_completion.d/nvm  # nvm bash_completion
