@@ -15,3 +15,7 @@
 --ignore-dir=client/static/
 --ignore-dir=client/.next/
 --ignore-dir=.next/
+--ignore-dir=.mypy_cache/
+--ignore-dir=node_modules/
+--ignore-dir=.git/
+--ignore-dir=Pods/
