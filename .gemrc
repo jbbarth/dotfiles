@@ -1,11 +1,13 @@
---- 
-:benchmark: false
-install: --no-rdoc --no-ri
-update: --no-rdoc --no-ri
+---
+:backtrace: false
+:bulk_threshold: 1000
+:sources:
+- http://rubygems.org
+- https://rubygems.org
 :update_sources: true
 :verbose: true
-:backtrace: false
-:sources: 
-- http://rubygems.org
-:bulk_threshold: 1000
+:concurrent_downloads: 8
 :ssl_verify_mode: 1
+benchmark: false
+install: "--no-rdoc --no-ri"
+update: "--no-rdoc --no-ri"
