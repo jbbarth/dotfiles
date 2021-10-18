@@ -5,7 +5,7 @@ alias gs='git status -sb'
 alias gd='git diff'
 gp() {
   current_branch=$(git rev-parse --abbrev-ref HEAD)
-  if echo "$current_branch" | grep -qE '^master|main|devel|acceptance$'; then
+  if echo "$current_branch" | grep -qE '^(master|main|devel|acceptance)$'; then
     read "answer?You're about to push to a MAIN branch, are you sure? [y/N] "
     if ! echo "$answer" | grep -qE '^y'; then
       echo "aborting..."
