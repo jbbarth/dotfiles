@@ -1,6 +1,7 @@
 .cache
 .eggs
-.env*
+.env
+.env.*
 .idea
 .grunt
 .mypy_cache/
@@ -11,6 +12,8 @@
 .rvmrc
 .rvmrc.*
 .python-*
+.venv
+.venv-old
 .DS_Store
 *.swp
 *.swo
@@ -42,3 +45,5 @@ terraform.tfstate.backup
 
 # rails
 lib/tasks/log.rake
+
+tmp/

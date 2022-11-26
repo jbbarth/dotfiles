@@ -12,18 +12,23 @@ gp() {
       return
     fi
   fi
-  git push origin HEAD
+  git push origin HEAD $*
 }
 alias gitx='open -a GitX'
 gc() {
   # todos
   git status --porcelain | grep -e "^M" -e "^A" >/dev/null || ( cd $(git root); git add . )
+  msg="$1"
+  shift
   opts=""
-  if [ "$1" != "" ]; then
-    git commit -e -m "$1"
+  if [ "$msg" != "" ]; then
+    git commit -e -m "$msg" "$@"
   else
-    git commit
+    git commit "$@"
   fi
+}
+gr() {
+  git rebase $(git merge-base HEAD acceptance)
 }
 gclone() {
   url=$1
@@ -74,3 +79,10 @@ gcleanup() {
     fi
   done
 }
+
+# graphite
+alias gtl="gt log short"
+alias gtr="gt rs -r"
+gts() { gt ss -r && prurl }
+
+alias prurl='echo -n $(gh pr view --json url -q .url)?no-redirect=1 | pbcopy'

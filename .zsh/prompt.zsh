@@ -60,6 +60,12 @@ precmd() {
     header_line+=$'%F{magenta}%B(H)%b%f'"$HEROKU_APP "
   fi
 
+  # terraspace
+  if test -e "$(pwd)/.terraform"; then
+    ts_env=${TS_ENV:-dev}
+    header_line+=$'%F{blue}%B(T)%b%f'"$ts_env "
+  fi
+
   # keep header line if here
   if ! test -z "$header_line"; then
     header_line+=$'\n'
@@ -114,6 +120,7 @@ function __precmd() {
     else
       rvm_env=""
     fi
+
     PROMPT="$rvm_env$virtualenv$userhost:$dir%# "
   fi
   PROMPT='$(kube_ps1)'$PROMPT

@@ -1,5 +1,6 @@
 export PYTHONPATH=.
 export PYTHONDONTWRITEBYTECODE=true
+export PYTHONUNBUFFERED=1
 
 bblack() {
   docker run -v $(pwd):/code jbbarth/black $*

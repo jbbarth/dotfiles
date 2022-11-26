@@ -166,8 +166,12 @@ flamedir() {
     open -a "Google Chrome" $file
   )
 }
+puts() {
+  ruby -r date -e "puts($*)"
+}
 sdupes() {
   gfind ${@:-.} -type f -printf "%p %s\n" | \
     gsort -nr -k2 | guniq -D -f1 | \
     grep -v "/._|.DS_Store|Thumbs.db"
 }
+alias rerun="rerun --pattern '**/*' --clear"

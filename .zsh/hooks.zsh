@@ -2,21 +2,21 @@
 on_cd() {
   # autoload kubernetes zsh file if not loaded yet
   if echo $PWD | grep -v /dev/kubernetes | grep -q /kube && test -z $ZSH_AUTO_K8S_LOADED; then
-    echo "sourcing ~/.zsh/kubernetes.zsh.auto"
+    #echo "sourcing ~/.zsh/kubernetes.zsh.auto"
     source ~/.zsh/kubernetes.zsh.auto
   fi
 
   # autoload nvm zsh file if local directory has a .nvmrc
   if [[ -e $(pwd)/.nvmrc && -z $ZSH_AUTO_NVM_LOADED ]]; then
-    echo "sourcing ~/.zsh/nvm.zsh.auto"
+    #echo "sourcing ~/.zsh/nvm.zsh.auto"
     source ~/.zsh/nvm.zsh.auto
-    nvm use
+    nvm use --silent
     ZSH_AUTO_NVM_LOADED=yes
   fi
 
   # autoload pyenv zsh file if local directory has a .python-version
   if [[ -e $(pwd)/.python-version && -z $ZSH_AUTO_PYENV_LOADED ]]; then
-    echo "sourcing ~/.zsh/pyenv.zsh.auto"
+    #echo "sourcing ~/.zsh/pyenv.zsh.auto"
     source ~/.zsh/pyenv.zsh.auto
   fi
 

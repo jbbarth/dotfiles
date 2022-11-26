@@ -11,3 +11,4 @@
 benchmark: false
 install: "--no-rdoc --no-ri"
 update: "--no-rdoc --no-ri"
+gem: --no-document

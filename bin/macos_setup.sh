@@ -220,6 +220,12 @@ sudo mkdir ~/Library/KeyBindings/
 echo -e "{\n\"~ \" = (\"insertText:\", \" \");\n}" | \
   sudo tee ~/Library/KeyBindings/DefaultKeyBinding.dict
 
+# Hide Dock
+# https://apple.stackexchange.com/questions/59556/is-there-a-way-to-completely-disable-dock
+defaults write com.apple.dock autohide -bool true && killall Dock
+defaults write com.apple.dock autohide-delay -float 1000 && killall Dock
+defaults write com.apple.dock no-bouncing -bool TRUE && killall Dock
+
 # Kill affected apps
 for app in "Dock" "Finder"; do
   killall "${app}" > /dev/null 2>&1

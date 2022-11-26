@@ -21,6 +21,7 @@ setopt pushd_ignore_dups
 setopt hist_ignore_dups
 setopt inc_append_history
 setopt extended_history
+setopt interactivecomments
 #setopt path_dirs
 NULLCMD=:
 
@@ -35,9 +36,16 @@ add_to_path() {
   fi
 }
 add_to_path $HOME/bin
+add_to_path $HOME/.local/bin
 export SUDO_EDITOR=vi
 export SVN_EDITOR=vi
 export EDITOR=vi
+
+# Zinit plugin system
+#ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+##mkdir -p "$(dirname $ZINIT_HOME)"
+##git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+#source "${ZINIT_HOME}/zinit.zsh"
 
 # Load files under .zsh/
 for config_file ($HOME/.zsh/*.zsh); do
@@ -63,3 +71,11 @@ autoload -U colors && colors
 add_to_path /usr/local/heroku/bin after
 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+
+#alias beanstalk_connect=$HOME/tools/scripts/beanstalk_connect
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/jbbarth/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

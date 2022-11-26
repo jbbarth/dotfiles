@@ -2,6 +2,7 @@
   excludesfile = ~/.gitglobalignore
 [init]
   templatedir = ~/.git_template
+	defaultBranch = main
 [user]
 	name = Jean-Baptiste Barth
   # "email" below is commented since I now manage it in each repository
@@ -49,9 +50,12 @@
 	lm = log --pretty=format:'%Cred%h%Creset   %C(bold blue)<%an>%Creset -%C(yellow)%d%Creset %C(bold cyan)%s   %Cgreen(%cr)%n%Creset%n - %b%n' --abbrev-commit --date=relative --merges
   lg = log --graph --pretty=format:'%Cred%h %Cgreen%>(12)%ad %C(yellow)%d %Creset%<(7)%s %C(bold blue)<%aN>%Creset' --date=short
   current-branch = rev-parse --abbrev-ref HEAD
+  hide = update-index --assume-unchanged
+  unhide = update-index --no-assume-unchanged
 
 [push]
   default = tracking
+	autoSetupRemote = true
 [github]
   user = jbbarth
 [filter "lfs"]
