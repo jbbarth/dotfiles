@@ -7,6 +7,9 @@ fpath=(~/.zsh/completion $fpath)
 autoload -U compinit
 compinit -u
 
+# bash completions (for aws)
+autoload bashcompinit && bashcompinit
+
 # some options
 setopt correct
 setopt nonomatch
