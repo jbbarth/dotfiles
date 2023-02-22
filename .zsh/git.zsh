@@ -79,10 +79,9 @@ gcleanup() {
     fi
   done
 }
+alias ga="git add -N . && git add -p"
 
 # graphite
 alias gtl="gt log short"
 alias gtr="gt rs -r"
 gts() { gt ss -r && prurl }
-
-alias prurl='echo -n $(gh pr view --json url -q .url)?no-redirect=1 | pbcopy'
