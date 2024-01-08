@@ -1,6 +1,6 @@
 # Colors in commands
 # adapted from http://chm.duquesne.free.fr/blog/?p=61
-if [ -x /usr/bin/dircolors ]; then
+if which dircolors >/dev/null; then
   eval "$(dircolors -b)"
   alias ls='ls --color=auto'
   alias dir='dir --color=auto'
@@ -12,7 +12,7 @@ if [ -x /usr/bin/dircolors ]; then
   #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
   alias less='less -R'
 # MacOSX version with coreutils packages
-elif [ -x /usr/local/bin/gdircolors ]; then
+elif which gdircolors >/dev/null; then
   eval "$(gdircolors -b)"
   alias ls='gls --color=auto'
   alias dir='gdir --color=auto'
@@ -47,12 +47,12 @@ else
 fi
 
 # Use gnutar by default
-add_to_path /usr/local/opt/gnu-tar/libexec/gnubin
+add_to_path /opt/homebrew/opt/gnu-tar/libexec/gnubin
 
 # Personal aliases
 [ -e /etc/debian_version ] && alias rm='rm -I' || alias rm='rm -i'
-[ -e /usr/local/bin/grm ] && alias rm='grm -Id'
-[ -e /usr/local/bin/gmv ] && alias mv='gmv -i' || alias mv='mv -i'
+which grm >/dev/null && alias rm='grm -Id'
+which gmv >/dev/null && alias mv='gmv -i' || alias mv='mv -i'
 alias mkdir='mkdir -p'
 mkcd() {
   mkdir -p $1

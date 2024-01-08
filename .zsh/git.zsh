@@ -83,5 +83,5 @@ alias ga="git add -N . && git add -p"
 
 # graphite
 alias gtl="gt log short"
-alias gtr="gt rs -r"
-gts() { gt ss -r && prurl }
+alias gtr="gt sync"
+gts() { gt submit -r && prurl }
