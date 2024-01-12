@@ -85,3 +85,4 @@ alias ga="git add -N . && git add -p"
 alias gtl="gt log short"
 alias gtr="gt sync"
 gts() { gt submit -r && prurl }
+alias gtb="gt create --no-interactive"
