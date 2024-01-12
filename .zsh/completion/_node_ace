@@ -1,0 +1,150 @@
+#compdef na
+
+typeset -A opt_args
+
+_node_ace_commands() {
+    local -a basics
+    local -a commands
+    local -a commands_lines
+
+    basics=(
+        "build:Compile typescript code to Javascript"
+        "invoke:Run post install instructions for a given AdonisJS package"
+        "configure:Run post install instructions for a given AdonisJS package"
+        "serve:Start the AdonisJS HTTP server. Optionally watch for file changes"
+        "generate\:manifest:Generate ace commands manifest file. Manifest file speeds up commands lookup"
+        "make\:command:Make a new ace command"
+        "make\:controller:Make a new HTTP controller"
+        "make\:exception:Make a new exception handle"
+        "make\:listener:Make a new event listener class"
+        "make\:middleware:Make a new middleware"
+        "make\:prldfile:Make a new preload file. Preloaded files are loaded automatically on boot"
+        "make\:provider:Make a new IoC container provider"
+        "make\:validator:Make a new validator"
+        "make\:view:Make a new view template"
+        "make\:test:Make a new test"
+    )
+
+    commands_lines=$(jq '.commands | keys[] as $k | .[$k].description as $d | ($k + "!" + $d)' ace-manifest.json | sed -e 's/:/\\:/' | sed -e 's/!/:/' | sed -e 's/"//g')
+    
+    commands=("${(f)commands_lines}")
+
+    _describe 'command' basics -- commands
+}
+
+_node_ace_flags() {
+    case $line[1] in
+        invoke)
+            _arguments -C \
+                ":name:" \
+        ;;
+        configure)
+            _arguments -C \
+                ":name:" \
+        ;;
+        dump:rcfile)
+        ;;
+        generate:key)
+        ;;
+        generate:manifest)
+        ;;
+        build)
+            _arguments -C \
+                "(-prod, --production)"{-prod,--production}"[Build for production]" \
+                "--client[Select the package manager to decide which lock file to copy to the build folder]:client:_node_ace_build_clients" \
+                "--assets[Build frontend assets when webpack encore is installed. Use --no-assets to disable]" \
+                "--no-assets[]" \
+                "--ignore-ts-errors[Ignore typescript errors and complete the build process]" \
+                "--tsconfig[Path to the TypeScript project configuration file]" \
+                "--encore-args[CLI options to pass to the encore command line]" \
+                "--client[Select the package manager to decide which lock file to copy to the build folder]" \
+            ;;
+        serve)
+            _arguments -C \
+                "(-w, --watch)"{-w,--watch}"[Watch for file changes and re-start the HTTP server]" \
+                "(-p, --poll)"{-p,--poll}"[Detect file changes by polling files instead of listening to filesystem events]" \
+                "--node-args[CLI options to pass to the node command line]:args:" \
+            ;;
+        make:command)
+            _arguments -C \
+                ":name:" \
+            ;;
+        make:controller)
+            _arguments -C \
+                ":name:" \
+                "(-r, --resource)"{-r,--resource}"[Adds resourceful methods to the controller class]" \
+            ;;
+        make:exception)
+            _arguments -C \
+                ":name:" \
+                "--self-handle[Add handle method to self handle the exception]" \
+            ;;
+        make:listener)
+            _arguments -C \
+                ":name:" \
+            ;;
+        make:middleware)
+            _arguments -C \
+                ":name:" \
+            ;;
+        make:prldfile)
+            _arguments -C \
+                ":name:" \
+                "--environment[Explicitly define the environment in which you want to load this file]:env:" \
+            ;;
+        make:provider)
+            _arguments -C \
+                ":name:" \
+                "--ace[Registers provider under the ace providers array]" \
+            ;;
+        make:validator)
+            _arguments -C \
+                ":name:" \
+            ;;
+        make:view)
+            _arguments -C \
+                ":name:" \
+            ;;
+        make:test)
+            _arguments -C \
+                ":suite:" \
+                ":name:" \
+                "(-e, --exact)"{-e,--exact}"[Create the test file with the exact name as provided]" \
+            ;;
+        *)
+            local args_lines=$(jq -r '.commands | .['\"$line[1]\"'].args[] | ":" + .name + ":"' ace-manifest.json)
+            local flags_lines=$(jq -r '.commands | .['\"$line[1]\"'].flags[] | "--" + .name + "[" + .description + "]"+ if .type != "boolean" then ":" + .name + ":" else "" end' ace-manifest.json)
+
+            local args=("${(f)args_lines}")
+            local flags=("${(f)flags_lines}")
+
+            local final=($args $flags)
+
+            _arguments -O $final
+        ;;
+    esac
+}
+
+_node_ace() {
+
+    # "(-h, --help)"{-h,--help}"[Show help]" \
+    # "(-v, --verbose)"{-v,--verbose}"[Verbose output]" \
+
+
+    _arguments -C \
+        "(-h, --help)"{-h,--help}"[Show help]" \
+        "(-v, --verbose)"{-v,--verbose}"[Verbose output]" \
+        "1:command:->command" \
+        "*::arg:->args"
+
+    case $state in
+        (command)
+            _node_ace_commands
+            ;;
+        (args)
+            _node_ace_flags
+            ;;
+    esac
+}
+
+_node_ace "$@"
