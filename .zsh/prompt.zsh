@@ -20,17 +20,17 @@ precmd() {
   # git config
   git_root=$(git rev-parse --show-toplevel 2>/dev/null)
   if ! test -z "$git_root"; then
-    header_line+=$'%F{240}%B\u2325%b '"$(git rev-parse --abbrev-ref HEAD 2>/dev/null) "$'%f'
+    header_line+=$'%F{240}%BG%b '"$(git rev-parse --abbrev-ref HEAD 2>/dev/null) "$'%f'
   fi
 
   # kubernetes current context
   if { echo $PWD | grep -v /dev/kubernetes | grep -q /kube; } || { test -e "$git_root/zapp.yml.j2" } || { ! test -z "$EXECUTED_KUBECTL" }; then
-    header_line+=$'%F{blue}\u2388%f '"$(NO_ECHO=1 kubectl config current-context) "
+    header_line+=$'%F{blue}\u{2388}%f '"$(NO_ECHO=1 kubectl config current-context) "
   fi
 
   # kong current admin url
   if echo $PWD | grep -q /kong && ! test -z "$KONG_ADMIN_ADDR"; then
-    header_line+=$'%F{018}%B[K]%b%f'"$KONG_ADMIN_ADDR "
+    header_line+=$'%F{18}%B[K]%b%f'"$KONG_ADMIN_ADDR "
 
   fi
 
@@ -93,7 +93,7 @@ function __precmd() {
   if ! test -z "$SIMPLE_PROMPT"; then
     PROMPT="$SIMPLE_PROMPT"
   else
-    dir=$(pwd|perl -pe 's#^/(Users|home)/jbbarth#~#,s#^~/(botify|dev/botify|Projects/botify)#[B]#')
+    dir=$(pwd|perl -pe 's#^/(Users|home)/jbbarth#~#;s#^~/(botify|dev/botify|Projects/botify)#[B]#')
     if which ec2metadata >/dev/null; then
       #AWS machines
       env=$(ec2metadata --security-groups|head -n 1|cut -d. -f4|sed 's#%2F#/#')
@@ -136,4 +136,4 @@ function sp() {
 }
 
 # uncomment to use a simple prompt by default
-#sp
+sp
