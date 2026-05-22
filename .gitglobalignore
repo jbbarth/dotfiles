@@ -2,9 +2,10 @@
 .eggs
 .env
 .env.*
-.idea
+.idea*
 .grunt
 .mypy_cache/
+.mypy_errors
 #.nvmrc
 .powrc
 .powrc.disabled
@@ -47,3 +48,10 @@ terraform.tfstate.backup
 lib/tasks/log.rake
 
 tmp/
+
+.plandex
+
+# kay
+backend/eu-tools-*
+backend/fr-api-*
+backend/idp-*

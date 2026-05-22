@@ -7,10 +7,10 @@
 	name = Jean-Baptiste Barth
   # "email" below is commented since I now manage it in each repository
 	email = jeanbaptiste.barth@gmail.com
-[includeIf "gitdir:~/dev/honestica/"]
-  path = ~/.gitconfig.lifen
-[includeIf "gitdir:~/projects/lifen/honestica/"]
-  path = ~/.gitconfig.lifen
+	signingkey = 6B17B000!
+#[includeIf "gitdir:~/dev/alan-eu/"]
+[includeIf "hasconfig:remote.*.url:*github.com*alan-eu/**"]
+  path = ~/.gitconfig-alan
 [branch]
   autosetuprebase = always #always "pull --rebase"
 [color]
@@ -72,3 +72,12 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
+[commit]
+	gpgsign = true
+	signoff = true
+[maintenance]
+	repo = /Users/jean-baptiste.barth/dev/alan-eu/alan-apps-FOR-TAGS
+[safe]
+	directory = /Users/jean-baptiste.barth/dyad-apps/*

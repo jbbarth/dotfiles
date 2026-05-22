@@ -1,39 +1,38 @@
 # Colors in commands
 # adapted from http://chm.duquesne.free.fr/blog/?p=61
-if which dircolors >/dev/null; then
-  eval "$(dircolors -b)"
-  alias ls='ls --color=auto'
-  alias dir='dir --color=auto'
-  alias vdir='vdir --color=auto'
-  alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
-  alias df='df -hP'
-  #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
-  alias less='less -R'
-# MacOSX version with coreutils packages
-elif which gdircolors >/dev/null; then
-  eval "$(gdircolors -b)"
-  alias ls='gls --color=auto'
-  alias dir='gdir --color=auto'
-  alias vdir='gvdir --color=auto'
-  alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
-  #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
-  if \watch --help 2>/dev/null|grep -- --color >/dev/null; then
-    alias watch='watch --color'
-  fi
-fi
+# if which dircolors >/dev/null; then
+#   eval "$(dircolors -b)"
+#   alias ls='ls --color=auto'
+#   alias dir='dir --color=auto'
+#   alias vdir='vdir --color=auto'
+#   alias grep='grep --color=auto'
+#   alias fgrep='fgrep --color=auto'
+#   alias egrep='egrep --color=auto'
+#   alias df='df -hP'
+#   #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
+#   alias less='less -R'
+# # MacOSX version with coreutils packages
+# elif which gdircolors >/dev/null; then
+#   eval "$(gdircolors -b)"
+#   alias ls='gls --color=auto'
+#   alias dir='gdir --color=auto'
+#   alias vdir='gvdir --color=auto'
+#   alias grep='grep --color=auto'
+#   alias fgrep='fgrep --color=auto'
+#   alias egrep='egrep --color=auto'
+#   #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
+#   if \watch --help 2>/dev/null|grep -- --color >/dev/null; then
+#     alias watch='watch --color'
+#   fi
+# fi
 
 # OSX aliases (for those who are not above)
-if [[ "$OSTYPE" == "darwin"* ]]; then
+if [[ "$OSTYPE" == "DISABLEDdarwin"* ]]; then
   alias xargs='gxargs'
   alias chown='gchown'
   alias chmod='gchmod'
   alias df='gdf -hP'
   alias less='less -R'
-  alias tail='gtail -n 0'
   alias head='ghead'
   alias tac='gtac'
   alias wc='gwc'
@@ -43,7 +42,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias touch='gtouch'
   alias date='gdate'
 else
-  alias tail='tail -n 0'
+  #alias tail='tail -n 0'
 fi
 
 # Use gnutar by default
@@ -51,9 +50,9 @@ add_to_path /opt/homebrew/opt/gnu-tar/libexec/gnubin
 
 # Personal aliases
 [ -e /etc/debian_version ] && alias rm='rm -I' || alias rm='rm -i'
-which grm >/dev/null && alias rm='grm -Id'
-which gmv >/dev/null && alias mv='gmv -i' || alias mv='mv -i'
-alias mkdir='mkdir -p'
+#which grm >/dev/null && alias rm='grm -Id'
+#which gmv >/dev/null && alias mv='gmv -i' || alias mv='mv -i'
+#alias mkdir='mkdir -p'
 mkcd() {
   mkdir -p $1
   cd $1
@@ -138,6 +137,7 @@ alias -g M=' 2>&1 | more'
 alias -g J=' | jq --color-output .'
 alias -g P=' 2>&1 | \grep Playing'
 alias -g C=' | column -t'
+alias -g KG=' -o json | gron'
 alias luksopen='sudo cryptsetup luksOpen'
 alias luksclose='sudo cryptsetup luksClose'
 alias pru="rvm 1.9.2 exec pru"
@@ -175,3 +175,10 @@ sdupes() {
     grep -v "/._|.DS_Store|Thumbs.db"
 }
 alias rerun="rerun --pattern '**/*' --clear"
+
+alias json2yaml="yq -p json -o yaml"
+alias yaml2json="yq -p yaml -o json"
+
+fpop() {
+  echo "$1" | ruby -e 'filename = STDIN.read.chomp; lines = File.readlines(filename).map(&:chomp); first = lines.shift; puts first; File.write(filename, lines.join("\n"))'
+}

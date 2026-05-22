@@ -1,3 +1,4 @@
+export BASH_COMP_DEBUG_FILE=/tmp/comp_debug
 HISTFILE=~/.zsh_history
 HISTSIZE=100000000
 SAVEHIST=100000000
@@ -23,6 +24,7 @@ setopt inc_append_history
 setopt extended_history
 setopt interactivecomments
 #setopt path_dirs
+unsetopt pathdirs
 NULLCMD=:
 
 # Environment variables
@@ -35,11 +37,12 @@ add_to_path() {
     fi
   fi
 }
-add_to_path $HOME/bin
-add_to_path $HOME/.local/bin
+add_to_path ~/bin
+add_to_path ~/.local/bin
 export SUDO_EDITOR=vi
 export SVN_EDITOR=vi
 export EDITOR=vi
+export LANG=en_US.UTF-8
 
 # Zinit plugin system
 #ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -70,12 +73,23 @@ autoload -U colors && colors
 # Added by the Heroku Toolbelt
 add_to_path /usr/local/heroku/bin after
 
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Cargo env if any
+test -d ~/.cargo && source ~/.cargo/env
 
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jean-baptiste.barth/admin/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jean-baptiste.barth/admin/gcloud/google-cloud-sdk/path.zsh.inc'; fi
 
-#alias beanstalk_connect=$HOME/tools/scripts/beanstalk_connect
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jean-baptiste.barth/admin/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jean-baptiste.barth/admin/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/jbbarth/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# opencode
+add_to_path ~/.opencode/bin:$PATH
+
+# iterm2 shell integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
+
+# bun completions
+[ -s "/Users/jean-baptiste.barth/.bun/_bun" ] && source "/Users/jean-baptiste.barth/.bun/_bun"

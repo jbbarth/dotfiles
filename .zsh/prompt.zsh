@@ -24,8 +24,8 @@ precmd() {
   fi
 
   # kubernetes current context
-  if { echo $PWD | grep -v /dev/kubernetes | grep -q /kube; } || { test -e "$git_root/zapp.yml.j2" } || { ! test -z "$EXECUTED_KUBECTL" }; then
-    header_line+=$'%F{blue}\u{2388}%f '"$(NO_ECHO=1 kubectl config current-context) "
+  if { echo $PWD | grep -q alan-apps } || { ! test -z "$EXECUTED_KUBECTL" }; then
+    header_line+=$'%F{blue}%BK%b%f '"$(NO_ECHO=1 kubectl config get-contexts | fgrep '*' | awk '{print $3"/"$5}' 2>/dev/null) "
   fi
 
   # kong current admin url
@@ -40,13 +40,6 @@ precmd() {
              perl -pe "s#^$HOME#~#;s#~/(.virtualenvs|.local/share/virtualenvs)/##;" | \
              perl -pe 's#~/.pyenv/versions/([^/]+)/envs/([^/]+)$#$1/$2#')
     header_line+=$'%F{green}%B(P)%b%f'"$venv "
-  fi
-
-  # rvm gemset
-  if test -e "$git_root/.ruby-version"; then
-    gemset=$(cat $git_root/.ruby-version)
-    test -e "$git_root/.ruby-gemset" && gemset+="@$(cat $git_root/.ruby-gemset)"
-    header_line+=$'%F{red}%B(R)%b%f'"$gemset "
   fi
 
   # nvm environment
@@ -115,13 +108,8 @@ function __precmd() {
     else
       virtualenv=""
     fi
-    if test -e $(pwd)/.ruby-version; then
-      rvm_env="{$(current_rvm_env)}"
-    else
-      rvm_env=""
-    fi
 
-    PROMPT="$rvm_env$virtualenv$userhost:$dir%# "
+    PROMPT="$virtualenv$userhost:$dir%# "
   fi
   PROMPT='$(kube_ps1)'$PROMPT
 }
@@ -135,5 +123,5 @@ function sp() {
   fi
 }
 
-# uncomment to use a simple prompt by default
-sp
+# default prompt
+export SIMPLE_PROMPT="%1d%# "

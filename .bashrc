@@ -118,10 +118,11 @@ export PATH=$PATH:/var/lib/gems/1.8/bin/
 ###fi
 fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/jbbarth/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+. "$HOME/.cargo/env"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init bash)"; fi

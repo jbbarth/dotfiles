@@ -82,7 +82,43 @@ gcleanup() {
 alias ga="git add -N . && git add -p"
 
 # graphite
-alias gtl="gt log short"
-alias gtr="gt sync"
-gts() { gt submit -r && prurl }
-alias gtb="gt create --no-interactive"
+alias gtl="gis ls"
+gtr() { gis r s && gis s r }
+gts() { gis ss && prurl }
+alias gtb="gis bc --no-commit"
+alias gtco="gis b co"
+
+# Graphite migration to git-spice
+gt() {
+  case $1 in
+    create)
+      echo 'Please use `gs bc` instead'
+      ;;
+    down)
+      echo 'Please use `gs d` instead'
+      ;;
+    log)
+      echo 'Please use `gs ls` instead'
+      ;;
+    modify)
+      echo 'Please use `gs ca` instead'
+      ;;
+    move)
+      echo 'Please use `gs bo` instead'
+      ;;
+    submit)
+      echo 'Please use `gs ss` instead'
+      ;;
+    sync)
+      echo 'Please use `gs rs` instead'
+      ;;
+    up)
+      echo 'Please use `gs up` instead'
+      ;;
+    *)
+      echo 'Please use git-spice instead'
+  esac
+}
+gis() {
+  AUTOMATICALLY_INSTALL_DEPENDENCIES=false command gis "$@"
+}

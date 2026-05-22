@@ -89,6 +89,7 @@ cask "hma-pro-vpn"
 cask "iterm2"
 cask "little-snitch"
 cask "mplayerx"
+cask "meetingbar"
 #cask "pencil"
 #cask "postman"
 cask "pycharm"
@@ -105,7 +106,8 @@ cask "spectacle"
 #cask "textmate"
 #cask "transmit"
 cask "visual-studio-code"
-cask "zoom"
+cask "whatsapp"
+#cask "zoom"
 
 # post-install for some packages
 # $(brew --prefix)/opt/fzf/install

@@ -6,6 +6,7 @@
 --ignore-dir=tmp
 --ignore-dir=vendor
 --ignore-file=is:bundle.js
+--ignore-file=is:CODEOWNERS
 --ignore-file=match:.*\.log$
 --ignore-dir=public/packs/
 --ignore-dir=public/packs-test/
@@ -21,3 +22,4 @@
 --ignore-dir=.terraspace-cache/
 --ignore-dir=Pods/
 --nogroup
+--color-match=bold red
