@@ -30,6 +30,11 @@
     "when": "terminalFocus"
   },
   {
+    "key": "cmd+shift+a",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "terminalFocus"
+  },
+  {
     "key": "cmd+shift+enter",
     "command": "workbench.action.toggleMaximizeEditorGroup",
     "when": "!terminalFocus"

@@ -1,48 +1,29 @@
 # Colors in commands
 # adapted from http://chm.duquesne.free.fr/blog/?p=61
-# if which dircolors >/dev/null; then
-#   eval "$(dircolors -b)"
-#   alias ls='ls --color=auto'
-#   alias dir='dir --color=auto'
-#   alias vdir='vdir --color=auto'
-#   alias grep='grep --color=auto'
-#   alias fgrep='fgrep --color=auto'
-#   alias egrep='egrep --color=auto'
-#   alias df='df -hP'
-#   #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
-#   alias less='less -R'
-# # MacOSX version with coreutils packages
-# elif which gdircolors >/dev/null; then
-#   eval "$(gdircolors -b)"
-#   alias ls='gls --color=auto'
-#   alias dir='gdir --color=auto'
-#   alias vdir='gvdir --color=auto'
-#   alias grep='grep --color=auto'
-#   alias fgrep='fgrep --color=auto'
-#   alias egrep='egrep --color=auto'
-#   #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
-#   if \watch --help 2>/dev/null|grep -- --color >/dev/null; then
-#     alias watch='watch --color'
-#   fi
-# fi
-
-# OSX aliases (for those who are not above)
-if [[ "$OSTYPE" == "DISABLEDdarwin"* ]]; then
-  alias xargs='gxargs'
-  alias chown='gchown'
-  alias chmod='gchmod'
-  alias df='gdf -hP'
+if which dircolors >/dev/null; then
+  eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+  alias df='df -hP'
+  #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
   alias less='less -R'
-  alias head='ghead'
-  alias tac='gtac'
-  alias wc='gwc'
-  alias timeout='gtimeout'
-  alias mktemp='gmktemp'
-  alias readlink='greadlink'
-  alias touch='gtouch'
-  alias date='gdate'
-else
-  #alias tail='tail -n 0'
+# MacOSX version with coreutils packages
+elif false && which gdircolors >/dev/null; then
+  eval "$(gdircolors -b)"
+  alias ls='gls --color=auto'
+  alias dir='gdir --color=auto'
+  alias vdir='gvdir --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+  #[ -x /usr/bin/colordiff ] && alias diff='colordiff'
+  if \watch --help 2>/dev/null|grep -- --color >/dev/null; then
+    alias watch='watch --color'
+  fi
 fi
 
 # Use gnutar by default

@@ -454,3 +454,4 @@ nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
 
 " Override regepx engine because otherwise typescript files freeze
 set regexpengine=0
+set re=2

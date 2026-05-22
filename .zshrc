@@ -69,27 +69,3 @@ zstyle ':completion:*' rehash true
 
 # Easy colors in ZSH scripting
 autoload -U colors && colors
-
-# Added by the Heroku Toolbelt
-add_to_path /usr/local/heroku/bin after
-
-# Cargo env if any
-test -d ~/.cargo && source ~/.cargo/env
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jean-baptiste.barth/admin/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jean-baptiste.barth/admin/gcloud/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/jean-baptiste.barth/admin/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jean-baptiste.barth/admin/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
-
-# opencode
-add_to_path ~/.opencode/bin:$PATH
-
-# iterm2 shell integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
-
-# bun completions
-[ -s "/Users/jean-baptiste.barth/.bun/_bun" ] && source "/Users/jean-baptiste.barth/.bun/_bun"
