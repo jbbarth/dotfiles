@@ -51,6 +51,8 @@ window-save-state = always
 # appearance
 font-size = 16
 theme = GitHub Light Default
+adjust-cursor-thickness = 2
+split-divider-color = 6666AA
 # disable ligatures
 font-feature = -dlig
 font-feature = -liga
