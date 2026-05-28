@@ -1,4 +1,5 @@
 .cache
+.devbox
 .eggs
 .env
 .env.*
