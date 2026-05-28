@@ -56,3 +56,11 @@ tmp/
 backend/eu-tools-*
 backend/fr-api-*
 backend/idp-*
+
+# tmp
+docs/temporal-crash-course/backend/.venv
+docs/temporal-crash-course/ui/node_modules
+docs/temporal-crash-course/ui/.vite
+docs/temporal-crash-course/ui/tsconfig.tsbuildinfo
+
+**/.claude/.cc-writes/
