@@ -226,6 +226,19 @@ defaults write com.apple.dock autohide -bool true && killall Dock
 defaults write com.apple.dock autohide-delay -float 1000 && killall Dock
 defaults write com.apple.dock no-bouncing -bool TRUE && killall Dock
 
+# Raycast: import keyboard shortcuts, aliases, snippets, quicklinks,
+# installed-extensions list and AI commands.
+# Raycast stores all this in an encrypted SQLite — no `defaults write` and
+# no CLI. The only portable format is a `.rayconfig` produced via
+#   Raycast → Settings → Advanced → Export
+# Treated as PRIVATE (snippets/quicklinks/extension prefs may contain
+# secrets), so the file is NOT committed — copy ~/raycast/config.rayconfig
+# from the old machine before running this script.
+# Requires Raycast already installed (see Brewfile) and running.
+if [[ -f ~/raycast/config.rayconfig ]]; then
+  open -a Raycast ~/raycast/config.rayconfig
+fi
+
 # Kill affected apps
 for app in "Dock" "Finder"; do
   killall "${app}" > /dev/null 2>&1
