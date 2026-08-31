@@ -30,7 +30,7 @@ fi
 add_to_path /opt/homebrew/opt/gnu-tar/libexec/gnubin
 
 # Personal aliases
-[ -e /etc/debian_version ] && alias rm='rm -I' || alias rm='rm -i'
+#[ -e /etc/debian_version ] && alias rm='rm -I' || alias rm='rm -i'
 #which grm >/dev/null && alias rm='grm -Id'
 #which gmv >/dev/null && alias mv='gmv -i' || alias mv='mv -i'
 #alias mkdir='mkdir -p'
