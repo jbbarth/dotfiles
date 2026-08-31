@@ -6,7 +6,8 @@ if which direnv >/dev/null; then
   # NB: adding "time" below
   _direnv_hook() {
   trap -- '' SIGINT
-    eval "$("/Users/jean-baptiste.barth/dev/alan-eu/alan-apps/.devbox/nix/profile/default/bin/direnv" export zsh)"
+    dir="$(test -e ~/dev/alan-eu/alan-apps/.devbox/nix/profile/default/bin/direnv && echo "$HOME/dev/alan-eu/alan-apps/.devbox/nix/profile/default/bin/" || which direnv|direname)"
+    eval "$("$dir/direnv" export zsh)"
     trap - SIGINT
   }
   typeset -ag precmd_functions
