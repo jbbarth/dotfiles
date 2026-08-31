@@ -126,3 +126,11 @@ fi
 export PATH="$PATH:$HOME/.rvm/bin"
 
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init bash)"; fi
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/jbbarth/.local/bin:$PATH"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/jbbarth/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

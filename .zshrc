@@ -70,12 +70,9 @@ zstyle ':completion:*' rehash true
 # Easy colors in ZSH scripting
 autoload -U colors && colors
 
-# >>> open-knowledge cli >>>
-# ! Contents within this block are managed by OpenKnowledge. Do not edit.
-# ! Delete this whole block to opt out — OpenKnowledge will not re-add it.
-[ -f "$HOME/.ok/env.sh" ] && . "$HOME/.ok/env.sh"
-# <<< open-knowledge cli <<<
+# Added by Antigravity CLI installer
+export PATH="/Users/jbbarth/.local/bin:$PATH"
 
-
-# fleex CLI
-export PATH="$HOME/.fleex/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/jbbarth/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
