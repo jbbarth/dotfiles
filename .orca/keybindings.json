@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "keybindings": {},
+  "platforms": {
+    "darwin": {
+      "tab.nextAllTypes": [
+        "Mod+Alt+ArrowRight"
+      ],
+      "tab.previousAllTypes": [
+        "Mod+Alt+ArrowLeft"
+      ],
+      "tab.nextSameType": [],
+      "worktree.history.back": [],
+      "worktree.history.forward": []
+    },
+    "linux": {},
+    "win32": {}
+  }
+}
