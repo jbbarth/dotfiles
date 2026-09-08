@@ -11,7 +11,13 @@
       ],
       "tab.nextSameType": [],
       "worktree.history.back": [],
-      "worktree.history.forward": []
+      "worktree.history.forward": [],
+      "worktree.navigateUp": [
+        "Mod+Alt+ArrowUp"
+      ],
+      "worktree.navigateDown": [
+        "Mod+Alt+ArrowDown"
+      ]
     },
     "linux": {},
     "win32": {}
