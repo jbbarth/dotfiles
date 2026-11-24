@@ -109,6 +109,7 @@ cask "spectacle"
 #cask "transmit"
 cask "visual-studio-code"
 cask "whatsapp"
+cask "zen"
 #cask "zoom"
 
 # post-install for some packages
