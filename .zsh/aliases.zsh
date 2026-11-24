@@ -69,11 +69,6 @@ zrmlocaldup() {
     test "$size" -eq "$size2" && echo "Removing duplicate: $size $size2 $i" && rm -f "$i"
   done
 }
-alias wmvjoin='mencoder -oac copy -ovc copy -o'
-joinsplitted() {
-  cat $1.00* > $1 && rm -f $1.00*
-}
-alias cp='cp -i'
 alias ll='ls -lh'
 alias l='ls -CF'
 alias lt='ls -lht'
