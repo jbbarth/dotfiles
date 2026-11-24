@@ -17,6 +17,9 @@
       ],
       "worktree.navigateDown": [
         "Mod+Alt+ArrowDown"
+      ],
+      "tab.previousSameType": [
+        "Mod+Shift+BracketLeft"
       ]
     },
     "linux": {},

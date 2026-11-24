@@ -34,9 +34,9 @@ htmlcov/
 
 
 # terraform state
-.terraform/
-terraform.tfstate
-terraform.tfstate.backup
+#.terraform/
+#terraform.tfstate
+#terraform.tfstate.backup
 
 # temporary alphonse
 /bin/rubocop
@@ -60,3 +60,8 @@ backend/idp-*
 # claude
 **/.claude/settings.local.json
 **/.claude/.cc-writes/
+
+
+
+
+extra-tools/lima/

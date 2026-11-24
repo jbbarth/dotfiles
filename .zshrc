@@ -76,3 +76,5 @@ export PATH="/Users/jbbarth/.local/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/jbbarth/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+add_to_path "/opt/homebrew/bin"

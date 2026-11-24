@@ -87,7 +87,9 @@ vi() {
   #restore a correct $TERM if we're under a tmux session
   [ ! -z "$TMUX" ] && export TERM=screen-256color
   #edit it
-  if [ -w $1 ]; then
+  if [[ $1 == -* ]]; then
+    command vim "$@"
+  elif [ -w $1 ]; then
     command vim $*
   elif [ ! -e $1 ] && [ -w $(dirname $1) ]; then
     command vim $*

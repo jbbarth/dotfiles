@@ -24,23 +24,14 @@ precmd() {
   fi
 
   # kubernetes current context
-  if { echo $PWD | grep -q alan-apps } || { ! test -z "$EXECUTED_KUBECTL" }; then
-    header_line+=$'%F{blue}%BK%b%f '"$(NO_ECHO=1 kubectl config get-contexts | fgrep '*' | awk '{print $3"/"$5}' 2>/dev/null) "
-  fi
+  #if { echo $PWD | grep -q alan-apps } || { ! test -z "$EXECUTED_KUBECTL" }; then
+  #  header_line+=$'%F{blue}%BK%b%f '"$(NO_ECHO=1 kubectl config get-contexts | fgrep '*' | awk '{print $3"/"$5}' 2>/dev/null) "
+  #fi
 
   # kong current admin url
-  if echo $PWD | grep -q /kong && ! test -z "$KONG_ADMIN_ADDR"; then
-    header_line+=$'%F{18}%B[K]%b%f'"$KONG_ADMIN_ADDR "
-
-  fi
-
-  # virtualenvs
-  if ! test -z "$VIRTUAL_ENV"; then
-    venv=$(echo "$VIRTUAL_ENV" | \
-             perl -pe "s#^$HOME#~#;s#~/(.virtualenvs|.local/share/virtualenvs)/##;" | \
-             perl -pe 's#~/.pyenv/versions/([^/]+)/envs/([^/]+)$#$1/$2#')
-    header_line+=$'%F{green}%B(P)%b%f'"$venv "
-  fi
+  #if echo $PWD | grep -q /kong && ! test -z "$KONG_ADMIN_ADDR"; then
+  #  header_line+=$'%F{18}%B[K]%b%f'"$KONG_ADMIN_ADDR "
+  #fi
 
   # nvm environment
   if test -e "$git_root/.nvmrc" && which nvm >/dev/null; then
@@ -53,19 +44,14 @@ precmd() {
     header_line+=$'%F{magenta}%B(H)%b%f'"$HEROKU_APP "
   fi
 
-  # terraspace
-  if test -e "$(pwd)/.terraform"; then
-    ts_env=${TS_ENV:-dev}
-    header_line+=$'%F{blue}%B(T)%b%f'"$ts_env "
-  fi
-
   # keep header line if here
   if ! test -z "$header_line"; then
     header_line+=$'\n'
   fi
 
   # directory
-  dir=$(echo $PWD | sed "s#^$HOME#~#")
+  dir=$(pwd|perl -pe "s#^$HOME#~#; s#orca/workspaces/alan-apps#[O]#; s#dev/alan-eu/alan-apps#[A]#;")
+
   header_line="$dir $header_line"
 
   # hour
@@ -86,32 +72,9 @@ function __precmd() {
   if ! test -z "$SIMPLE_PROMPT"; then
     PROMPT="$SIMPLE_PROMPT"
   else
-    dir=$(pwd|perl -pe 's#^/(Users|home)/jbbarth#~#;s#^~/(botify|dev/botify|Projects/botify)#[B]#')
-    if which ec2metadata >/dev/null; then
-      #AWS machines
-      env=$(ec2metadata --security-groups|head -n 1|cut -d. -f4|sed 's#%2F#/#')
-      [ "$env" == "prod" ] && env="%{$fg[red]%}prod"
-      [ "$env" == "staging" ] && env="%{$fg[cyan]%}staging"
-      userhost="$env%{$reset_color%}|%n@%m"
-    elif test -e /usr/local/rtm/bin/rtm; then
-      #OVH machines
-      env="%{$fg[blue]%}ovh"
-      userhost="$env%{$reset_color%}|%n@%m"
-    elif ! test -z "$SSH_CONNECTION"; then
-      #other ssh-accessed machines
-      userhost="%n@%m"
-    else
-      userhost="%n@local"
-    fi
-    if [ "$VIRTUAL_ENV" != "" ]; then
-      virtualenv="($(basename $VIRTUAL_ENV))"
-    else
-      virtualenv=""
-    fi
-
-    PROMPT="$virtualenv$userhost:$dir%# "
+    dir=$(pwd|perl -pe "s#^$HOME#~#; s#orca/workspaces/alan-apps#[O]#; s#dev/alan-eu/alan-apps#[A]#;")
+    PROMPT="$dir%# "
   fi
-  PROMPT='$(kube_ps1)'$PROMPT
 }
 
 # switch between simple and normal prompt
@@ -119,9 +82,10 @@ function sp() {
   if [ "$SIMPLE_PROMPT" ]; then
     unset SIMPLE_PROMPT
   else
-    export SIMPLE_PROMPT="%1d%# "
+    #export SIMPLE_PROMPT="%1d%# "
+    export SIMPLE_PROMPT="%# "
   fi
 }
 
 # default prompt
-export SIMPLE_PROMPT="%1d%# "
+export SIMPLE_PROMPT="%# "
